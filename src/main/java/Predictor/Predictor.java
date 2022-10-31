@@ -1,6 +1,6 @@
-package Predict;
+package Predictor;
 
-public abstract class Predict {
+public abstract class Predictor {
 
     abstract DataPointMap predict(DataPointMap data);
 }
