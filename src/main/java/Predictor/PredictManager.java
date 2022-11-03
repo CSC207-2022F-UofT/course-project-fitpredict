@@ -1,2 +1,4 @@
-package Predictor;public class PredictManager {
+package Predictor;
+
+public class PredictManager {
 }
