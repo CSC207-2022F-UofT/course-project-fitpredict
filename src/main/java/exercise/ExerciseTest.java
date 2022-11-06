@@ -7,6 +7,7 @@ public class ExerciseTest {
 
 
         // WE WANT HUMAN USERS TO DO THIS - NOW ALL REQUESTS TO INSTANTIATE myExercise2 ARE HANDLED BY ExerciseTest
-        Exercise myExercise2 = new Exercise("Jumping Jacks", 8);
+        ExerciseManager myExerciseManager = new ExerciseManager();
+        Exercise myExercise2 = myExerciseManager.createExercise("Jumping Jacks", 8);
     }
 }
