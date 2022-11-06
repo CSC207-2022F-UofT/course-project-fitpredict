@@ -1,4 +1,4 @@
-package UserCreator;
+package User;
 import java.time.LocalDateTime;
 
 public class User {
