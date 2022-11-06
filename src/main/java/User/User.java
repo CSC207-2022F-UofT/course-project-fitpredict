@@ -2,22 +2,22 @@ package User;
 import java.time.LocalDateTime;
 
 public class User {
-    String Username;
-    String Password;
-    Float Weight;
-    Float Height;
-    LocalDateTime Birthday;
+    String username;
+    String password;
+    Float weight;
+    Float height;
+    LocalDateTime birthday;
 
     public User(String User, String Password) {
-        this.Username = Username;
-        this.Password = Password;
-        this.Weight = Weight;
-        this.Height = Height;
-        this.Birthday = Birthday;
+        this.username = username;
+        this.password = password;
+        this.weight = weight;
+        this.height = height;
+        this.birthday = birthday;
     }
 
     public String getUsername(){
-        return this.Username;
+        return this.username;
     }
 
 }
