@@ -1,6 +1,7 @@
 package UserCreator;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 
 public class UserCreator{
@@ -60,16 +61,16 @@ public class UserCreator{
         return exists;
     }
 
-    //checkUsername
+    //checkUsername, checks to see if it already exists in the system
     public ArrayList<String> checkUsername(String username){
         ArrayList<String> exists = new ArrayList<>(0);
-        if (existingUsers.getUser(username) != null) { // this means the username is already listed in the system
+        if (existingUsers.getUser(username) != null) {
             exists.add("Username already exists.");
         }
         return exists;
     }
 
-    //checkUsernameValid
+    //checkUsernameValid, make sure it's longer than 5 characters and contains both letters and numbers
     public boolean checkUsernameValid(String username){
         int num_char = 0;
         int num_letters = 0;
@@ -88,52 +89,60 @@ public class UserCreator{
         return num_char >= 5 && num_letters > 0 && num_numbers > 0;
     }
 
-    //checkPasswordValid
+    //checkPasswordValid, make sure it's longer than 5 characters and contains both letters and numbers
     public boolean checkPasswordValid(String password){
-        return true;
+        int num_char = 0;
+        int num_letters = 0;
+        int num_numbers = 0;
+
+        for (int i = 0; i < password.length(); i++){
+            if(Character.isLetter(password.charAt(i))){
+                num_letters++;
+            }
+            else if(Character.isDigit(password.charAt(i))){
+                num_numbers++;
+            }
+            num_char++;
+        }
+
+        return num_char >= 5 && num_letters > 0 && num_numbers > 0;
     }
+
     //repeatPassword
     public boolean repeatPassword(String repeatedpassword){
         // WHAT IS THIS DOING?? DO WE NEED IT??
         return true;
     }
+
     //checkPasswordsMatch
     public boolean checkPasswordsMatch(String password, String repeatedpassword){
-        return password == repeatedpassword;
+        return Objects.equals(password, repeatedpassword);
     }
-    //checkHeight
+
+    //checkHeight, height must be greater than 0
     public boolean checkHeight(Float height){
-        if(height > 0){
-            return true;
-        }
-        return false;
+        return height > 0;
     }
+
     //checkBirthday
     public boolean checkBirthday(LocalDateTime birthday){
         // HOW DO I DO THIS??
         return false;
     }
-    //checkWeight
+
+    //checkWeight, weight must be greater than 0
     public boolean checkWeight(Float weight){
-        if(weight > 0){
-            return true;
-        }
-        return false;
+        return weight > 0;
     }
-    //checkSex
+
+    //checkSex, must be either Female, Male, or Other
     public boolean checkSex(String sex){
-        if(sex == "Female"){
+        if(Objects.equals(sex, "Female")){
             return true;
         }
-        else if(sex == "Male"){
+        else if(Objects.equals(sex, "Male")){
             return true;
         }
-        else if(sex == "Other"){
-            return true;
-        }
-        return false;
+        else return Objects.equals(sex, "Other");
     }
-
-
-
 }
