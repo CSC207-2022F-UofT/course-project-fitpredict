@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 public class User {
     String username;
     String password;
+    String repeatpassword;
     Float weight;
     Float height;
     String sex;
@@ -16,6 +17,7 @@ public class User {
         this.height = height;
         this.sex = sex;
         this.birthday = birthday;
+        this.repeatpassword = repeatpassword;
     }
 
     public String getUsername(){
@@ -64,6 +66,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getRepeatpassword() {
+        return this.repeatpassword;
+    }
+
+    public void setRepeatpassword(String repeatpassword) {
+        this.password = repeatpassword;
     }
 }
 
