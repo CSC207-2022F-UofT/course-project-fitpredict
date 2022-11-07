@@ -14,10 +14,10 @@ public class UserCreator{
         ArrayList<String> exists = checkUsername(username);
 
         ArrayList<String> usernameInvalid = new ArrayList<>(0);
-        usernameInvalid.add("Username is Invalid.");
+        usernameInvalid.add("Username is invalid.");
 
         ArrayList<String> passwordInvalid = new ArrayList<>(0);
-        passwordInvalid.add("Password is Invalid.");
+        passwordInvalid.add("Password is invalid.");
 
         ArrayList<String> passwordMatch = new ArrayList<>(0);
         passwordMatch.add("Passwords do not match.");
@@ -79,13 +79,14 @@ public class UserCreator{
         for (int i = 0; i < username.length(); i++){
             if(Character.isLetter(username.charAt(i))){
                 num_letters++;
+                num_char++;
             }
             else if(Character.isDigit(username.charAt(i))){
                 num_numbers++;
+                num_char++;
             }
             num_char++;
         }
-
         return num_char >= 5 && num_letters > 0 && num_numbers > 0;
     }
 
@@ -98,9 +99,11 @@ public class UserCreator{
         for (int i = 0; i < password.length(); i++){
             if(Character.isLetter(password.charAt(i))){
                 num_letters++;
+                num_char++;
             }
             else if(Character.isDigit(password.charAt(i))){
                 num_numbers++;
+                num_char++;
             }
             num_char++;
         }
