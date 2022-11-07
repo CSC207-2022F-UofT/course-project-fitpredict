@@ -34,6 +34,9 @@ public class UserCreator{
         ArrayList<String> sexInvalid = new ArrayList<>(0);
         sexInvalid.add("Sex is invalid.");
 
+        ArrayList<String> accountIsCreated = new ArrayList<>(0);
+        accountIsCreated.add("Account has been created!");
+
         if (exists.size() == 0){
             if(checkUsernameValid(username)){
                  if(checkPasswordValid(password)){
@@ -43,6 +46,7 @@ public class UserCreator{
                                  if(checkBirthday(birthday)){
                                      if(checkSex(sex)){
                                          this.existingUsers.AddNewUser(newUser);
+                                         return accountIsCreated;
                                      }
                                      return sexInvalid;
                                  }
