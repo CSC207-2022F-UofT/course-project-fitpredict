@@ -8,8 +8,8 @@ public class UserCreator{
     private UserAccountList existingUsers;
 
     //accountCreator
-    public ArrayList<String> accountCreator(String username, String password, String repeatedpassword, Float weight, Float height, LocalDateTime birthday, String sex){
-        User newUser = new User(username, password);
+    public ArrayList<String> accountCreator(String username, String password, String repeatPassword, Float weight, Float height, LocalDateTime birthday, String sex){
+        User newUser = new User(username, password, repeatPassword, weight, height, sex, birthday);
 
         ArrayList<String> exists = checkUsername(username);
 
@@ -40,7 +40,7 @@ public class UserCreator{
         if (exists.size() == 0){
             if(checkUsernameValid(username)){
                  if(checkPasswordValid(password)){
-                     if(checkPasswordsMatch(password, repeatedpassword)){
+                     if(checkPasswordsMatch(password, repeatPassword)){
                          if(checkWeight(weight)){
                              if(checkHeight(height)){
                                  if(checkBirthday(birthday)){
@@ -116,14 +116,14 @@ public class UserCreator{
     }
 
     //repeatPassword
-    public boolean repeatPassword(String repeatedpassword){
+    public boolean repeatPassword(String repeatPassword){
         // WHAT IS THIS DOING?? DO WE NEED IT??
         return true;
     }
 
     //checkPasswordsMatch
-    public boolean checkPasswordsMatch(String password, String repeatedpassword){
-        return Objects.equals(password, repeatedpassword);
+    public boolean checkPasswordsMatch(String password, String repeatPassword){
+        return Objects.equals(password, repeatPassword);
     }
 
     //checkHeight, height must be greater than 0

@@ -4,24 +4,25 @@ import java.time.LocalDateTime;
 public class User {
     String username;
     String password;
-    String repeatpassword;
+    String repeatPassword;
     Float weight;
     Float height;
     String sex;
     LocalDateTime birthday;
 
-    public User(String User, String password) {
+    public User(String username, String password,String repeatPassword,  Float weight, Float height, String sex,
+                LocalDateTime birthday) {
         this.username = username;
         this.password = password;
         this.weight = weight;
         this.height = height;
         this.sex = sex;
         this.birthday = birthday;
-        this.repeatpassword = repeatpassword;
+        this.repeatPassword = repeatPassword;
     }
 
     public String getUsername(){
-        return this.username;
+        return username;
     }
 
     public void setUsername(String username){
@@ -29,7 +30,7 @@ public class User {
     }
 
     public Float getWeight(){
-        return this.weight;
+        return weight;
     }
 
     public void setWeight(Float weight) {
@@ -37,7 +38,7 @@ public class User {
     }
 
     public Float getHeight(){
-        return this.height;
+        return height;
     }
 
     public void setHeight(Float height) {
@@ -45,7 +46,7 @@ public class User {
     }
 
     public String getSex(){
-        return this.sex;
+        return sex;
     }
 
     public void setSex(String sex) {
@@ -53,7 +54,7 @@ public class User {
     }
 
     public LocalDateTime getBirthday(){
-        return this.birthday;
+        return birthday;
     }
 
     public void setBirthday(LocalDateTime birthday) {
@@ -61,18 +62,18 @@ public class User {
     }
 
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
-    public String getRepeatpassword() {
-        return this.repeatpassword;
+    public String getRepeatPassword() {
+        return repeatPassword;
     }
 
-    public void setRepeatpassword(String repeatpassword) {
-        this.password = repeatpassword;
+    public void setRepeatPassword(String repeatPassword) {
+        this.password = repeatPassword;
     }
 }
 
