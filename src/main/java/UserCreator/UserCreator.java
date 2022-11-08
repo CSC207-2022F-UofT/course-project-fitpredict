@@ -1,11 +1,26 @@
 package UserCreator;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 
 public class UserCreator{
-    private UserAccountList existingUsers;
+    private final UserAccountList existingUsers;
+    UserReadWriter userReadWriter = new UserReadWriter();
+
+
+    // File methods.
+    public UserCreator(UserAccountList existingUsers) {
+        this.existingUsers = existingUsers;
+        try {
+            userReadWriter.saveToFile("RegisteredAccountsList.ser", existingUsers);
+        } catch (IOException error) {
+            System.out.println("The Account List could not be saved.");
+        }
+    }
+
+
 
     //accountCreator
     public ArrayList<String> accountCreator(String username, String password, String repeatPassword, Float weight, Float height, LocalDateTime birthday, String sex){
