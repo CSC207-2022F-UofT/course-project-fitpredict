@@ -86,6 +86,11 @@ public class User implements Serializable {
         public boolean checkPasswordMatches(String password) {
             return this.password.equals(password);
 
-    }
+        }
+
+        // Don't we also need a checkUsername method?
+        public boolean checkUsernameMatches(String username) {
+            return this.username.equals(username);
+        }
 
 }
