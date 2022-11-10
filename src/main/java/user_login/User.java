@@ -1,4 +1,4 @@
-package UserLogin;
+package user_login;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;

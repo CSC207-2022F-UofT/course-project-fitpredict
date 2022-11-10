@@ -1,5 +1,4 @@
-package UserLogin;
-import UserLogin.UserLogin;
+package user_login;
 
 public class UserLoginController {
     private final UserLogin userLogin;
