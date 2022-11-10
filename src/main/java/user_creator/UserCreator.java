@@ -1,4 +1,4 @@
-package UserCreator;
+package user_creator;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
@@ -19,8 +19,6 @@ public class UserCreator{
             System.out.println("The Account List could not be saved.");
         }
     }
-
-
 
     //accountCreator
     public ArrayList<String> accountCreator(String username, String password, String repeatPassword, Float weight, Float height, LocalDateTime birthday, String sex){
@@ -55,7 +53,7 @@ public class UserCreator{
         if (exists.size() == 0){
             if(checkUsernameValid(username)){
                  if(checkPasswordValid(password)){
-                     if(checkPasswordsMatch(password, repeatPassword)){
+                     if(checkTwoPasswordsMatch(password, repeatPassword)){
                          if(checkWeight(weight)){
                              if(checkHeight(height)){
                                  if(checkBirthday(birthday)){
@@ -91,43 +89,43 @@ public class UserCreator{
 
     //checkUsernameValid, make sure it's longer than 5 characters and contains both letters and numbers
     public boolean checkUsernameValid(String username){
-        int num_char = 0;
-        int num_letters = 0;
-        int num_numbers = 0;
+        int numChar = 0;
+        int numLetters = 0;
+        int numNumbers = 0;
 
         for (int i = 0; i < username.length(); i++){
             if(Character.isLetter(username.charAt(i))){
-                num_letters++;
-                num_char++;
+                numLetters++;
+                numChar++;
             }
             else if(Character.isDigit(username.charAt(i))){
-                num_numbers++;
-                num_char++;
+                numNumbers++;
+                numChar++;
             }
-            num_char++;
+            numChar++;
         }
-        return num_char >= 5 && num_letters > 0 && num_numbers > 0;
+        return numChar >= 5 && numLetters > 0 && numNumbers > 0;
     }
 
     //checkPasswordValid, make sure it's longer than 5 characters and contains both letters and numbers
     public boolean checkPasswordValid(String password){
-        int num_char = 0;
-        int num_letters = 0;
-        int num_numbers = 0;
+        int numChar = 0;
+        int numLetters = 0;
+        int numNumbers = 0;
 
         for (int i = 0; i < password.length(); i++){
             if(Character.isLetter(password.charAt(i))){
-                num_letters++;
-                num_char++;
+                numLetters++;
+                numChar++;
             }
             else if(Character.isDigit(password.charAt(i))){
-                num_numbers++;
-                num_char++;
+                numNumbers++;
+                numChar++;
             }
-            num_char++;
+            numChar++;
         }
 
-        return num_char >= 5 && num_letters > 0 && num_numbers > 0;
+        return numChar >= 5 && numLetters > 0 && numNumbers > 0;
     }
 
     //repeatPassword
@@ -136,8 +134,8 @@ public class UserCreator{
         return true;
     }
 
-    //checkPasswordsMatch
-    public boolean checkPasswordsMatch(String password, String repeatPassword){
+    //checkTwoPasswordsMatch
+    public boolean checkTwoPasswordsMatch(String password, String repeatPassword){
         return Objects.equals(password, repeatPassword);
     }
 

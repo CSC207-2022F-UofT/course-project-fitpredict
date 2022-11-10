@@ -1,4 +1,4 @@
-package UserCreator;
+package user_creator;
 
 import java.io.*;
 
