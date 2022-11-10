@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class UserAccountList implements Serializable {
 
-// This keeps track of who has created an account before and adds accounts to a list if they are new
+// This keeps track of who has created an account before and adds accounts to a list if they are new.
 
     private final Map<String, User> userAccountList = new HashMap<>();
 

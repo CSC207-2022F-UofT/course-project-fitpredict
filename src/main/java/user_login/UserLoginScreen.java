@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+// This is for the GUI.
 public class UserLoginScreen extends JFrame implements ActionListener {
     JTextField username = new JTextField(15);
     JPasswordField password = new JPasswordField(15);

@@ -3,7 +3,7 @@ package user_login;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
-// This is going to be our User entity.
+// This is going to be our User entity..
 
 public class User implements Serializable {
 

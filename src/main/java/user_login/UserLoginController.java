@@ -1,5 +1,5 @@
 package user_login;
-
+// This is the controller
 public class UserLoginController {
     private final UserLogin userLogin;
 
