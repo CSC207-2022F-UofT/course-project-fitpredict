@@ -10,7 +10,7 @@ public class UserLogin {
     public User loginUser(String username, String password) {
         User user = users.getUser(username);
         try {
-            (user.checkPasswordMatches(password) && user.checkUsernameMatches(username));
+            user.checkPasswordMatches(password);
         } catch (IOException e) {
             System.out.println("The passwords don't match.");
 
