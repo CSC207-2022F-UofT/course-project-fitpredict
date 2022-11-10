@@ -13,7 +13,7 @@ public class UserAccountList implements Serializable {
     /**
      * Add a new User to the existing list of users
      */
-    public void AddNewUser(User NewUser){
+    public void addNewUser(User NewUser){
         useraccountlist.put(NewUser.getUsername(), NewUser); // we need to create a User entity and getUsername method.
 
     }

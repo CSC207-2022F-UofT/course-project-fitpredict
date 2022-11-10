@@ -58,7 +58,7 @@ public class UserCreator{
                              if(checkHeight(height)){
                                  if(checkBirthday(birthday)){
                                      if(checkSex(sex)){
-                                         this.existingUsers.AddNewUser(newUser);
+                                         this.existingUsers.addNewUser(newUser);
                                          return accountIsCreated;
                                      }
                                      return sexInvalid;
