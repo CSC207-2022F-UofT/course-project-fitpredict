@@ -3,17 +3,17 @@ package user_login;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
-// This is going to be our User entity..
+// This is going to be our User entity.
 
 public class User implements Serializable {
 
-        String username;
-        String password;
-        String repeatPassword;
-        Float weight;
-        Float height;
-        String sex;
-        LocalDateTime birthday;
+        private String username;
+        private String password;
+        private String repeatPassword;
+        private Float weight;
+        private Float height;
+        private String sex;
+        private LocalDateTime birthday;
 
         public User(String username, String password,String repeatPassword,  Float weight, Float height, String sex,
                     LocalDateTime birthday) {
@@ -60,10 +60,6 @@ public class User implements Serializable {
 
         public LocalDateTime getBirthday(){
             return birthday;
-        }
-
-        public void setBirthday(LocalDateTime birthday) {
-            this.birthday = birthday;
         }
 
         public String getPassword() {
