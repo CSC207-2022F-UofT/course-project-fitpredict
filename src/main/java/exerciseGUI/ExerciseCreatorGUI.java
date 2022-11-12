@@ -24,7 +24,8 @@ public class ExerciseCreatorGUI extends JFrame {
 
     public static void main(String[] args) {
         ExerciseCreatorGUI ecg = new ExerciseCreatorGUI();
-        ecg.setContentPane(ecg.mainPanel);
+        System.out.println(new ExerciseCreatorGUI().mainPanel.contains(0, 0));
+        // ecg.setContentPane(new ExerciseCreatorGUI().mainPanel);
         ecg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ecg.setVisible(true);
         ecg.pack();
