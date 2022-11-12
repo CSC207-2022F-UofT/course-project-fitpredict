@@ -79,7 +79,6 @@ public class UserCreator{
         ArrayList<String> weightInvalid = new ArrayList<>(0);
         weightInvalid.add("Weight is invalid.");
 
-
         ArrayList<String> birthdayInvalid = new ArrayList<>(0);
         birthdayInvalid.add("Birthday is invalid.");
 
@@ -166,20 +165,22 @@ public class UserCreator{
         return Objects.equals(password, repeatPassword);
     }
 
+    static final Integer MINIMUM_VALUE = 0; // to avoid hardcoding and make it easier to change
+
     //checkHeight, height must be greater than 0
     public boolean checkHeight(Float height){
-        return height > 0;
+        return height > MINIMUM_VALUE;
+    }
+
+    //checkWeight, weight must be greater than 0
+    public boolean checkWeight(Float weight){
+        return weight > MINIMUM_VALUE;
     }
 
     //checkBirthday
     public boolean checkBirthday(LocalDateTime birthday){
         // HOW DO I DO THIS??
         return false;
-    }
-
-    //checkWeight, weight must be greater than 0
-    public boolean checkWeight(Float weight){
-        return weight > 0;
     }
 
     //checkSex, must be either Female, Male, or Other
