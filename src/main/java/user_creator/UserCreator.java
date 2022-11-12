@@ -21,10 +21,30 @@ public class UserCreator{
     }
 
     //accountCreator
-    public ArrayList<String> accountCreator(String username, String password, String repeatPassword, Float weight, Float height, LocalDateTime birthday, String sex){
-        User newUser = new User(username, password, repeatPassword, weight, height, sex, birthday);
+    public ArrayList<String> accountCreator(String username, String password, String repeatPassword, Float height, Float weight, String sex, LocalDateTime birthday){
+        User newUser = new User(username, password, repeatPassword, height, weight, sex, birthday);
 
         ArrayList<String> exists = checkUsername(username);
+
+        ArrayList<String> accountIsCreated = new ArrayList<>(0);
+        accountIsCreated.add("Account has been created!");
+
+        if (exists.size() == 0){
+            if (checkUsernamePasswordValid(username, password, repeatPassword).size() == 0){
+                if (checkPersonalInfoValid(height, weight, sex, birthday).size() == 0){
+                    this.existingUsers.addNewUser(newUser);
+                    return accountIsCreated;
+                }
+                return checkPersonalInfoValid(height, weight, sex, birthday);
+            }
+            return checkUsernamePasswordValid(username, password, repeatPassword);
+        }
+        return exists;
+    }
+
+    //checkUsernamePasswordValid, checks to see if both the username and the given passwords a) match, and b) are valid
+
+    public ArrayList<String> checkUsernamePasswordValid(String username, String password, String repeatPassword){
 
         ArrayList<String> usernameInvalid = new ArrayList<>(0);
         usernameInvalid.add("Username is invalid.");
@@ -35,11 +55,30 @@ public class UserCreator{
         ArrayList<String> passwordMatch = new ArrayList<>(0);
         passwordMatch.add("Passwords do not match.");
 
-        ArrayList<String> weightInvalid = new ArrayList<>(0);
-        weightInvalid.add("Weight is invalid.");
+        if (!checkUsernameValid(username)){
+            return usernameInvalid;
+        }
+
+        else if (!checkPasswordValid(password)){
+            return passwordInvalid;
+        }
+
+        else if (!checkTwoPasswordsMatch(password, repeatPassword)) {
+            return passwordMatch;
+        }
+
+        return new ArrayList<>(0); // it is empty, meaning no error message
+    }
+
+    //checkPersonalInfoValid, checks to see if all personal information is valid
+    public ArrayList<String> checkPersonalInfoValid(Float height, Float weight, String sex, LocalDateTime birthday){
 
         ArrayList<String> heightInvalid = new ArrayList<>(0);
         heightInvalid.add("Height is invalid.");
+
+        ArrayList<String> weightInvalid = new ArrayList<>(0);
+        weightInvalid.add("Weight is invalid.");
+
 
         ArrayList<String> birthdayInvalid = new ArrayList<>(0);
         birthdayInvalid.add("Birthday is invalid.");
@@ -47,35 +86,23 @@ public class UserCreator{
         ArrayList<String> sexInvalid = new ArrayList<>(0);
         sexInvalid.add("Sex is invalid.");
 
-        ArrayList<String> accountIsCreated = new ArrayList<>(0);
-        accountIsCreated.add("Account has been created!");
-
-        if (exists.size() == 0){
-            if(checkUsernameValid(username)){
-                 if(checkPasswordValid(password)){
-                     if(checkTwoPasswordsMatch(password, repeatPassword)){
-                         if(checkWeight(weight)){
-                             if(checkHeight(height)){
-                                 if(checkBirthday(birthday)){
-                                     if(checkSex(sex)){
-                                         this.existingUsers.addNewUser(newUser);
-                                         return accountIsCreated;
-                                     }
-                                     return sexInvalid;
-                                 }
-                                 return birthdayInvalid;
-                             }
-                             return heightInvalid;
-                         }
-                         return weightInvalid;
-                     }
-                     return passwordMatch;
-                 }
-                 return passwordInvalid;
-            }
-            return usernameInvalid;
+        if (!checkHeight(height)){
+            return heightInvalid;
         }
-        return exists;
+
+        else if (!checkWeight(weight)){
+            return weightInvalid;
+        }
+
+        else if (!checkBirthday(birthday)){
+            return birthdayInvalid;
+        }
+
+        else if (!checkSex(sex)){
+            return sexInvalid;
+        }
+
+        return new ArrayList<>(0); // it is empty, meaning no error message
     }
 
     //checkUsername, checks to see if it already exists in the system
