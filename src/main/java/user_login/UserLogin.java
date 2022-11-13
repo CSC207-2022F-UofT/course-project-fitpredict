@@ -1,23 +1,27 @@
 package user_login;
 
 
+import java.io.IOException;
+
 public class UserLogin {
 
-    private UserAccountList users;
-    // UserReadWriter userReadWriter = new UserReadwriter(); do we need this?
+    private UserAccountList existing_users;
+    //UserReadWriter userReadWriter = new UserReadWriter();
+
+    //public UserLogin (UserAccountList users) {
+        //this.existing_users = users;
+        //try {
+            //userReadWriter.readFromFile("users.ser");
+        //} catch (IOException | ClassNotFoundException error) {
+            //System.out.println("Failed");
+        //}
+    //}
 
     public User loginUser(String username, String password) {
-        User user = users.getUser(username);
+        User user = existing_users.getUser(username);
         if (!user.checkPasswordMatches(password)) {
             System.out.println("The passwords don't match.");
         }
         return user;
     }
-
-    // Or do this:
-    //public boolean loginUser2(String username, String password) {
-        //User user = users.getUser(username);
-        //return user.checkUsernameMatches(username) && user.checkPasswordMatches(password);
-    //}
-
 }

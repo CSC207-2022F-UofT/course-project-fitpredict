@@ -13,7 +13,7 @@ public class User implements Serializable {
         private Float weight;
         private Float height;
         private String sex;
-        private LocalDateTime birthday;
+        private final LocalDateTime birthday;
 
         public User(String username, String password,String repeatPassword,  Float weight, Float height, String sex,
                     LocalDateTime birthday) {

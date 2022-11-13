@@ -7,8 +7,8 @@ public class UserLoginController {
         this.userLogin = userLogin;
     }
 
-    public User login(String username, String password) {
-        return userLogin.loginUser(username, password);
+    public void login(String username, String password) {
+        userLogin.loginUser(username, password);
     }
 
 }

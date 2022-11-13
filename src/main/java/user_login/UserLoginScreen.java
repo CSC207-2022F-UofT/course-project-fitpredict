@@ -9,10 +9,17 @@ public class UserLoginScreen extends JFrame implements ActionListener {
     JTextField username = new JTextField(15);
     JPasswordField password = new JPasswordField(15);
 
-    //UserLoginController userLoginController;
+    public static class LabelTextPanel extends JPanel {
+        public LabelTextPanel(JLabel label, JTextField textField) {
+            this.add(label);
+            this.add(textField);
+        }
+    }
 
-    public UserLoginScreen() {
-        //this.userLoginController = userLoginController;
+    UserLoginController userLoginController;
+
+    public UserLoginScreen(UserLoginController controller) {
+        this.userLoginController = controller;
         JLabel title = new JLabel("Login Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         LabelTextPanel usernameInfo = new LabelTextPanel(new JLabel("Username"), username);
@@ -35,6 +42,12 @@ public class UserLoginScreen extends JFrame implements ActionListener {
 
     }
     public void actionPerformed(ActionEvent event) {
-        System.out.println("Click" + event.getActionCommand());
+        try {
+            userLoginController.login(username.getText(), String.valueOf(password.getPassword()));
+            JOptionPane.showMessageDialog(this, "Login successful!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Login failed!");
+        }
     }
+
 }
