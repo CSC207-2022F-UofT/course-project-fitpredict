@@ -3,7 +3,7 @@ package exercise;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ExerciseList {
+public class ExerciseMap {
     private final HashMap<String, ArrayList<Exercise>> exerciseMap = new HashMap<String, ArrayList<Exercise>>();
 
     /**
@@ -19,6 +19,6 @@ public class ExerciseList {
             exerciseMap.put(name, new ArrayList<Exercise>());
             exerciseMap.get(name).add(newExercise);
         }
-        return newExercise
+        return newExercise;
     }
 }
