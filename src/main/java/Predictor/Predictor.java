@@ -1,6 +1,8 @@
 package Predictor;
 
+import java.util.HashMap;
+
 public abstract class Predictor {
 
-    abstract DataPointMap predict(DataPointMap data);
+    abstract HashMap<Integer, Double> predict(DataPointMap data);
 }
