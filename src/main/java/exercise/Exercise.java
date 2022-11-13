@@ -7,6 +7,7 @@ public class Exercise {
 
     /**
      * Constructor
+     * Cannot be named "_"
      */
     public Exercise (String name, int caloriesBurntPerMin) {
         this.name = name;
@@ -15,6 +16,7 @@ public class Exercise {
 
     /**
      * Constructor 2
+     * Cannot be named "_"
      */
     public Exercise (String name, String type, int caloriesBurntPerMin) {
         this.name = name;
