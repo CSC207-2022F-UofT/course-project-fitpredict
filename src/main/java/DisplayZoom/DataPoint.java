@@ -9,12 +9,11 @@ public class DataPoint {
     float weight;
     float caloriesBurnt;
     public DataPoint(int month, int day, int year, ArrayList<Exercise> exerciseList) {
-        long epochMilliseconds = convertLongMilliseconds(month, day, year);
-        date = new Date(epochMilliseconds);
+        date = new Date(convertEpochMilliseconds(month, day, year));
     }
 
-    public long convertLongMilliseconds(int month, int day, int year) {
-        LocalDateTime time = LocalDateTime.of(2022, 10, 31, 0, 0);
+    public long convertEpochMilliseconds(int month, int day, int year) {
+        LocalDateTime time = LocalDateTime.of(year, month, day, 0, 0);
         long epochMilliseconds = time.toEpochSecond(ZoneOffset.UTC);
         return epochMilliseconds;
     }
