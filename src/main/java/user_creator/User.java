@@ -1,6 +1,4 @@
 package user_creator;
-
-import java.time.LocalDateTime;
 import java.io.Serializable;
 
 // This is going to be our User entity.
@@ -13,10 +11,10 @@ public class User implements Serializable {
     private Float weight;
     private Float height;
     private String sex;
-    private LocalDateTime birthday;
+    private String birthday;
 
     public User(String username, String password,String repeatPassword,  Float weight, Float height, String sex,
-                LocalDateTime birthday) {
+                String birthday) {
         this.username = username;
         this.password = password;
         this.weight = weight;
@@ -58,7 +56,7 @@ public class User implements Serializable {
         this.sex = sex;
     }
 
-    public LocalDateTime getBirthday(){
+    public String getBirthday(){
         return birthday;
     }
 

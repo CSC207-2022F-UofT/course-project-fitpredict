@@ -1,7 +1,8 @@
 package user_creator;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 
@@ -21,7 +22,7 @@ public class UserCreator{
     }
 
     //accountCreator
-    public ArrayList<String> accountCreator(String username, String password, String repeatPassword, Float height, Float weight, String sex, LocalDateTime birthday){
+    public ArrayList<String> accountCreator(String username, String password, String repeatPassword, Float height, Float weight, String sex, String birthday){
         User newUser = new User(username, password, repeatPassword, height, weight, sex, birthday);
 
         ArrayList<String> exists = checkUsername(username);
@@ -71,7 +72,7 @@ public class UserCreator{
     }
 
     //checkPersonalInfoValid, checks to see if all personal information is valid
-    public ArrayList<String> checkPersonalInfoValid(Float height, Float weight, String sex, LocalDateTime birthday){
+    public ArrayList<String> checkPersonalInfoValid(Float height, Float weight, String sex, String birthday){
 
         ArrayList<String> heightInvalid = new ArrayList<>(0);
         heightInvalid.add("Height is invalid.");
@@ -154,12 +155,6 @@ public class UserCreator{
         return numChar >= 5 && numLetters > 0 && numNumbers > 0;
     }
 
-    //repeatPassword
-    public boolean repeatPassword(String repeatPassword){
-        // WHAT IS THIS DOING?? DO WE NEED IT??
-        return true;
-    }
-
     //checkTwoPasswordsMatch
     public boolean checkTwoPasswordsMatch(String password, String repeatPassword){
         return Objects.equals(password, repeatPassword);
@@ -178,9 +173,13 @@ public class UserCreator{
     }
 
     //checkBirthday
-    public boolean checkBirthday(LocalDateTime birthday){
-        // HOW DO I DO THIS??
-        return false;
+    public boolean checkBirthday(String birthday){
+        try {
+            LocalDate date = LocalDate.parse(birthday);
+            return true;
+        } catch (DateTimeParseException error) {
+            return false;
+        }
     }
 
     //checkSex, must be either Female, Male, or Other
