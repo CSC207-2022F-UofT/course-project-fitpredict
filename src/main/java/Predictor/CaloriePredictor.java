@@ -1,18 +1,23 @@
 package Predictor;
 
+import org.junit.experimental.theories.DataPoint;
+
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 public class CaloriePredictor {
 
-    public double calculateCalories(DataPointMap data) {
-        double prediction = 0.0;
+    public float calculateCalories(DataPointMap data) {
+        float prediction = 0.0f;
 
-//        TODO: loop through the DataPointMap, and take the average calories burnt over time!
-//        for (...) {
-//
-//        }
+        Map<Date, DataPoint> dataMap = data.getData();
 
-        return prediction; // placeholder
+        for (Map.Entry<Date, DataPoint> entry: dataMap.entrySet()) {
+            prediction += entry.getValue().getCaloriesBurnt();
+        }
+
+        return prediction / dataMap.size(); // return average calories burnt
     }
 
 }
