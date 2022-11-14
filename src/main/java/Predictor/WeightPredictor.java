@@ -1,10 +1,11 @@
 package Predictor;
 
+import java.util.Date;
 import java.util.HashMap;
 
 public class WeightPredictor extends Predictor {
 
-    public HashMap<Integer, Double> predict(DataPointMap data) {
+    public HashMap<Date, Double> predict(DataPointMap data) {
         /*
         This function uses information from:
         https://www.omnicalculator.com/health/calorie-deficit
@@ -17,7 +18,7 @@ public class WeightPredictor extends Predictor {
          that you will lose 1/7 ~ 0.143 pounds of fat per day.
          */
 
-        HashMap<Integer, Double> predictions = new HashMap<>();
+        HashMap<Date, Double> predictions = new HashMap<>();
         CaloriePredictor caloriePredictor = new CaloriePredictor();
         double caloriesBurnt = caloriePredictor.calculateCalories(data);
 

@@ -1,5 +1,7 @@
 package Predictor;
 
+import java.util.Date;
+
 public class BMIPredictor {
 
     public DataPointMap predict(DataPointMap data) {
@@ -9,9 +11,9 @@ public class BMIPredictor {
         https://www.cdc.gov/nccdphp/dnpao/growthcharts/training/bmiage/page5_1.htm
         Essentially, just dividing your weight in kg by your height in cm^2, then multiplying by 10 000
          */
-        HashMap<Integer, DataPoint> dataMap = data.getData();
+        HashMap<Date, DataPoint> dataMap = data.getData();
 
-        // TODO: use WeightPredictor to then calculate your calories burnt, then plug this into
+        // TODO: use WeightPredictor to then calculate your weight loss, then plug this into
         //   BMI formula
 
         return data; // placeholder
