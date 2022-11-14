@@ -16,4 +16,6 @@ public class PredictManager {
         return WeightPredictor.predict(data);
     }
 
+    // TODO: create another method "predictBMI"
+
 }
