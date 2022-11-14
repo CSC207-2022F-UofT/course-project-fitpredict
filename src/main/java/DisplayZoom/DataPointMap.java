@@ -5,10 +5,9 @@ import java.util.*;
 import java.util.HashMap;
 
 public class DataPointMap {
-    HashMap<Date, DataPoint> dataPointMap;
+    private HashMap<Date, DataPoint> dataPointMap;
 
     public DataPointMap(ArrayList<DataPoint> dataPoints) {
-        //TODO: create dataPointMap HashMap using DataPoint.getDate()
     }
 
     public HashMap<Date, DataPoint> getData() {
@@ -16,8 +15,11 @@ public class DataPointMap {
     }
 
     public DataPoint getDataPoint(Date date) {
-        DataPoint dataPoint();
-        //TODO: complete for loop to find DataPoint with the matching date attribute in dataPointMap
-        return dataPoint;
+        for (Date d: this.getData().keySet()) {
+            if (d.compareTo(date) == 0) { // if the dates are the same, then compareTo() returns 0
+                return this.getData().get(d);
+            }
+        }
+        return null; // return null if dataPoint is not found
     }
 }
