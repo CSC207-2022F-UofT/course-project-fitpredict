@@ -5,23 +5,23 @@ import java.io.IOException;
 
 public class UserLogin {
 
-    private UserAccountList existing_users;
+    private UserAccountList users;
+    private User currentUser;
     //UserReadWriter userReadWriter = new UserReadWriter();
 
-    //public UserLogin (UserAccountList users) {
-        //this.existing_users = users;
-        //try {
-            //userReadWriter.readFromFile("users.ser");
-        //} catch (IOException | ClassNotFoundException error) {
-            //System.out.println("Failed");
-        //}
-    //}
-
     public User loginUser(String username, String password) {
-        User user = existing_users.getUser(username);
+        User user = users.getUser(username);
         if (!user.checkPasswordMatches(password)) {
             System.out.println("The passwords don't match.");
         }
+        currentUser = user;
         return user;
     }
+
+    public User getCurrentUser() {
+        return this.currentUser;
+    }
+
+
+
 }
