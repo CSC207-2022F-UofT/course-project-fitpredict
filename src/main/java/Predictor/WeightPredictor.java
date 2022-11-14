@@ -22,11 +22,10 @@ public class WeightPredictor extends Predictor {
         https://www.omnicalculator.com/health/calorie-deficit
         to predict weight based on calories burnt from workout.
         */
-    public HashMap<Date, Double> predict(DataPointMap data) {
+    public static HashMap<Date, Double> predict(DataPointMap data) {
 
         HashMap<Date, Double> predictions = new HashMap<>();
-        CaloriePredictor caloriePredictor = new CaloriePredictor();
-        double caloriesBurnt = caloriePredictor.calculateCalories(data);
+        double caloriesBurnt = CaloriePredictor.calculateCalories(data);
 
         // TODO: create a prediction based on caloriesBurnt as to how much weight you will
         //  lose if you continue this deficit

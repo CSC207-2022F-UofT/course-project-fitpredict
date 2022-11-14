@@ -12,9 +12,8 @@ public class PredictManager {
     /*
         Returns your predicted weight based on the inputted DataPointMap
      */
-    public HashMap<Date, Double> predictWeight(DataPointMap data) {
-        WeightPredictor weightPredictor = new WeightPredictor();
-        return weightPredictor.predict(data);
+    public static HashMap<Date, Double> predictWeight(DataPointMap data) {
+        return WeightPredictor.predict(data);
     }
 
 }
