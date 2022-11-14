@@ -3,11 +3,16 @@ package Predictor;
 import org.junit.experimental.theories.DataPoint;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
+/*
+    Use Case - A class to predict calories burnt over time
+ */
 public class CaloriePredictor {
 
+    /*
+        Returns an average of the calories burnt over the entire DataPointMap
+    */
     public float calculateCalories(DataPointMap data) {
         float prediction = 0.0f;
 
