@@ -1,4 +1,4 @@
-package Predictor;
+package predictor;
 
 public class CaloriePredictor {
 }

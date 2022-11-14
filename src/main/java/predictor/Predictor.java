@@ -1,4 +1,4 @@
-package Predictor;
+package predictor;
 
 import java.util.Date;
 import java.util.HashMap;

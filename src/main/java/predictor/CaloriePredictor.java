@@ -1,4 +1,4 @@
-package Predictor;
+package predictor;
 
 import org.junit.experimental.theories.DataPoint;
 
