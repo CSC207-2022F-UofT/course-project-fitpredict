@@ -10,15 +10,15 @@ public class ExerciseMap {
      * Adds a new exercise to the current user's ArrayList of exercises
      * Returns the new exercise added
      */
-    public Exercise addExercise (User currentUser, Exercise newExercise) {
-        String name = currentUser.getName();
-        if (exerciseMap.containsKey(name)) {
-            exerciseMap.get(name).add(newExercise);
-        }
-        else {
-            exerciseMap.put(name, new ArrayList<Exercise>());
-            exerciseMap.get(name).add(newExercise);
-        }
-        return newExercise;
-    }
+//    public Exercise addExercise (User currentUser, Exercise newExercise) {
+//        String name = currentUser.getName();
+//        if (exerciseMap.containsKey(name)) {
+//            exerciseMap.get(name).add(newExercise);
+//        }
+//        else {
+//            exerciseMap.put(name, new ArrayList<Exercise>());
+//            exerciseMap.get(name).add(newExercise);
+//        }
+//        return newExercise;
+//    }
 }

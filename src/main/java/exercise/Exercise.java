@@ -3,13 +3,13 @@ package exercise;
 public class Exercise {
     String name;
     String type;
-    int caloriesBurntPerMin;
+    float caloriesBurntPerMin;
 
     /**
      * Constructor
      * Cannot be named "_"
      */
-    public Exercise (String name, int caloriesBurntPerMin) {
+    public Exercise (String name, float caloriesBurntPerMin) {
         this.name = name;
         this.caloriesBurntPerMin = caloriesBurntPerMin;
     }
@@ -18,7 +18,7 @@ public class Exercise {
      * Constructor 2
      * Cannot be named "_"
      */
-    public Exercise (String name, String type, int caloriesBurntPerMin) {
+    public Exercise (String name, String type, float caloriesBurntPerMin) {
         this.name = name;
         this.type = type;
         this.caloriesBurntPerMin = caloriesBurntPerMin;
@@ -32,7 +32,7 @@ public class Exercise {
         return type;
     }
 
-    public int getCaloriesBurntPerMin() {
+    public float getCaloriesBurntPerMin() {
         return caloriesBurntPerMin;
     }
 
@@ -44,7 +44,7 @@ public class Exercise {
         this.type = type;
     }
 
-    public void setCaloriesBurntPerMin(int caloriesBurntPerMin) {
+    public void setCaloriesBurntPerMin(float caloriesBurntPerMin) {
         this.caloriesBurntPerMin = caloriesBurntPerMin;
     }
 }
