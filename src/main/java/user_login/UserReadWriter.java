@@ -10,7 +10,7 @@ public class UserReadWriter implements ReadWriter{
     }
 
     public UserAccountList readFromFile(String filepath) throws IOException, ClassNotFoundException {
-
+        return users;
     }
 
 }
