@@ -3,13 +3,13 @@ package user_login;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
-// This is going to be our User entity.
+// This is our User entity.
 
 public class User implements Serializable {
 
         private String username;
         private String password;
-        private String repeatPassword;
+        private final String repeatPassword;
         private Float weight;
         private Float height;
         private String sex;
@@ -78,7 +78,6 @@ public class User implements Serializable {
             this.password = repeatPassword;
         }
 
-        // This function was initially in UserCreation but it should be in the entity file.
         public boolean checkPasswordMatches(String password) {
             return this.password.equals(password);
 

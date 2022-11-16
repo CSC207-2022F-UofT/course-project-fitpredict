@@ -26,19 +26,19 @@ public class UserLoginScreen extends JFrame implements ActionListener {
         LabelTextPanel passwordInfo = new LabelTextPanel(new JLabel("Password"), password);
 
         JButton logIn = new JButton("Login");
-         JPanel button = new JPanel();
-         button.add(logIn);
+        JPanel button = new JPanel();
+        button.add(logIn);
 
-         logIn.addActionListener(this);
+        logIn.addActionListener(this);
 
-         JPanel main = new JPanel();
-         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
-         main.add(title);
-         main.add(usernameInfo);
-         main.add(passwordInfo);
-         main.add(button);
-         this.setContentPane(main);
-         this.pack();
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.add(title);
+        panel.add(usernameInfo);
+        panel.add(passwordInfo);
+        panel.add(button);
+        this.setContentPane(panel);
+        this.pack();
 
     }
     public void actionPerformed(ActionEvent event) {

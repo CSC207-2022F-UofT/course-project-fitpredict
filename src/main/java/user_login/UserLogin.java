@@ -1,8 +1,5 @@
 package user_login;
 
-
-import java.io.IOException;
-
 public class UserLogin {
 
     private UserAccountList users;
@@ -21,7 +18,4 @@ public class UserLogin {
     public User getCurrentUser() {
         return this.currentUser;
     }
-
-
-
 }
