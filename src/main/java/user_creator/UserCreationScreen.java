@@ -24,13 +24,13 @@ public class UserCreationScreen extends JFrame implements ActionListener {
         this.userCreationController = controller;
         JLabel title = new JLabel("Register Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-        LabelTextPanel usernameInfo = new LabelTextPanel(new JLabel("Choose Username"), username);
-        LabelTextPanel passwordInfo = new LabelTextPanel(new JLabel("Choose Password"), password);
+        LabelTextPanel usernameInfo = new LabelTextPanel(new JLabel("Choose Username (At least 5 characters: must include letters and numbers)"), username);
+        LabelTextPanel passwordInfo = new LabelTextPanel(new JLabel("Choose Password (At least 5 characters: must include letters and numbers)"), password);
         LabelTextPanel repeatPasswordInfo = new LabelTextPanel(new JLabel("Please enter your password again"), repeatPassword);
-        LabelTextPanel weightInfo = new LabelTextPanel(new JLabel("Please enter your weight"), weight);
-        LabelTextPanel heightInfo = new LabelTextPanel(new JLabel("Please enter your height"), height);
-        LabelTextPanel sexInfo = new LabelTextPanel(new JLabel("Please enter your gender (Options: Male, Female, Other)" ), sex);
-        LabelTextPanel birthdayInfo = new LabelTextPanel(new JLabel("Please enter your birthday"), birthday);
+        LabelTextPanel weightInfo = new LabelTextPanel(new JLabel("Enter your weight"), weight);
+        LabelTextPanel heightInfo = new LabelTextPanel(new JLabel("Enter your height"), height);
+        LabelTextPanel sexInfo = new LabelTextPanel(new JLabel("Enter your gender (Options: Male, Female, Other)" ), sex);
+        LabelTextPanel birthdayInfo = new LabelTextPanel(new JLabel("Enter your birthday (Use the form: YYYY-MM-DD"), birthday);
 
         JButton signUp = new JButton("Create account");
         JPanel button = new JPanel();

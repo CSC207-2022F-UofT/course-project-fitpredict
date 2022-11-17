@@ -19,7 +19,6 @@ public class UserReadWriter implements ReadWriter {
         // Serializing the map
         output.writeObject(users);
         output.close();
-
     }
 
     /**
@@ -40,7 +39,6 @@ public class UserReadWriter implements ReadWriter {
         UserAccountList users = (UserAccountList) input.readObject();
         input.close();
         return users;
-
     }
 
 }
