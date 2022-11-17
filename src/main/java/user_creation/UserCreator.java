@@ -7,6 +7,8 @@ import java.util.Objects;
 
 
 public class UserCreator{
+    private final UserAccountList existingUsers;
+    UserReadWriter userReadWriter = new UserReadWriter();
 
     public UserCreator(UserAccountList existingUsers) {
 
@@ -40,6 +42,7 @@ public class UserCreator{
         return Objects.equals(password, repeatPassword);
     }
 
+    static final Integer MINIMUM_VALUE = 0;
     public boolean checkHeight(Float height){
         return height > MINIMUM_VALUE;
     }
