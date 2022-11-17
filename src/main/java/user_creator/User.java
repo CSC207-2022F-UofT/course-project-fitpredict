@@ -140,6 +140,5 @@ public class User implements Serializable {
      */
     public boolean checkPasswordMatches(String password) {
         return this.password.equals(password);
-
     }
 }
