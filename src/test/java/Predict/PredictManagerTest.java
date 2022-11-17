@@ -1,4 +1,4 @@
-package predictor;
+package Predict;
 
 public class PredictManagerTest {
 }

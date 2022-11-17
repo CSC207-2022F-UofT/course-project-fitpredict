@@ -1,4 +1,4 @@
-package predictor;
+package Predict;
 
 /*
     Use Case - A class to predict calories burnt over time
