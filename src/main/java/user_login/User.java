@@ -1,7 +1,6 @@
 package user_login;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 public class User implements Serializable {
 
@@ -25,7 +24,7 @@ public class User implements Serializable {
      * @param birthday The user's birthday
      */
     public User(String username, String password,String repeatPassword,  Float weight, Float height, String sex,
-                LocalDate birthday) {
+                String birthday) {
     }
 
     /**
