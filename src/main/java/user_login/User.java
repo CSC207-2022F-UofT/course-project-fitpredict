@@ -9,15 +9,16 @@ import java.io.Serializable;
  */
 public class User implements Serializable {
 
-        private String username;
-        private String password;
-        private final String repeatPassword;
-        private Float weight;
-        private Float height;
-        private String sex;
-        private final String birthday;
+    private String username;
+    private String password;
+    private final String repeatPassword;
+    private Float weight;
+    private Float height;
+    private String sex;
+    private final String birthday;
 
     /**
+     * A user with account information.
      *
      * @param username The user's username
      * @param password The user's password
@@ -27,7 +28,8 @@ public class User implements Serializable {
      * @param sex The user's sex
      * @param birthday The user's birthday
      */
-    public User(String username, String password,String repeatPassword,  Float weight, Float height, String sex,
+
+    public User(String username, String password,String repeatPassword, Float weight, Float height, String sex,
                     String birthday) {
         this.username = username;
         this.password = password;
