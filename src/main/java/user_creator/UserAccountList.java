@@ -19,13 +19,12 @@ public class UserAccountList implements Serializable {
      */
     public void addNewUser(User NewUser){
         useraccountlist.put(NewUser.getUsername(), NewUser); // we need to create a User entity and getUsername method.
-
     }
 
     /**
      * Returns the user's username
      * @param username is the username of the user
-     * @return if the username exists in the exisiting list of users
+     * @return if the username exists in the existing list of users
      */
     public User getUser(String username) {
         return useraccountlist.get(username);
