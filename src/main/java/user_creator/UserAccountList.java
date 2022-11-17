@@ -29,7 +29,5 @@ public class UserAccountList implements Serializable {
     public User getUser(String username) {
         return useraccountlist.get(username);
     }
-
-
 }
 

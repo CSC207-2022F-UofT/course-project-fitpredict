@@ -11,7 +11,7 @@ public class UserCreationController {
     }
 
     public ArrayList<String> accountCreator(String username, String password, String repeatPassword,
-                                            Float height, Float weight, String sex, LocalDateTime birthday) {
+                                            Float height, Float weight, String sex, String birthday) {
         return userCreator.accountCreator(username, password, repeatPassword, height, weight, sex, birthday);
     }
 

@@ -5,12 +5,19 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-
+/**
+ * Creates a valid user account
+ */
 public class UserCreator{
     private final UserAccountList existingUsers;
     UserReadWriter userReadWriter = new UserReadWriter();
 
-    // File methods.
+    // File methods
+
+    /**
+     * Saves the existing users to a file
+     * @param existingUsers is the list of existing users
+     */
     public UserCreator(UserAccountList existingUsers) {
         this.existingUsers = existingUsers;
         try {
@@ -21,6 +28,18 @@ public class UserCreator{
     }
 
     //accountCreator
+
+    /**
+     * Takes the user input, creates an account, and returns an account creation message
+     * @param username The user's username
+     * @param password The user's password
+     * @param repeatPassword The user's repeat password
+     * @param height The user's height
+     * @param weight THe user's weight
+     * @param sex The user's sex
+     * @param birthday The user's birthday
+     * @return if all user input is valid
+     */
     public ArrayList<String> accountCreator(String username, String password, String repeatPassword, Float height, Float weight, String sex, String birthday){
         User newUser = new User(username, password, repeatPassword, height, weight, sex, birthday);
 
@@ -43,6 +62,14 @@ public class UserCreator{
     }
 
     //checkUsernamePasswordValid, checks to see if both the username and the given passwords a) match, and b) are valid
+
+    /**
+     * Returns a message depending on the validity of user input regarding username and passwords
+     * @param username The user's username
+     * @param password The user's password
+     * @param repeatPassword The user's repeated password
+     * @return an empty message if information is valid, returns a non-empty message otherwise
+     */
     public ArrayList<String> checkUsernamePasswordValid(String username, String password, String repeatPassword){
 
         ArrayList<String> usernameInvalid = new ArrayList<>(0);
@@ -70,6 +97,15 @@ public class UserCreator{
     }
 
     //checkPersonalInfoValid, checks to see if all personal information is valid
+
+    /**
+     * Returns a message depending on the validity of user input regarding user's personal information
+     * @param height The user's height
+     * @param weight The user's weight
+     * @param sex the user's sex
+     * @param birthday The user's birthday
+     * @return an empty message if information is valid, returns a non-empty message otherwise
+     */
     public ArrayList<String> checkPersonalInfoValid(Float height, Float weight, String sex, String birthday){
 
         ArrayList<String> heightInvalid = new ArrayList<>(0);
@@ -104,6 +140,12 @@ public class UserCreator{
     }
 
     //checkUsername, checks to see if it already exists in the system
+
+    /**
+     * Returns a message depending on if the user's username already exists in the list
+     * @param username The user's username
+     * @return an empty message if username does not previously exist and returns a non-empty message otherwise
+     */
     public ArrayList<String> checkUsername(String username){
         ArrayList<String> exists = new ArrayList<>(0);
         if (existingUsers.getUser(username) != null) {
@@ -113,6 +155,12 @@ public class UserCreator{
     }
 
     //checkUsernameValid, make sure it's longer than 5 characters and contains both letters and numbers
+
+    /**
+     * Returns true if the inputted username is valid
+     * @param username the user's username
+     * @return if the inputted username is valid
+     */
     public boolean checkUsernameValid(String username){
         int numChar = 0;
         int numLetters = 0;
@@ -133,6 +181,12 @@ public class UserCreator{
     }
 
     //checkPasswordValid, make sure it's longer than 5 characters and contains both letters and numbers
+
+    /**
+     * Returns true is the inputted password is valid
+     * @param password The user's password
+     * @return if the inputted password is valid
+     */
     public boolean checkPasswordValid(String password){
         int numChar = 0;
         int numLetters = 0;
@@ -154,6 +208,13 @@ public class UserCreator{
     }
 
     //checkTwoPasswordsMatch
+
+    /**
+     * Returns true if the inputted passwords are the same
+     * @param password The user's password
+     * @param repeatPassword The user's repeated password
+     * @return if inputted passwords match
+     */
     public boolean checkTwoPasswordsMatch(String password, String repeatPassword){
         return Objects.equals(password, repeatPassword);
     }
@@ -161,16 +222,34 @@ public class UserCreator{
     static final Integer MINIMUM_VALUE = 0; // to avoid hardcoding and make it easier to change
 
     //checkHeight, height must be greater than 0
+
+    /**
+     * Returns true if inputted height is valid
+     * @param height The user's height
+     * @return if the inputted height is valid
+     */
     public boolean checkHeight(Float height){
         return height > MINIMUM_VALUE;
     }
 
     //checkWeight, weight must be greater than 0
+
+    /**
+     * Returns true if inputted weight is valid
+     * @param weight The user's weight
+     * @return if the inputted weight is valid
+     */
     public boolean checkWeight(Float weight){
         return weight > MINIMUM_VALUE;
     }
 
     //checkBirthday
+
+    /**
+     * Returns true if inputted birthday is valid
+     * @param birthday The user's birthday
+     * @return if the inputted birthday is valid
+     */
     public boolean checkBirthday(String birthday){
         try {
             LocalDate date = LocalDate.parse(birthday);
@@ -181,6 +260,12 @@ public class UserCreator{
     }
 
     //checkSex, must be either Female, Male, or Other
+
+    /**
+     * Returns true if inputted sex is valid
+     * @param sex The user's sex
+     * @return if the inputted sex is valid
+     */
     public boolean checkSex(String sex){
         if(Objects.equals(sex, "Female")){
             return true;
