@@ -1,4 +1,5 @@
 package DisplayView;
 
-public class Graph {
+public abstract class Graph extends VisualUnit {
+
 }
