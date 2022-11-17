@@ -14,17 +14,18 @@ public class ExerciseCreationScreen extends JFrame implements ActionListener{
         main.setPreferredSize(new Dimension(500,500));
 
         JLabel title = new JLabel("Create New Exercise");
-        title.setAlignmentX(Component.LEFT_ALIGNMENT);
+        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
         main.add(title);
 
-        LabelTextPanel a = new LabelTextPanel(new JLabel("Exercise Name"), new JTextField(15));
+//        LabelTextPanel a = new LabelTextPanel(new JLabel("Exercise Name"), new JTextField(15));
 //        a.setAlignmentX(Component.RIGHT_ALIGNMENT);
 //        LabelTextPanel b = new LabelTextPanel(new JLabel("Calories Burnt Per Min"), new JTextField(15));
 //        b.setAlignmentX(Component.RIGHT_ALIGNMENT);
 
-        JButton create = new JButton("Create Exercise");
-        main.add(create);
-        main.add(a);
+//        JButton create = new JButton("Create Exercise");
+//        main.add(create);
+//        main.add(a);
 //        main.add(b);
 
         this.setContentPane(main);
