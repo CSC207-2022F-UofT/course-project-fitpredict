@@ -40,7 +40,7 @@ public class UserCreator{
      * @param birthday The user's birthday
      * @return if all user input is valid
      */
-    public ArrayList<String> accountCreator(String username, String password, String repeatPassword, Float height, Float weight, String sex, String birthday){
+    public ArrayList<String> accountCreator(String username, String password, String repeatPassword, Double height, Double weight, String sex, String birthday){
         User newUser = new User(username, password, repeatPassword, height, weight, sex, birthday);
 
         ArrayList<String> exists = checkUsername(username);
@@ -106,7 +106,7 @@ public class UserCreator{
      * @param birthday The user's birthday
      * @return an empty message if information is valid, returns a non-empty message otherwise
      */
-    public ArrayList<String> checkPersonalInfoValid(Float height, Float weight, String sex, String birthday){
+    public ArrayList<String> checkPersonalInfoValid(Double height, Double weight, String sex, String birthday){
 
         ArrayList<String> heightInvalid = new ArrayList<>(0);
         heightInvalid.add("Height is invalid.");
@@ -180,7 +180,7 @@ public class UserCreator{
         return numChar >= 5 && numLetters > 0 && numNumbers > 0;
     }
 
-    //checkPasswordValid, make sure it's longer than 5 characters and contains both letters and numbers
+    //checkPasswordValid, make sure it is longer than 5 characters and contains both letters and numbers
 
     /**
      * Returns true is the inputted password is valid
@@ -228,7 +228,7 @@ public class UserCreator{
      * @param height The user's height
      * @return if the inputted height is valid
      */
-    public boolean checkHeight(Float height){
+    public boolean checkHeight(Double height){
         return height > MINIMUM_VALUE;
     }
 
@@ -239,7 +239,7 @@ public class UserCreator{
      * @param weight The user's weight
      * @return if the inputted weight is valid
      */
-    public boolean checkWeight(Float weight){
+    public boolean checkWeight(Double weight){
         return weight > MINIMUM_VALUE;
     }
 

@@ -25,7 +25,7 @@ public class UserCreationController {
      * @return if all user input is valid
      */
     public ArrayList<String> accountCreator(String username, String password, String repeatPassword,
-                                            Float height, Float weight, String sex, String birthday) {
+                                            Double height, Double weight, String sex, String birthday) {
         return userCreator.accountCreator(username, password, repeatPassword, height, weight, sex, birthday);
     }
 
