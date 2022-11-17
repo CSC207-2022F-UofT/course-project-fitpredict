@@ -15,10 +15,6 @@ public class UserCreationScreen extends JFrame implements ActionListener {
     JTextField birthday = new JTextField(15);
 
     UserCreationController userCreationController;
-    //float newWeight = Float.parseFloat(weight.getText()); // ASK ABOUT THIS!!!!!
-    //float newHeight = Float.parseFloat(height.getText()); // ASK ABOUT THIS!!!!!
-    String newWeight = weight.getText();
-    String newHeight = height.getText();
 
     public UserCreationScreen(UserCreationController controller) {
         this.userCreationController = controller;
