@@ -29,7 +29,7 @@ public class UserCreationScreen extends JFrame implements ActionListener {
         LabelTextPanel repeatPasswordInfo = new LabelTextPanel(new JLabel("Please enter your password again"), repeatPassword);
         LabelTextPanel weightInfo = new LabelTextPanel(new JLabel("Enter your weight"), weight);
         LabelTextPanel heightInfo = new LabelTextPanel(new JLabel("Enter your height"), height);
-        LabelTextPanel sexInfo = new LabelTextPanel(new JLabel("Enter your gender (Options: Male, Female, Other)" ), sex);
+        LabelTextPanel sexInfo = new LabelTextPanel(new JLabel("Enter your gender (Options: Male, Female, Other)"), sex);
         LabelTextPanel birthdayInfo = new LabelTextPanel(new JLabel("Enter your birthday (Use the form: YYYY-MM-DD"), birthday);
 
         JButton signUp = new JButton("Create account");
@@ -54,8 +54,10 @@ public class UserCreationScreen extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent evt) {
         try {
-            userCreationController.accountCreator(username.getText(), password.getText(), repeatPassword.getText(),
-                    Double.parseDouble(newWeight), Double.parseDouble(newHeight), sex.getText(), birthday.getText());
+            userCreationController.accountCreator(
+                    username.getText(), password.getText(), repeatPassword.getText(),
+                    Double.parseDouble(weight.getText()), Double.parseDouble(height.getText()),
+                    sex.getText(), birthday.getText());
             JOptionPane.showMessageDialog(this, "Account was created!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Account creation failed!");
