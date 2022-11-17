@@ -10,7 +10,7 @@ public class User implements Serializable {
     private Float weight;
     private Float height;
     private String sex;
-    private String birthday;
+    private final String birthday;
 
     /**
      * A user with account information.
