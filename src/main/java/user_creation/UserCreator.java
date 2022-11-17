@@ -31,7 +31,7 @@ public class UserCreator{
      * @param birthday The user's birthday
      * @return if all user input is valid
      */
-    public ArrayList<String> accountCreator(String username, String password, String repeatPassword, Float height, Float weight, String sex, String birthday){
+    public ArrayList<String> accountCreator(String username, String password, String repeatPassword, Double height, Double weight, String sex, String birthday){
         return accountIsCreated;
     }
 
@@ -54,7 +54,7 @@ public class UserCreator{
      * @param birthday The user's birthday
      * @return an empty message if information is valid, returns a non-empty message otherwise
      */
-    public ArrayList<String> checkPersonalInfoValid(Float height, Float weight, String sex, String birthday){
+    public ArrayList<String> checkPersonalInfoValid(Double height, Double weight, String sex, String birthday){
         return new ArrayList<>(0);
     }
 
@@ -68,28 +68,28 @@ public class UserCreator{
     }
 
     /**
-     * Returns true if the inputted username is valid
+     * Returns true if the input username is valid
      * @param username the user's username
-     * @return if the inputted username is valid
+     * @return if the input username is valid
      */
     public boolean checkUsernameValid(String username){
         return numChar >= 5 && numLetters > 0 && numNumbers > 0;
     }
 
     /**
-     * Returns true is the inputted password is valid
+     * Returns true is the input password is valid
      * @param password The user's password
-     * @return if the inputted password is valid
+     * @return if the input password is valid
      */
     public boolean checkPasswordValid(String password){
         return numChar >= 5 && numLetters > 0 && numNumbers > 0;
     }
 
     /**
-     * Returns true if the inputted passwords are the same
+     * Returns true if the input passwords are the same
      * @param password The user's password
      * @param repeatPassword The user's repeated password
-     * @return if inputted passwords match
+     * @return if the input passwords match
      */
     public boolean checkTwoPasswordsMatch(String password, String repeatPassword){
         return Objects.equals(password, repeatPassword);
@@ -99,27 +99,27 @@ public class UserCreator{
     static final Integer MINIMUM_VALUE = 0;
 
     /**
-     * Returns true if inputted height is valid
+     * Returns true if the input height is valid
      * @param height The user's height
-     * @return if the inputted height is valid
+     * @return if the input height is valid
      */
-    public boolean checkHeight(Float height){
+    public boolean checkHeight(Double height){
         return height > MINIMUM_VALUE;
     }
 
     /**
-     * Returns true if inputted weight is valid
+     * Returns true if the input weight is valid
      * @param weight The user's weight
-     * @return if the inputted weight is valid
+     * @return if the input weight is valid
      */
-    public boolean checkWeight(Float weight){
+    public boolean checkWeight(Double weight){
         return weight > MINIMUM_VALUE;
     }
 
     /**
-     * Returns true if inputted birthday is valid
+     * Returns true if the input birthday is valid
      * @param birthday The user's birthday
-     * @return if the inputted birthday is valid
+     * @return if the input birthday is valid
      */
     public boolean checkBirthday(String birthday){
         return true;
@@ -127,9 +127,9 @@ public class UserCreator{
 
 
     /**
-     * Returns true if inputted sex is valid
+     * Returns true if the input sex is valid
      * @param sex The user's sex
-     * @return if the inputted sex is valid
+     * @return if the input sex is valid
      */
     public boolean checkSex(String sex){
         return true;
