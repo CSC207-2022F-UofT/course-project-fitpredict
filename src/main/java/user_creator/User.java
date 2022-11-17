@@ -135,8 +135,8 @@ public class User implements Serializable {
     // This function was initially in UserCreation but it should be in the entity file.
 
     /**
-     * Returns true if the two passwrods match
-     * @return if the two passwrod smatch
+     * Returns true if the two passwords match
+     * @return if the two password match
      */
     public boolean checkPasswordMatches(String password) {
         return this.password.equals(password);

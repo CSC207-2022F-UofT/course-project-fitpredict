@@ -6,6 +6,10 @@ import java.util.ArrayList;
 public class UserCreationController {
     private final UserCreator userCreator;
 
+    /**
+     *
+     * @param userCreator
+     */
     public UserCreationController(UserCreator userCreator) {
         this.userCreator = userCreator;
     }
