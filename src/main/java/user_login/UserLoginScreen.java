@@ -9,12 +9,6 @@ public class UserLoginScreen extends JFrame implements ActionListener {
     JTextField username = new JTextField(15);
     JPasswordField password = new JPasswordField(15);
 
-    public static class LabelTextPanel extends JPanel {
-        public LabelTextPanel(JLabel label, JTextField textField) {
-            this.add(label);
-            this.add(textField);
-        }
-    }
 
     UserLoginController userLoginController;
 
