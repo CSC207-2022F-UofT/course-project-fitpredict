@@ -6,16 +6,12 @@ public class ExerciseManager {
      * Create new exercise instance without a type
      */
     public Exercise createExercise(String name, float caloriesBurntPerMin) {
-
+        return new Exercise(name, caloriesBurntPerMin);
     }
 
     /**
-     * Create new exercise instance with a type
+     * Delete the passed exercise and return it
      */
-    public Exercise createExercise(String name, String type, float caloriesBurntPerMin) {
-
-    }
-
     public void deleteExercise(Exercise toBeDeleted) {
 
     }

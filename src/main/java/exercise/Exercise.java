@@ -9,30 +9,15 @@ public class Exercise {
     public Exercise (String name, float caloriesBurntPerMin) {
     }
 
-    /**
-     * Constructor 2
-     * Cannot be named "_"
-     */
-    public Exercise (String name, String type, float caloriesBurntPerMin) {
-    }
-
     public String getName() {
-
-    }
-
-    public String getType() {
-
+        return "placeholder";
     }
 
     public float getCaloriesBurntPerMin() {
-
+        return -1;
     }
 
     public void setName(String name) {
-
-    }
-
-    public void setType(String type) {
 
     }
 
