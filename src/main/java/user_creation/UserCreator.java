@@ -1,4 +1,4 @@
-package user_creator;
+package user_creation;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
