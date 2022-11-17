@@ -15,8 +15,10 @@ public class UserCreationScreen extends JFrame implements ActionListener {
     JTextField birthday = new JTextField(15);
 
     UserCreationController userCreationController;
-    float newWeight = Float.parseFloat(weight.getText()); // ASK ABOUT THIS!!!!!
-    float newHeight = Float.parseFloat(height.getText()); // ASK ABOUT THIS!!!!!
+    //float newWeight = Float.parseFloat(weight.getText()); // ASK ABOUT THIS!!!!!
+    //float newHeight = Float.parseFloat(height.getText()); // ASK ABOUT THIS!!!!!
+    String newWeight = weight.getText();
+    String newHeight = height.getText();
 
     public UserCreationScreen(UserCreationController controller) {
         this.userCreationController = controller;
@@ -27,7 +29,7 @@ public class UserCreationScreen extends JFrame implements ActionListener {
         LabelTextPanel repeatPasswordInfo = new LabelTextPanel(new JLabel("Please enter your password again"), repeatPassword);
         LabelTextPanel weightInfo = new LabelTextPanel(new JLabel("Please enter your weight"), weight);
         LabelTextPanel heightInfo = new LabelTextPanel(new JLabel("Please enter your height"), height);
-        LabelTextPanel sexInfo = new LabelTextPanel(new JLabel("Please enter your gender"), sex);
+        LabelTextPanel sexInfo = new LabelTextPanel(new JLabel("Please enter your gender (Options: Male, Female, Other)" ), sex);
         LabelTextPanel birthdayInfo = new LabelTextPanel(new JLabel("Please enter your birthday"), birthday);
 
         JButton signUp = new JButton("Create account");
@@ -53,7 +55,7 @@ public class UserCreationScreen extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent evt) {
         try {
             userCreationController.accountCreator(username.getText(), password.getText(), repeatPassword.getText(),
-                    newWeight, newHeight, sex.getText(), birthday.getText());
+                    Float.parseFloat(newWeight), Float.parseFloat(newHeight), sex.getText(), birthday.getText());
             JOptionPane.showMessageDialog(this, "Account was created!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Accound creation failed!");
