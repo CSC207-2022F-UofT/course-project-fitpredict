@@ -1,6 +1,5 @@
 package user_login;
 
-i
 import java.io.Serializable;
 
 // This is our User entity.
@@ -152,7 +151,5 @@ public class User implements Serializable {
             return this.password.equals(password);
 
         }
-
-
 
 }
