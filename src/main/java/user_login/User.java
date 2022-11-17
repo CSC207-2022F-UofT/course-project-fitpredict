@@ -48,7 +48,6 @@ public class User implements Serializable {
 
     /**
      * Sets the User's username.
-     * @param username
      */
     public void setUsername(String username){
             this.username = username;
@@ -64,7 +63,6 @@ public class User implements Serializable {
 
     /**
      * Sets the User's weight.
-     * @param weight
      */
     public void setWeight(Float weight) {
         this.weight = weight;
@@ -80,7 +78,6 @@ public class User implements Serializable {
 
     /**
      * Sets the user's height
-     * @param height
      */
     public void setHeight(Float height) {
             this.height = height;
@@ -96,7 +93,6 @@ public class User implements Serializable {
 
     /**
      * Sets the user's sex.
-     * @param sex
      */
     public void setSex(String sex) {
             this.sex = sex;
@@ -120,7 +116,6 @@ public class User implements Serializable {
 
     /**
      *  Sets the user's password.
-     * @param password
      */
     public void setPassword(String password) {
             this.password = password;
@@ -136,7 +131,6 @@ public class User implements Serializable {
 
     /**
      * Sets the user's repeated password.
-     * @param repeatPassword
      */
     public void setRepeatPassword(String repeatPassword) {
             this.password = repeatPassword;
@@ -144,12 +138,10 @@ public class User implements Serializable {
 
     /**
      * Returns true if the two passwrods match
-     * @param password
      * @return if the two passwrod smatch
      */
     public boolean checkPasswordMatches(String password) {
             return this.password.equals(password);
-
         }
 
 }
