@@ -157,9 +157,9 @@ public class UserCreator{
     //checkUsernameValid, make sure it's longer than 5 characters and contains both letters and numbers
 
     /**
-     * Returns true if the inputted username is valid
+     * Returns true if the input username is valid
      * @param username the user's username
-     * @return if the inputted username is valid
+     * @return if the input username is valid
      */
     public boolean checkUsernameValid(String username){
         int numChar = 0;
@@ -183,9 +183,9 @@ public class UserCreator{
     //checkPasswordValid, make sure it is longer than 5 characters and contains both letters and numbers
 
     /**
-     * Returns true is the inputted password is valid
+     * Returns true is the input password is valid
      * @param password The user's password
-     * @return if the inputted password is valid
+     * @return if the input password is valid
      */
     public boolean checkPasswordValid(String password){
         int numChar = 0;
@@ -210,10 +210,10 @@ public class UserCreator{
     //checkTwoPasswordsMatch
 
     /**
-     * Returns true if the inputted passwords are the same
+     * Returns true if the input passwords are the same
      * @param password The user's password
      * @param repeatPassword The user's repeated password
-     * @return if inputted passwords match
+     * @return if the input passwords match
      */
     public boolean checkTwoPasswordsMatch(String password, String repeatPassword){
         return Objects.equals(password, repeatPassword);
@@ -224,9 +224,9 @@ public class UserCreator{
     //checkHeight, height must be greater than 0
 
     /**
-     * Returns true if inputted height is valid
+     * Returns true if the input height is valid
      * @param height The user's height
-     * @return if the inputted height is valid
+     * @return if the input height is valid
      */
     public boolean checkHeight(Double height){
         return height > MINIMUM_VALUE;
@@ -235,9 +235,9 @@ public class UserCreator{
     //checkWeight, weight must be greater than 0
 
     /**
-     * Returns true if inputted weight is valid
+     * Returns true if the input weight is valid
      * @param weight The user's weight
-     * @return if the inputted weight is valid
+     * @return if the input weight is valid
      */
     public boolean checkWeight(Double weight){
         return weight > MINIMUM_VALUE;
@@ -246,9 +246,9 @@ public class UserCreator{
     //checkBirthday
 
     /**
-     * Returns true if inputted birthday is valid
+     * Returns true if the input birthday is valid
      * @param birthday The user's birthday
-     * @return if the inputted birthday is valid
+     * @return if the input birthday is valid
      */
     public boolean checkBirthday(String birthday){
         try {
@@ -262,9 +262,9 @@ public class UserCreator{
     //checkSex, must be either Female, Male, or Other
 
     /**
-     * Returns true if inputted sex is valid
+     * Returns true if the input sex is valid
      * @param sex The user's sex
-     * @return if the inputted sex is valid
+     * @return if the input sex is valid
      */
     public boolean checkSex(String sex){
         if(Objects.equals(sex, "Female")){
