@@ -58,7 +58,7 @@ public class UserCreationScreen extends JFrame implements ActionListener {
                     Double.parseDouble(newWeight), Double.parseDouble(newHeight), sex.getText(), birthday.getText());
             JOptionPane.showMessageDialog(this, "Account was created!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Accound creation failed!");
+            JOptionPane.showMessageDialog(this, "Account creation failed!");
         }
     }
 
