@@ -2,22 +2,21 @@ package user_creator;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class UserCreationScreen extends JFrame implements ActionListener {
     JTextField username = new JTextField(15);
-    JTextField password = new JTextField(15);
-    JTextField repeatPassword = new JTextField(15);
-
-    public static class LabelTextPanel extends JPanel {
-        public LabelTextPanel(JLabel label, JTextField textField) {
-            this.add(label);
-            this.add(textField);
-        }
-    }
-
+    JPasswordField password = new JPasswordField(15);
+    JPasswordField repeatPassword = new JPasswordField(15);
+    JTextField weight = new JTextField(15);
+    JTextField height = new JTextField(15);
+    JTextField sex = new JTextField(15);
+    JTextField birthday = new JTextField(15);
 
     UserCreationController userCreationController;
+    float newWeight = Float.parseFloat(weight.getText()); // ASK ABOUT THIS!!!!!
+    float newHeight = Float.parseFloat(height.getText()); // ASK ABOUT THIS!!!!!
 
     public UserCreationScreen(UserCreationController controller) {
         this.userCreationController = controller;
@@ -25,7 +24,11 @@ public class UserCreationScreen extends JFrame implements ActionListener {
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         LabelTextPanel usernameInfo = new LabelTextPanel(new JLabel("Choose Username"), username);
         LabelTextPanel passwordInfo = new LabelTextPanel(new JLabel("Choose Password"), password);
-        LabelTextPanel repeatPasswordInfo = new LabelTextPanel(new JLabel("Please enter yourpassword again"), repeatPassword);
+        LabelTextPanel repeatPasswordInfo = new LabelTextPanel(new JLabel("Please enter your password again"), repeatPassword);
+        LabelTextPanel weightInfo = new LabelTextPanel(new JLabel("Please enter your weight"), weight);
+        LabelTextPanel heightInfo = new LabelTextPanel(new JLabel("Please enter your height"), height);
+        LabelTextPanel sexInfo = new LabelTextPanel(new JLabel("Please enter your gender"), sex);
+        LabelTextPanel birthdayInfo = new LabelTextPanel(new JLabel("Please enter your birthday"), birthday);
 
         JButton signUp = new JButton("Create account");
         JPanel button = new JPanel();
@@ -38,27 +41,25 @@ public class UserCreationScreen extends JFrame implements ActionListener {
         panel.add(usernameInfo);
         panel.add(passwordInfo);
         panel.add(repeatPasswordInfo);
+        panel.add(weightInfo);
+        panel.add(heightInfo);
+        panel.add(sexInfo);
+        panel.add(birthdayInfo);
         panel.add(button);
         this.setContentPane(panel);
         this.pack();
-
-
-        //public void actionPerformed(ActionEvent event) {
-            //try {
-                //userCreationController.accountCreator(username.getText(), String.valueOf(password.getPassword()));
-                //JOptionPane.showMessageDialog(this, "Login successful!");
-            //} catch (Exception e) {
-                //JOptionPane.showMessageDialog(this, "Login failed!");
-            //}
-        //}
-
-
-
-
-
-
     }
 
-
+    public void actionPerformed(ActionEvent evt) {
+        try {
+            userCreationController.accountCreator(username.getText(), password.getText(), repeatPassword.getText(),
+                    newWeight, newHeight, sex.getText(), birthday.getText());
+            JOptionPane.showMessageDialog(this, "Account was created!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Accound creation failed!");
+        }
+    }
 
 }
+
+
