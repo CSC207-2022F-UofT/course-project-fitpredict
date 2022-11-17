@@ -120,8 +120,8 @@ public class User implements Serializable {
     }
 
     /**
-     * Returns true if the two passwrods match
-     * @return if the two passwrod smatch
+     * Returns true if the two passwords match
+     * @return if the two passwords match
      */
     public boolean checkPasswordMatches(String password){
         return true;
