@@ -10,7 +10,6 @@ public class UserCreator{
     private final UserAccountList existingUsers;
     UserReadWriter userReadWriter = new UserReadWriter();
 
-
     // File methods.
     public UserCreator(UserAccountList existingUsers) {
         this.existingUsers = existingUsers;
@@ -44,7 +43,6 @@ public class UserCreator{
     }
 
     //checkUsernamePasswordValid, checks to see if both the username and the given passwords a) match, and b) are valid
-
     public ArrayList<String> checkUsernamePasswordValid(String username, String password, String repeatPassword){
 
         ArrayList<String> usernameInvalid = new ArrayList<>(0);
