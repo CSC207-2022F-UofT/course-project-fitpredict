@@ -63,7 +63,6 @@ public class UserCreationScreen extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(this, "Account creation failed!");
         }
     }
-
 }
 
 
