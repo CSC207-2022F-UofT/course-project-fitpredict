@@ -7,8 +7,8 @@ public class User implements Serializable {
     private String username;
     private String password;
     private String repeatPassword;
-    private Float weight;
-    private Float height;
+    private Double weight;
+    private Double height;
     private String sex;
     private String birthday;
 
@@ -23,7 +23,7 @@ public class User implements Serializable {
      * @param sex The user's sex
      * @param birthday The user's birthday
      */
-    public User(String username, String password,String repeatPassword,  Float weight, Float height, String sex,
+    public User(String username, String password,String repeatPassword,  Double weight, Double height, String sex,
                 String birthday) {
     }
 
@@ -45,28 +45,28 @@ public class User implements Serializable {
      * Returns the user's weight.
      * @return weight
      */
-    public Float getWeight() {
+    public Double getWeight() {
         return weight;
     }
 
     /**
      * Sets the User's weight.
      */
-    public void setWeight(Float weight){
+    public void setWeight(Double weight){
     }
 
     /**
      * Returns the user's height.
      * @return height.
      */
-    public Float getHeight(){
+    public Double getHeight(){
         return height;
     }
 
     /**
      * Sets the user's height
      */
-    public void setHeight(Float height){
+    public void setHeight(Double height){
     }
 
     /**
