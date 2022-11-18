@@ -11,8 +11,6 @@ public class LoginScreenMain {
                 "2002-08-14"));
         UserLogin userLogin = new UserLogin(users);
         UserLoginController controller = new UserLoginController(userLogin);
-        //LoginInputBoundary loginInputBoundary = (username, password) -> null;
-        //UserLoginController userLoginController = new UserLoginController(loginInputBoundary);
         UserLoginScreen screen = new UserLoginScreen(controller);
         screen.pack();
         screen.setVisible(true);

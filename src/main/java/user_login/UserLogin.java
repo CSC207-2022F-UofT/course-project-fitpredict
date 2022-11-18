@@ -35,8 +35,7 @@ public class UserLogin implements LoginInputBoundary{
             System.out.println("The passwords don't match");
             return LogInResult.NO_LOG;
         }
-        CurrentUser.getInstance().setUser(user);
-        //currentUser.getInstance().setUser(user);
-        return LogInResult.LOG; // This is the user that is currently logged in.
+        CurrentUser.getInstance().setUser(user); // This is the user that is currently logged in.
+        return LogInResult.LOG;
     }
 }
