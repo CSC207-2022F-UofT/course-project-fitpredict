@@ -77,13 +77,13 @@ public class UserCreator {
     public ArrayList<String> checkUsernamePasswordValid(String username, String password, String repeatPassword) {
 
         ArrayList<String> usernameInvalid = new ArrayList<>(0);
-        usernameInvalid.add("Username is invalid.");
+        usernameInvalid.add("Username is invalid");
 
         ArrayList<String> passwordInvalid = new ArrayList<>(0);
-        passwordInvalid.add("Password is invalid.");
+        passwordInvalid.add("Password is invalid");
 
         ArrayList<String> passwordMatch = new ArrayList<>(0);
-        passwordMatch.add("Passwords do not match.");
+        passwordMatch.add("Passwords do not match");
 
         if (!checkUsernameValid(username)) {
             return usernameInvalid;
@@ -110,16 +110,16 @@ public class UserCreator {
     public ArrayList<String> checkPersonalInfoValid(Double height, Double weight, String sex, String birthday) {
 
         ArrayList<String> heightInvalid = new ArrayList<>(0);
-        heightInvalid.add("Height is invalid.");
+        heightInvalid.add("Height is invalid");
 
         ArrayList<String> weightInvalid = new ArrayList<>(0);
-        weightInvalid.add("Weight is invalid.");
+        weightInvalid.add("Weight is invalid");
 
         ArrayList<String> birthdayInvalid = new ArrayList<>(0);
-        birthdayInvalid.add("Birthday is invalid.");
+        birthdayInvalid.add("Birthday is invalid");
 
         ArrayList<String> sexInvalid = new ArrayList<>(0);
-        sexInvalid.add("Sex is invalid.");
+        sexInvalid.add("Sex is invalid");
 
         if (!checkHeight(height)) {
             return heightInvalid;
@@ -145,7 +145,7 @@ public class UserCreator {
     public ArrayList<String> checkUsername(String username) {
         ArrayList<String> exists = new ArrayList<>(0);
         if (existingUsers.getUser(username) != null) {
-            exists.add("Username already exists.");
+            exists.add("Username already exists");
         }
         return exists;
     }
@@ -171,7 +171,6 @@ public class UserCreator {
                 numNumbers++;
                 numChar++;
             }
-            numChar++;
         }
         return numChar >= 5 && numLetters > 0 && numNumbers > 0;
     }
