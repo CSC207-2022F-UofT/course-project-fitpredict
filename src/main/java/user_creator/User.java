@@ -10,7 +10,7 @@ public class User implements Serializable {
     private Double weight;
     private Double height;
     private String sex;
-    private final String birthday;
+    private String birthday;
 
     /**
      * A user with account information.
@@ -33,6 +33,8 @@ public class User implements Serializable {
         this.birthday = birthday;
         this.repeatPassword = repeatPassword;
     }
+
+    public User() {}
 
     /**
      * Returns the user's username.
