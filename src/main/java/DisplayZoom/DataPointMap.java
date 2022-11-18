@@ -46,6 +46,5 @@ public class DataPointMap {
         if (this.getDataPoint(dp.getDate()) != null) {
             this.dataPointMap.remove(dp.getDate(), dp); // only remove it if the DataPoint exists in the DataPointMap
         }
-        // TODO: raise an error if DataPoint was not found in the DataPointMap - so remove was not successful
     }
 }
