@@ -49,15 +49,7 @@ public class UserCreationScreen extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent evt) {
-        try {
-            userCreationController.accountCreator(
-                    username.getText(), password.getText(), repeatPassword.getText(),
-                    Double.parseDouble(weight.getText()), Double.parseDouble(height.getText()),
-                    sex.getText(), birthday.getText());
-            JOptionPane.showMessageDialog(this, "Account was created!");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Account creation failed!");
-        }
+
     }
 }
 
