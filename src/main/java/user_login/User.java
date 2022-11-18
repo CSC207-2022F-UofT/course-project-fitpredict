@@ -44,18 +44,6 @@ public class User implements Serializable {
     public User() { // In order to have a CurrentUser entitiy that implements super, this must exist in this file, why?
     }
 
-    public void User(String username, String password,String repeatPassword, Double weight, Double height, String sex,
-                     String birthday) {
-        this.username = username;
-        this.password = password;
-        this.weight = weight;
-        this.height = height;
-        this.sex = sex;
-        this.birthday = birthday;
-        this.repeatPassword = repeatPassword;
-    }
-
-
     /**
      * Returns the user's username.
      * @return username
