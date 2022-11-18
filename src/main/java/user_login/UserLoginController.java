@@ -1,13 +1,14 @@
 package user_login;
 
 public class UserLoginController {
-    private final UserLogin userLogin;
+    private final LoginInputBoundary loginInputBoundary;
+    private CurrentUser currentUser;
 
     /**
      * A Login Controller for the use case UserLogin to use.
      */
-    public UserLoginController(UserLogin userLogin) {
-        this.userLogin = userLogin;
+    public UserLoginController(LoginInputBoundary loginInputBoundary) {
+        this.loginInputBoundary = loginInputBoundary;
     }
 
     /**
@@ -16,7 +17,13 @@ public class UserLoginController {
      * @param password The user's password.
      */
     public void login(String username, String password) {
-        userLogin.loginUser(username, password);
+        UserLogin.LogInResult result = loginInputBoundary.loginUser(username, password);
+        switch (result){
+            case LOG:
+                System.out.println("Logged in successfully");
+            case NO_LOG:
+                System.out.println("Failed to login");
+        }
     }
 
 }

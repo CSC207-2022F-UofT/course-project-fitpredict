@@ -1,7 +1,7 @@
 package user_login;
 
 
-public class UserLogin {
+public class UserLogin implements LoginInputBoundary{
 
     /**
      * A list of users created.
