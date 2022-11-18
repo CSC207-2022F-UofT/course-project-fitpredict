@@ -29,4 +29,18 @@ public class DataPointMap {
         }
         return null; // return null if dataPoint is not found
     }
+
+    /*
+    setter function to add a DataPoint object to the DataPointMap
+     */
+    public void addDataPoint(DataPoint dp) {
+        this.dataPointMap.put(dp.getDate(), dp);
+    }
+
+    /*
+    setter function to delete a DataPoint object from the DataPointMap
+     */
+    public void deleteDataPoint(DataPoint dp) {
+        this.dataPointMap.remove(dp.getDate(), dp);
+    }
 }
