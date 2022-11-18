@@ -51,4 +51,8 @@ public class DataPointTest {
 
     }
 
+    @Test(timeout = 50)
+    public void testAddExercise() {
+
+    }
 }

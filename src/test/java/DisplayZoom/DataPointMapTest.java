@@ -25,4 +25,14 @@ public class DataPointMapTest {
     public void testGetDataPoint() {
 
     }
+
+    @Test(timeout = 50)
+    public void testAddDataPoint() {
+
+    }
+
+    @Test(timeout = 50)
+    public void testRemoveDataPoint() {
+
+    }
 }
