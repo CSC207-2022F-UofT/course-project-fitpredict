@@ -6,6 +6,7 @@ public class CurrentUser extends User {
     private static CurrentUser currentUser = null;
     private User user;
 
+
     /**
      * A user with account information.
      *
@@ -17,13 +18,14 @@ public class CurrentUser extends User {
      * @param sex            The user's sex
      * @param birthday       The user's birthday
      */
-    public CurrentUser(String username, String password, String repeatPassword, Float weight, Float height, String sex, String birthday) {
+    public CurrentUser(String username, String password, String repeatPassword, Double weight, Double height, String sex, String birthday) {
         super(username, password, repeatPassword, weight, height, sex, birthday);
     }
 
     public CurrentUser() {
-        super();
+
     }
+
 
     public static CurrentUser getInstance(){
         if (currentUser == null) {

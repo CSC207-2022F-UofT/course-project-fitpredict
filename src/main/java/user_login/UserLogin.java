@@ -8,7 +8,7 @@ public class UserLogin {
      */
     private UserAccountList users;
     private CurrentUser currentUser;
-    //UserReadWriter userReadWriter = new UserReadWriter();
+    UserReadWriter userReadWriter = new UserReadWriter();
 
     public enum LogInResult{
         LOG, NO_LOG
