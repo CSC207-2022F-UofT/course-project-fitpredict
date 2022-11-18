@@ -44,12 +44,14 @@ public class UserLoginScreen extends JFrame implements ActionListener {
      * @param event the event to be processed
      */
     public void actionPerformed(ActionEvent event) {
-        try {
-            userLoginController.login(username.getText(), String.valueOf(password.getPassword()));
-            JOptionPane.showMessageDialog(this, "Login successful!");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Login failed!");
+        UserLogin.LogInResult  result = userLoginController.login(username.getText(), String.valueOf(password.getPassword()));
+        switch (result) {
+            case LOG:
+                JOptionPane.showMessageDialog(this, "Logged in successfully");
+                break;
+            case NO_LOG:
+                JOptionPane.showMessageDialog(this, "Login failed");
+                break;
         }
     }
-
 }
