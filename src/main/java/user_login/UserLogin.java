@@ -13,6 +13,7 @@ public class UserLogin implements LoginInputBoundary{
     public UserLogin(UserAccountList userAccountList) {
         this.users = userAccountList;
         try {
+            userReadWriter.saveToFile("accounts.ser", users);
             userReadWriter.readFromFile("accounts.ser");
         } catch (Exception e) {
             System.out.println("Error!");
@@ -34,7 +35,7 @@ public class UserLogin implements LoginInputBoundary{
             System.out.println("The passwords don't match");
             return LogInResult.NO_LOG;
         }
-        currentUser.setUser(user);
+        currentUser.getInstance().setUser(user);
         return LogInResult.LOG; // This is the user that is currently logged in.
     }
 }
