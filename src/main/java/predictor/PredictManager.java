@@ -16,6 +16,9 @@ public class PredictManager {
         return WeightPredictor.predict(data);
     }
 
-    // TODO: create another method "predictBMI"
+    // Returns a HashMap from the day to the predicted BMI on that day
+    public static HashMap<Date, Double> predictBMI(DataPointMap data) {
+        return BMIPredictor.predict(data);
+    }
 
 }

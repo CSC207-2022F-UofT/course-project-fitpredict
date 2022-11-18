@@ -14,9 +14,8 @@ public class BMIPredictor {
         https://www.cdc.gov/nccdphp/dnpao/growthcharts/training/bmiage/page5_1.htm
         Essentially, just dividing your weight in kg by your height in cm^2, then multiplying by 10 000
     */
-    public static DataPointMap predict(DataPointMap data) {
-        HashMap<Date, DataPoint> dataMap = data.getData();
-
+    public static HashMap<Date, Double> predict(DataPointMap data) {
+        HashMap<Date, Double> dataMap = data.getData();
         // TODO: use WeightPredictor to then calculate your weight loss, then plug this into
         //   BMI formula
 
