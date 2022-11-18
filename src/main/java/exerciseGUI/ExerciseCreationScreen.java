@@ -5,32 +5,24 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-public class ExerciseCreationScreen extends JFrame implements ActionListener{
+public class ExerciseCreationScreen extends JPanel implements ActionListener{
 
     public ExerciseCreationScreen() {
-        JPanel main = new JPanel();
-        main.setBackground(Color.YELLOW);
-        main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
-        main.setPreferredSize(new Dimension(500,500));
 
         JLabel title = new JLabel("Create New Exercise");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-        
-        main.add(title);
+        this.add(title);
 
-//        LabelTextPanel a = new LabelTextPanel(new JLabel("Exercise Name"), new JTextField(15));
-//        a.setAlignmentX(Component.RIGHT_ALIGNMENT);
-//        LabelTextPanel b = new LabelTextPanel(new JLabel("Calories Burnt Per Min"), new JTextField(15));
-//        b.setAlignmentX(Component.RIGHT_ALIGNMENT);
+        this.add(new LabelTextPanel(new JLabel("Exercise Name"), new JTextField(15)));
+        this.add(new LabelTextPanel(new JLabel("Calories Burnt Per Minute"), new JTextField(10)));
 
-//        JButton create = new JButton("Create Exercise");
-//        main.add(create);
-//        main.add(a);
-//        main.add(b);
+        JButton create = new JButton("Create Exercise");
+        create.setAlignmentX(Component.CENTER_ALIGNMENT);
+        create.addActionListener(this);
+        this.add(create);
 
-        this.setContentPane(main);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.pack();
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setVisible(true);
     }
 
     /**
@@ -40,11 +32,9 @@ public class ExerciseCreationScreen extends JFrame implements ActionListener{
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-
-    }
-
-    public static void main(String[] args) {
-        ExerciseCreationScreen ecs = new ExerciseCreationScreen();
+        System.out.println("Click " + e.getActionCommand());
+        ExerciseCreatedScreen ecs = new ExerciseCreatedScreen();
         ecs.setVisible(true);
     }
+
 }
