@@ -18,12 +18,11 @@ public class UserLoginController {
      */
     public void login(String username, String password) {
         UserLogin.LogInResult result = loginInputBoundary.loginUser(username, password);
-        switch (result){
+        switch (result) {
             case LOG:
                 System.out.println("Logged in successfully");
             case NO_LOG:
                 System.out.println("Failed to login");
         }
     }
-
 }
