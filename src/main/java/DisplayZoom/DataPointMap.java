@@ -34,13 +34,18 @@ public class DataPointMap {
     setter function to add a DataPoint object to the DataPointMap
      */
     public void addDataPoint(DataPoint dp) {
-        this.dataPointMap.put(dp.getDate(), dp);
+        this.dataPointMap.put(dp.getDate(), dp); // if the date is already mapped to a DataPoint, then
+                                                // over-write that DataPoint with this new one
+                                                // if it is not, then create a new element in the hashmap
     }
 
     /*
     setter function to delete a DataPoint object from the DataPointMap
      */
-    public void deleteDataPoint(DataPoint dp) {
-        this.dataPointMap.remove(dp.getDate(), dp);
+    public void removeDataPoint(DataPoint dp) {
+        if (this.getDataPoint(dp.getDate()) != null) {
+            this.dataPointMap.remove(dp.getDate(), dp); // only remove it if the DataPoint exists in the DataPointMap
+        }
+        // TODO: raise an error if DataPoint was not found in the DataPointMap - so remove was not successful
     }
 }
