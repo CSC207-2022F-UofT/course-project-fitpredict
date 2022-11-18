@@ -1,9 +1,9 @@
 package DisplayView;
 
-import DisplayZoom.DataPoint;
-import DisplayZoom.DataPointMap;
-import exercise.Exercise;
-import user_login.User;
+//import DisplayZoom.DataPoint;
+//import DisplayZoom.DataPointMap;
+//import exercise.Exercise;
+//import user_login.User;
 
 import java.util.ArrayList;
 
@@ -12,8 +12,8 @@ public class Dashboard {
 
     }
 
-    public DataPoint inputData(User user, DataPointMap dataPointMap, int month,
-                               int day, int year, ArrayList<Exercise> exerciseList) {
-        return new DataPoint();
-    }
+//    public DataPoint inputData(User user, DataPointMap dataPointMap, int month,
+//                               int day, int year, ArrayList<Exercise> exerciseList) {
+//        return new DataPoint();
+//    }
 }
