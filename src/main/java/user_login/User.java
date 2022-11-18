@@ -15,7 +15,8 @@ public class User implements Serializable {
     private Float weight;
     private Float height;
     private String sex;
-    private final String birthday;
+    private String birthday;
+
 
     /**
      * A user with account information.
@@ -38,6 +39,10 @@ public class User implements Serializable {
         this.sex = sex;
         this.birthday = birthday;
         this.repeatPassword = repeatPassword;
+    }
+
+    public User() {
+
     }
 
     /**

@@ -1,12 +1,13 @@
 package user_login;
 
+
 public class UserLogin {
 
     /**
      * A list of users created.
      */
     private UserAccountList users;
-    private User currentUser;
+    private CurrentUser currentUser;
     //UserReadWriter userReadWriter = new UserReadWriter();
 
     /**
@@ -15,20 +16,12 @@ public class UserLogin {
      * @param password The user's password.
      * @return whether the inputted password matches the password linked to that username. .
      */
-    public User loginUser(String username, String password) {
+    public CurrentUser loginUser(String username, String password) {
         User user = users.getUser(username);
         if (!user.checkPasswordMatches(password)) {
             System.out.println("The passwords don't match.");
         }
-        currentUser = user;
-        return user;
-    }
-
-    /**
-     * Returns the current user that is logged in.
-     * @return the current user.
-     */
-    public User getCurrentUser() {
-        return this.currentUser;
+        currentUser.setUser(user);
+        return currentUser; // This is the user that is currently logged in.
     }
 }
