@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class DashboardScreen extends JPanel implements ActionListener {
 
@@ -13,6 +14,9 @@ public class DashboardScreen extends JPanel implements ActionListener {
             {100, 18},
             {120, 19}
     };
+
+    String backText = "Back";
+    String logOutText = "Log out";
 
     public DashboardScreen() {
         // Setting the title and alignment
@@ -27,8 +31,8 @@ public class DashboardScreen extends JPanel implements ActionListener {
         table.setFillsViewportHeight(true);
 
         // Creating the buttons for actions
-        JButton logOut = new JButton("Log out");
-        JButton back = new JButton("Back");
+        JButton logOut = new JButton(logOutText);
+        JButton back = new JButton(backText);
 
         JPanel buttons = new JPanel();
         buttons.add(back);
@@ -51,11 +55,20 @@ public class DashboardScreen extends JPanel implements ActionListener {
      * React to a button click that results in event.
      */
     public void actionPerformed(ActionEvent event) {
-        System.out.println("Clicked " + event.getActionCommand());
-        System.out.println(event.getSource());
-        System.out.println(event.getModifiers());
-        System.out.println(event.getWhen());
-        System.out.println(event.getID());
-        System.out.println(event.paramString());
+        try {
+            if (event.getActionCommand().equals(backText)) {
+                JOptionPane.showMessageDialog(this, "This would " +
+                        "return back to the home screen");
+            } else if (event.getActionCommand().equals(logOutText)) {
+                JOptionPane.showMessageDialog(this, "This would " +
+                        "log the user out");
+            } else {
+                System.out.println("Button clicked has no function");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
+
     }
 }
