@@ -4,7 +4,7 @@ import java.time.ZoneOffset;
 import java.util.*;
 
 public class DataPoint {
-    private Date date;
+    private final Date date;
     private ArrayList<Exercise> exerciseList;
     private float weight;
     private float caloriesBurnt;
