@@ -1,7 +1,6 @@
-package exerciseGUI;
+package exercise_screens;
 
 import javax.swing.*;
-import java.awt.*;
 
 // Frameworks/Drivers layer
 
