@@ -1,5 +1,7 @@
 package exercise_screens;
 
+import exercise.ExerciseRequestModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -32,6 +34,7 @@ public class ExerciseCreatedScreen extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+        System.out.println("Click " + e.getActionCommand());
         System.exit(0); //THIS IS TOO STRONG AND CLOSES THE ENTIRE PROGRAM, NOT JUST THE WINDOW
     }
 
