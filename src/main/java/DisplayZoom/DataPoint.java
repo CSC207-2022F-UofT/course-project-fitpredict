@@ -3,6 +3,9 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.*;
 
+/*
+DataPoint Entity
+ */
 public class DataPoint {
     private final Date date;
     private ArrayList<Exercise> exerciseList;

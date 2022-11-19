@@ -2,6 +2,9 @@ package DisplayZoom;
 import java.util.*;
 import java.util.HashMap;
 
+/*
+DataPointMap class : Mapping of Date objects to DataPoint objects
+ */
 public class DataPointMap {
     private HashMap<Date, DataPoint> dataPointMap;
 
