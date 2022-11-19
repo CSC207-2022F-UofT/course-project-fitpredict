@@ -17,8 +17,11 @@ public class ExerciseCreationScreen extends JPanel implements ActionListener{
      */
     JTextField calories = new JTextField(10);
 
+    ExerciseCreationController ecc;
+
     ExerciseMap em;
-    public ExerciseCreationScreen() {
+    public ExerciseCreationScreen(ExerciseCreationController controller) {
+        this.ecc = controller;
 
         JLabel title = new JLabel("Create New Exercise");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -44,13 +47,7 @@ public class ExerciseCreationScreen extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("Click " + e.getActionCommand());
-
-        ExerciseFactory ef = new ExerciseFactory();
-        Exercise
-        em.addExercise(currentUser, )
-
-        ExerciseCreatedScreen ecs = new ExerciseCreatedScreen();
-        ecs.setVisible(true);
+        boolean exerciseCreated = this.ecc.create(name.getText(), Double.parseDouble(calories.getText()));
     }
 
 }

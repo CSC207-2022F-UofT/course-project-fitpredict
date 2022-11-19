@@ -4,14 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class ExerciseCreatedScreen extends JFrame implements ActionListener {
+public class ResultScreen extends JFrame implements ActionListener {
 
-    public ExerciseCreatedScreen() {
+    public ResultScreen(String text) {
         JPanel main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
         main.setPreferredSize(new Dimension(200, 40));
 
-        JLabel title = new JLabel("New Exercise Created!");
+        JLabel title = new JLabel(text);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         main.add(title);
 
@@ -33,11 +33,11 @@ public class ExerciseCreatedScreen extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("Click " + e.getActionCommand());
-        System.exit(0); //THIS IS TOO STRONG AND CLOSES THE ENTIRE PROGRAM, NOT JUST THE WINDOW
+        this.dispose();
     }
 
-    public static void main(String[] args) {
-        ExerciseCreatedScreen ecs = new ExerciseCreatedScreen();
-        ecs.setVisible(true);
-    }
+//    public static void main(String[] args) {
+//        ResultScreen ecs = new ResultScreen();
+//        ecs.setVisible(true);
+//    }
 }

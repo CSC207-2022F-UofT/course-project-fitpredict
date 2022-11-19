@@ -1,5 +1,5 @@
 package exercise;
 
 public interface ExerciseInputBoundary {
-    Exercise create();
+    boolean create(String name, double caloriesBurntPerMin);
 }
