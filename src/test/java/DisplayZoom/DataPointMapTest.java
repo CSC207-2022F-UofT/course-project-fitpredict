@@ -27,6 +27,11 @@ public class DataPointMapTest {
     }
 
     @Test(timeout = 50)
+    public void testMergeDataPoints() {
+
+    }
+
+    @Test(timeout = 50)
     public void testAddDataPoint() {
 
     }
