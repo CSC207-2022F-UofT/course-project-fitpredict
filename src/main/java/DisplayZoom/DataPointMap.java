@@ -32,6 +32,15 @@ public class DataPointMap {
     }
 
     /*
+    method to merge a HashMap of Date objects mapped to DataPoint objects and a DataPointMap object
+     */
+    public void mergeDataPoints(HashMap<Date, DataPoint> map) {
+        for (Date date : map.keySet()) {
+            this.dataPointMap.put(date, map.get(date));
+        }
+    }
+
+    /*
     setter function to add a DataPoint object to the DataPointMap
      */
     public void addDataPoint(DataPoint dp) {
