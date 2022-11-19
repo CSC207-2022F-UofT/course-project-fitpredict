@@ -12,10 +12,8 @@ public class DataPoint {
     private float weight;
     private float caloriesBurnt;
 
-    public DataPoint(int month, int day, int year, ArrayList<Exercise> exercises, float calories) {
+    public DataPoint(int month, int day, int year) {
         date = new Date(convertEpochMilliseconds(month, day, year));
-        exerciseList = exercises;
-        caloriesBurnt = calories;
     }
 
     /*
@@ -47,6 +45,10 @@ public class DataPoint {
      */
     public void addExercise(Exercise exercise) {
         this.exerciseList.add(exercise);
+    }
+
+    public void addExercise(ArrayList<Exercise> exercises) {
+        this.exerciseList.addAll(exercises);
     }
 
     /*

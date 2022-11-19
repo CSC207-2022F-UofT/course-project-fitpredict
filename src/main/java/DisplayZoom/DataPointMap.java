@@ -35,9 +35,9 @@ public class DataPointMap {
     setter function to add a DataPoint object to the DataPointMap
      */
     public void addDataPoint(DataPoint dp) {
-        this.dataPointMap.put(dp.getDate(), dp); // if the date is already mapped to a DataPoint, then
-                                                // over-write that DataPoint with this new one
-                                                // if it is not, then create a new element in the hashmap
+        // if the date is already mapped to a DataPoint, then over-write that DataPoint with this new one
+        // if it is not, then create a new element in the hashmap
+        this.dataPointMap.put(dp.getDate(), dp);
     }
 
     /*
