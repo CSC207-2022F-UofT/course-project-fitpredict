@@ -3,7 +3,7 @@ package DisplayView;
 //import DisplayZoom.DataPointMap;
 import java.util.Date;
 
-public abstract class VisualUnit {
+public interface VisualUnit {
 //    public abstract void generate(DataPointMap data);
 //    public abstract void generate(DataPointMap data, Date date);
 //    public abstract void generateSample(DataPointMap sampleData);

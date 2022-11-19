@@ -5,7 +5,7 @@ package DisplayView;
 
 import java.util.Date;
 
-public class Table {
+public class Table implements VisualUnit {
 //    public void generate(DataPointMap data) {
 //
 //    }
