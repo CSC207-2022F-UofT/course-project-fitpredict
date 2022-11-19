@@ -1,7 +1,5 @@
 package exercise_screens;
 
-import exercise.ExerciseRequestModel;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

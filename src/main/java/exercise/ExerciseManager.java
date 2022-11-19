@@ -14,5 +14,6 @@ public class ExerciseManager {
 
     public boolean deleteExercise(Exercise toBeDeleted) {
         toBeDeleted.setName("_");
+        return true;
     }
 }

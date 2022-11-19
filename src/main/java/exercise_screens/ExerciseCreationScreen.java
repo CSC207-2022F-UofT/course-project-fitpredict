@@ -45,9 +45,9 @@ public class ExerciseCreationScreen extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         System.out.println("Click " + e.getActionCommand());
 
-
-        ExerciseRequestModel erm = new ExerciseRequestModel(name.getText(), Double.parseDouble(calories.getText()));
-
+        ExerciseFactory ef = new ExerciseFactory();
+        Exercise
+        em.addExercise(currentUser, )
 
         ExerciseCreatedScreen ecs = new ExerciseCreatedScreen();
         ecs.setVisible(true);
