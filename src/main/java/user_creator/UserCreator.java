@@ -51,14 +51,21 @@ public class UserCreator {
         ArrayList<String> accountIsCreated = new ArrayList<>(0);
         accountIsCreated.add("Account has been created!");
 
+        //checks to see if the account does not exist
         if (exists.size() == 0) {
+            //checks to see if the username is valid, and checks if password and repeated password match and are valid
             if (checkUsernamePasswordValid(username, password, repeatPassword).size() == 0) {
+                //checks to see if the user's personal information is valid
                 if (checkPersonalInfoValid(height, weight, sex, birthday).size() == 0) {
+                    // if all the inputs are valid, an account is created
                     this.existingUsers.addNewUser(newUser);
+                    // account creation message is displayed
                     return accountIsCreated;
                 }
+                // error message is displayed if personal information is not valid
                 return checkPersonalInfoValid(height, weight, sex, birthday);
             }
+            // error is displayed depending on if username or password are not valid, or if the passwords do not match
             return checkUsernamePasswordValid(username, password, repeatPassword);
         }
         return exists;
