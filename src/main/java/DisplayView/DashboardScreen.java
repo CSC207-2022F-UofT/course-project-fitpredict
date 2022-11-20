@@ -5,9 +5,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * DashboardScreen class
+ */
 public class DashboardScreen extends JPanel implements ActionListener {
-
-    // Placeholder data for the table. We will input real data after merging
     String[] columnNames = {
             "Date",
             "Weight",
@@ -21,6 +22,9 @@ public class DashboardScreen extends JPanel implements ActionListener {
     String backText = "Back";
     String logOutText = "Log out";
 
+    /**
+     * Constructor for DashboardScreen
+     */
     public DashboardScreen() {
         // Setting the title and alignment
         JLabel title = new JLabel("Dashboard");
@@ -51,11 +55,11 @@ public class DashboardScreen extends JPanel implements ActionListener {
         // adding all the components via JSwing
         this.add(tableScrollPane);
         this.add(buttons);
-
     }
 
     /**
      * React to a button click that results in event.
+     * @param event the event to be processed
      */
     public void actionPerformed(ActionEvent event) {
         try {
@@ -71,7 +75,5 @@ public class DashboardScreen extends JPanel implements ActionListener {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-
-
     }
 }
