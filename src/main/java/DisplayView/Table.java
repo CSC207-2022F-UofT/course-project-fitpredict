@@ -16,7 +16,7 @@ public class Table implements VisualUnit {
      * @param data DataPointMap to be displayed on the table
      * @return 2D array to be displayed on UI
      */
-    public Object[][] generate(DataPointMap data) {
+    public static Object[][] generate(DataPointMap data) {
         Object[][] tableFormat = new Object[data.getData().keySet().size()][3];
 
 //        String[] table_headers = {

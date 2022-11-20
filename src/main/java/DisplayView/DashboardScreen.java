@@ -14,10 +14,9 @@ public class DashboardScreen extends JPanel implements ActionListener {
             "Weight",
             "Calories Burnt"
     };
-    Object[][] data = {
-            {100, 18},
-            {120, 19}
-    };
+
+    // CurrentUser.getDataPointMap to be implemented during refactoring
+    Object[][] data = Table.generate(CurrentUser.getDataPointMap());
 
     String backText = "Back";
     String logOutText = "Log out";
