@@ -16,7 +16,7 @@ public class CaloriePredictor {
      * @return A double that corresponds to the average calories burnt throughout the entire DataPointMap
      */
     public static double calculateCalories(DataPointMap data) {
-        float prediction = 0.0f;
+        double prediction = 0.0f;
 
         Map<Date, DataPoint> dataMap = data.getData();
 
