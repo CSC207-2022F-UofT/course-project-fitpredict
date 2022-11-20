@@ -1,11 +1,15 @@
 package DisplayZoom;
 
-/*
-DataPointManager class
+/**
+ * DataPointManager class
  */
 public class DataPointManager {
-    /*
-    initialize a DataPoint object with the date (month, day, year)
+    /**
+     * Creates a DataPoint object with the date (month, day, year)
+     * @param month The month of the calendar date - between 1-12, inclusive
+     * @param day The day of the calendar date - between 1-31, inclusive (depending on month)
+     * @param year The year of calendar date - greater than or equal to 1
+     * @return DataPoint
      */
     public DataPoint createDataPoint(int month, int day, int year) {
         try {
@@ -16,6 +20,12 @@ public class DataPointManager {
         return new DataPoint(month, day, year);
     }
 
+    /**
+     * Checks for a valid input of (month, day, year), throws an Exception for invalid dates
+     * @param month Month of calendar date
+     * @param day Day of calendar date
+     * @param year Year of calendar date
+     */
     public void checkValidInput(int month, int day, int year) {
         // raise IllegalArgumentException if month is invalid
         if (month > 12 || month < 1) {
