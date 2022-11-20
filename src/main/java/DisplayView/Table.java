@@ -1,13 +1,21 @@
 package DisplayView;
 
-//import DisplayZoom.DataPoint;
-//import DisplayZoom.DataPointMap;
+import DisplayZoom.DataPoint;
+import DisplayZoom.DataPointMap;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 
+/**
+ * Table class - framework/driver
+ */
 public class Table implements VisualUnit {
+    /**
+     * generate an array with table values to be displayed
+     * @param data DataPointMap to be displayed on the table
+     * @return 2D array to be displayed on UI
+     */
     public Object[][] generate(DataPointMap data) {
         Object[][] tableFormat = new Object[data.getData().keySet().size()][3];
 
@@ -29,7 +37,7 @@ public class Table implements VisualUnit {
 
         return tableFormat;
     }
-//
+
 //    public void generate(DataPointMap data, Date date) {
 //
 //    }
