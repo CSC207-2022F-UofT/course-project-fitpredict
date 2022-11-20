@@ -8,7 +8,11 @@ import java.awt.event.ActionListener;
 public class DashboardScreen extends JPanel implements ActionListener {
 
     // Placeholder data for the table. We will input real data after merging
-    String[] columnNames = {"Weight", "Age"};
+    String[] columnNames = {
+            "Date",
+            "Weight",
+            "Calories Burnt"
+    };
     Object[][] data = {
             {100, 18},
             {120, 19}
