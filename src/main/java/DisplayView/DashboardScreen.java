@@ -16,6 +16,9 @@ public class DashboardScreen extends JPanel implements ActionListener {
     };
 
     // CurrentUser.getDataPointMap to be implemented during refactoring
+    /* in refactoring: we may need to define an empty Object[][] and then generate it in the screen, so
+      we have access to CurrentUser currentUser.
+     */
     Object[][] data = Table.generate(CurrentUser.getDataPointMap());
 
     String backText = "Back";
