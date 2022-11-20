@@ -9,8 +9,8 @@ import java.util.*;
 public class DataPoint {
     private final Date date;
     private ArrayList<Exercise> exerciseList;
-    private float weight;
-    private float caloriesBurnt;
+    private double weight;
+    private double caloriesBurnt;
 
     /**
      * A DataPoint containing fitness stats information for 1 calendar day
@@ -72,7 +72,7 @@ public class DataPoint {
      * Gets number of caloriesBurnt
      * @return caloriesBurnt
      */
-    public float getCaloriesBurnt() {
+    public double getCaloriesBurnt() {
         return this.caloriesBurnt;
     }
 
@@ -80,7 +80,7 @@ public class DataPoint {
      * Sets number of caloriesBurnt
      * @param calories number of calories
      */
-    public void setCaloriesBurnt(float calories) {
+    public void setCaloriesBurnt(double calories) {
         this.caloriesBurnt = calories;
     }
 
@@ -88,7 +88,7 @@ public class DataPoint {
      * Gets weight
      * @return weight
      */
-    public float getWeight() {
+    public double getWeight() {
         return this.weight;
     }
 
@@ -96,7 +96,7 @@ public class DataPoint {
      * Sets weight
      * @param weight weight stored in DataPoint
      */
-    public void setWeight(float weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 }
