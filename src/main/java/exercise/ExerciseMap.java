@@ -1,25 +1,42 @@
 package exercise;
 
+// Frameworks & Drivers
+
 import java.util.ArrayList;
 import java.util.HashMap;
+
 
 public class ExerciseMap {
     private static final HashMap<String, ArrayList<Exercise>> exerciseMap = new HashMap<>();
 
+    /**
+     * Constructor
+     */
     public ExerciseMap() {
     }
 
-    public boolean contains(String search) {
+    /**
+     * Checks if the exercise map contains a user
+     * @param search The name of the user to be searched for
+     * @return Whether the user exists in the exercise map
+     */
+    public static boolean contains(String search) {
         return exerciseMap.containsKey(search);
     }
 
+    /**
+     * Gets the exercise array correlated to the passed user
+     * @param userName The name of the user who we want to get the exercise array from
+     * @return The exercise array of the passed user
+     */
     public ArrayList<Exercise> get(String userName) {
         return exerciseMap.get(userName);
     }
 
     /**
-     * Adds a new exercise to the current user's ArrayList of exercises
-     * Returns the new exercise added
+     * Adds a new exercise to the exercise array of the passed user
+     * @param currentUser The user who is creating a new exercise
+     * @param newExercise The new exercise to be added
      */
     public void addExercise (User currentUser, Exercise newExercise) {
         String name = currentUser.getName();

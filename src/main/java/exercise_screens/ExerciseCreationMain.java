@@ -1,7 +1,8 @@
 package exercise_screens;
 
+// Frameworks & Drivers
+
 import exercise.ExerciseCreationInteractor;
-import exercise.ExerciseFactory;
 import exercise.ExerciseManager;
 import exercise.ExerciseMap;
 
@@ -9,6 +10,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ExerciseCreationMain {
+    /**
+     * Create the final GUI
+     */
     public static void main(String[] args) {
         User currentUser = User.getCurrentUser();
         ExerciseMap em = new ExerciseMap();
@@ -22,7 +26,7 @@ public class ExerciseCreationMain {
         ExerciseCreationScreen ecs = new ExerciseCreationScreen(ecc);
         screens.add(ecs);
 
-        cl.show(screens, "qmf");
+        cl.show(screens, "screen");
         app.add(screens);
         app.pack();
         app.setVisible(true);

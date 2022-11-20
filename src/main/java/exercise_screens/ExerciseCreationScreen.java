@@ -1,5 +1,7 @@
 package exercise_screens;
 
+// Frameworks & Drivers
+
 import exercise.*;
 
 import javax.swing.*;
@@ -8,18 +10,15 @@ import java.awt.event.*;
 
 
 public class ExerciseCreationScreen extends JPanel implements ActionListener{
-    /**
-     * The name of the exercise
-     */
     JTextField name = new JTextField(15);
-    /**
-     * The number of calories burnt per minute by the exercise
-     */
     JTextField calories = new JTextField(10);
-
     ExerciseCreationController ecc;
-
     ExerciseMap em;
+
+    /**
+     * The "main" screen of exercise creation
+     * @param controller The controller object in the interface adapter layer
+     */
     public ExerciseCreationScreen(ExerciseCreationController controller) {
         this.ecc = controller;
 
@@ -41,12 +40,11 @@ public class ExerciseCreationScreen extends JPanel implements ActionListener{
 
     /**
      * Invoked when an action occurs.
-     *
+     * Attempt to create a new exercise
      * @param e the event to be processed
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Click " + e.getActionCommand());
         boolean exerciseCreated = this.ecc.create(name.getText(), Double.parseDouble(calories.getText()));
     }
 

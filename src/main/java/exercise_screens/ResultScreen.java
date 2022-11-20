@@ -1,11 +1,17 @@
 package exercise_screens;
 
+// Frameworks & Drivers
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class ResultScreen extends JFrame implements ActionListener {
 
+    /**
+     * A small, pop-up screen that can be closed by pushing a button labeled "Okay"
+     * @param text The message to be displayed on the screen
+     */
     public ResultScreen(String text) {
         JPanel main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
@@ -27,7 +33,7 @@ public class ResultScreen extends JFrame implements ActionListener {
 
     /**
      * Invoked when an action occurs.
-     *
+     * Close the pop-up when the "Okay" button is pressed
      * @param e the event to be processed
      */
     @Override
@@ -35,9 +41,4 @@ public class ResultScreen extends JFrame implements ActionListener {
         System.out.println("Click " + e.getActionCommand());
         this.dispose();
     }
-
-//    public static void main(String[] args) {
-//        ResultScreen ecs = new ResultScreen();
-//        ecs.setVisible(true);
-//    }
 }
