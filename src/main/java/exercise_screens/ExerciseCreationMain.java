@@ -2,6 +2,7 @@ package exercise_screens;
 
 import exercise.ExerciseCreationInteractor;
 import exercise.ExerciseFactory;
+import exercise.ExerciseManager;
 import exercise.ExerciseMap;
 
 import javax.swing.*;
@@ -12,7 +13,7 @@ public class ExerciseCreationMain {
         User currentUser = User.getCurrentUser();
         ExerciseMap em = new ExerciseMap();
         ExerciseCreationController ecc = new ExerciseCreationController(
-                new ExerciseCreationInteractor(new ExerciseFactory(), em, currentUser));
+                new ExerciseCreationInteractor(new ExerciseManager(), em, currentUser));
 
         JFrame app = new JFrame("Create Exercise");
         CardLayout cl = new CardLayout();

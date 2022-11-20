@@ -6,16 +6,28 @@ import exercise_screens.ResultScreen;
 import java.util.ArrayList;
 
 public class ExerciseCreationInteractor implements ExerciseInputBoundary{
-    final ExerciseFactory factory;
+    final ExerciseManager manager;
     final ExerciseMap map;
     private final User currentUser;
 
-    public ExerciseCreationInteractor (ExerciseFactory factory, ExerciseMap map, User currentUser) {
-        this.factory = factory;
+    /**
+     * Constructor
+     * @param manager Used to create exercises
+     * @param map Needed to add the exercise and map it to the user
+     * @param currentUser The user currently logged in who may create a new exercise
+     */
+    public ExerciseCreationInteractor (ExerciseManager manager, ExerciseMap map, User currentUser) {
+        this.manager = manager;
         this.map = map;
         this.currentUser = currentUser;
     }
 
+    /**
+     * Creates and assigns a new exercise to the currently logged in user
+     * @param name The name of the new exercise
+     * @param caloriesBurntPerMin The number of calories burnt per minute while engaging in the new exercise
+     * @return Returns a boolean representing if the exercise was successfully created
+     */
     @Override
     public boolean create(String name, double caloriesBurntPerMin) {
 //        if (map.contains(currentUser.getName())) {
@@ -46,7 +58,7 @@ public class ExerciseCreationInteractor implements ExerciseInputBoundary{
                 }
             }
         }
-        map.addExercise(currentUser, factory.create(name, caloriesBurntPerMin));
+        map.addExercise(currentUser, manager.createExercise(name, caloriesBurntPerMin));
         ResultScreen rs = new ResultScreen("Exercise added!");
         rs.setVisible(true);
         return true;

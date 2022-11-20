@@ -1,12 +1,15 @@
 package exercise;
 
+//Entity
+
 public class Exercise {
     String name;
     double caloriesBurntPerMin;
 
     /**
      * Constructor
-     * Cannot be named "_"
+     * @param name The name of the exercise, cannot be named "_"
+     * @param caloriesBurntPerMin The number of calories burnt per minute while engaging in this exercise
      */
     public Exercise (String name, double caloriesBurntPerMin) {
         this.name = name;
@@ -25,7 +28,7 @@ public class Exercise {
         this.name = name;
     }
 
-    public void setCaloriesBurntPerMin(float caloriesBurntPerMin) {
+    public void setCaloriesBurntPerMin(double caloriesBurntPerMin) {
         this.caloriesBurntPerMin = caloriesBurntPerMin;
     }
 }
