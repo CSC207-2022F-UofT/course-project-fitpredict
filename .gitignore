@@ -9,10 +9,6 @@
 .idea/**/shelf
 .idea/
 
-gradle/*
-gradlew
-gradlew.bat
-
 # AWS User-specific
 .idea/**/aws.xml
 
