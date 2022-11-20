@@ -3,8 +3,8 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.*;
 
-/*
-DataPoint Entity
+/**
+ * DataPoint Entity
  */
 public class DataPoint {
     private final Date date;
@@ -12,68 +12,89 @@ public class DataPoint {
     private float weight;
     private float caloriesBurnt;
 
+    /**
+     * A DataPoint containing fitness stats information for 1 calendar day
+     * @param month The month of the calendar date - between 1-12, inclusive
+     * @param day The day of the calendar date - between 1-31, inclusive (depending on month)
+     * @param year The year of calendar date - greater than or equal to 1
+     *
+     */
     public DataPoint(int month, int day, int year) {
         date = new Date(convertEpochMilliseconds(month, day, year));
     }
 
-    /*
-    Helper function that is used by a constructor
-    Converts an input of (month, day, year) to milliseconds since Epoch
-    This is only necessary because other Date constructors are deprecated
+    /**
+     * Helper function that is used by a constructor - Converts month, day, year to milliseconds since Epoch
+     * This is only necessary because other Date constructors are deprecated
+     * @param month The month of the calendar date - between 1-12, inclusive
+     * @param day The day of the calendar date - between 1-31, inclusive (depending on month)
+     * @param year The year of calendar date - greater than or equal to 1
+     * @return epochMilliseconds number of milliseconds from Epoch
      */
     public long convertEpochMilliseconds(int month, int day, int year) {
         LocalDateTime time = LocalDateTime.of(year, month, day, 0, 0);
         return time.toEpochSecond(ZoneOffset.UTC);
     }
 
-    /*
-    Getter function that returns the date of the DataPoint
+    /**
+     * Gets the date of the DataPoint
+     * @return date
      */
     public Date getDate() {
         return this.date;
     }
 
-    /*
-    Getter function that returns the exercises stored in the DataPoint
+    /**
+     * Gets the exercises stored in the DataPoint
+     * @return exerciseList
      */
     public ArrayList<Exercise> getExerciseList() {
         return this.exerciseList;
     }
 
-    /*
-    Setter function to add exercises to exerciseList
+    /**
+     * Sets exerciseList by adding an Exercise.
+     * @param exercise Exercise object
      */
     public void addExercise(Exercise exercise) {
         this.exerciseList.add(exercise);
     }
 
+    /**
+     * Sets exerciseList by merging it with another ArrayList of Exercise objects
+     * @param exercises ArrayList of Exercise objects to be added
+     */
     public void addExercise(ArrayList<Exercise> exercises) {
         this.exerciseList.addAll(exercises);
     }
 
-    /*
-    Getter function that returns the number of calories burnt that is stored in the DataPoint
-    */
+    /**
+     * Gets number of caloriesBurnt
+     * @return caloriesBurnt
+     */
     public float getCaloriesBurnt() {
         return this.caloriesBurnt;
     }
 
-    /*
-    Setter function that sets the number of calories burnt in the DataPoint
+    /**
+     * Sets number of caloriesBurnt
+     * @param calories number of calories
      */
     public void setCaloriesBurnt(float calories) {
         this.caloriesBurnt = calories;
     }
 
-    /*
-    Getter function that returns the user's weight stored in the DataPoint
+    /**
+     * Gets weight
+     * @return weight
      */
     public float getWeight() {
         return this.weight;
     }
 
-    /*
-    Setter function that sets the weight of the user stored in the DataPoint
+    /**
+     * Sets weight
+     * @param weight weight stored in DataPoint
      */
     public void setWeight(float weight) {
         this.weight = weight;
