@@ -3,7 +3,6 @@ package screens;
 // Frameworks & Drivers
 
 import controllers.ExerciseCreationController;
-import use_cases.ExerciseMap;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +13,6 @@ public class ExerciseCreationScreen extends JPanel implements ActionListener{
     JTextField name = new JTextField(15);
     JTextField calories = new JTextField(10);
     ExerciseCreationController ecc;
-    ExerciseMap em;
 
     /**
      * The "main" screen of exercise creation

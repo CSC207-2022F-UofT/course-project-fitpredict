@@ -10,18 +10,15 @@ import java.util.ArrayList;
 
 public class ExerciseCreationInteractor implements ExerciseInputBoundary {
     final ExerciseManager manager;
-    final ExerciseMap map;
     private final CurrentUser currentUser;
 
     /**
      * Constructor
      * @param manager Used to create exercises
-     * @param map Needed to add the exercise and map it to the user
      * @param currentUser The user currently logged in who may create a new exercise
      */
-    public ExerciseCreationInteractor (ExerciseManager manager, ExerciseMap map, CurrentUser currentUser) {
+    public ExerciseCreationInteractor (ExerciseManager manager, CurrentUser currentUser) {
         this.manager = manager;
-        this.map = map;
         this.currentUser = currentUser;
     }
 
@@ -51,8 +48,8 @@ public class ExerciseCreationInteractor implements ExerciseInputBoundary {
 //        ResultScreen rs = new ResultScreen("Exercise added!");
 //        rs.setVisible(true);
 //        return true;
-        if (map.contains(currentUser.getUsername())) {
-            ArrayList<Exercise> exerciseList = map.get(currentUser.getUsername());
+        if (ExerciseMap.contains(currentUser.getUsername())) {
+            ArrayList<Exercise> exerciseList = ExerciseMap.get(currentUser.getUsername());
             for (Exercise exercise : exerciseList) {
                 if (exercise.getName().equals(name)) {
                     ResultScreen rs = new ResultScreen("An Exercise with that name already exists!");
@@ -61,7 +58,7 @@ public class ExerciseCreationInteractor implements ExerciseInputBoundary {
                 }
             }
         }
-        map.addExercise(currentUser, manager.createExercise(name, caloriesBurntPerMin));
+        ExerciseMap.addExercise(currentUser, manager.createExercise(name, caloriesBurntPerMin));
         ResultScreen rs = new ResultScreen("Exercise added!");
         rs.setVisible(true);
         return true;
