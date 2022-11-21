@@ -24,7 +24,7 @@ public class Table implements VisualUnit {
 //                "Calories Burnt"
 //        };
 
-        ArrayList<Date> dates = new ArrayList<Date>(data.getData.keySet());
+        ArrayList<Date> dates = new ArrayList<Date>(data.getData().keySet());
         ArrayList<Date> sorted_dates = Collections.sort(dates);
         int i = 0;
         for (Date date : sorted_dates) {

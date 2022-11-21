@@ -1,7 +1,7 @@
 package screens;
 
+import use_cases.UserAccountList;
 import use_cases.UserCreator;
-import user_creator.UserAccountList;
 import controllers.UserCreationController;
 
 public class UserCreationScreenMain {

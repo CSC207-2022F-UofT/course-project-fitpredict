@@ -2,7 +2,6 @@ package use_cases;
 
 import entities.User;
 import use_cases.UserReadWriter;
-import user_creator.UserAccountList;
 
 import java.io.IOException;
 import java.time.LocalDate;

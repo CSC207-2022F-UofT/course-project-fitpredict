@@ -1,6 +1,7 @@
 package use_cases;
 
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * Use Case: A class to predict BMI over time
@@ -17,7 +18,7 @@ public class BMIPredictor {
      * @return A hashmap of Dates that map to a Double corresponding to the BMI prediction of that date
      */
     public static HashMap<Date, Double> predict(DataPointMap data) {
-        HashMap<Date, Double> dataMap = data.getData();
+        HashMap<Date, Double> dataMap = new HashMap<>();
         // TODO: use WeightPredictor to then calculate your weight loss, then plug this into
         //   BMI formula
 

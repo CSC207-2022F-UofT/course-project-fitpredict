@@ -2,14 +2,16 @@ package use_cases;
 
 // Use Case
 
+import entities.CurrentUser;
 import entities.Exercise;
+import entities.User;
 import screens.ResultScreen;
 import java.util.ArrayList;
 
 public class ExerciseCreationInteractor implements ExerciseInputBoundary {
     final ExerciseManager manager;
     final ExerciseMap map;
-    private final User currentUser;
+    private final CurrentUser currentUser;
 
     /**
      * Constructor
@@ -17,7 +19,7 @@ public class ExerciseCreationInteractor implements ExerciseInputBoundary {
      * @param map Needed to add the exercise and map it to the user
      * @param currentUser The user currently logged in who may create a new exercise
      */
-    public ExerciseCreationInteractor (ExerciseManager manager, ExerciseMap map, User currentUser) {
+    public ExerciseCreationInteractor (ExerciseManager manager, ExerciseMap map, CurrentUser currentUser) {
         this.manager = manager;
         this.map = map;
         this.currentUser = currentUser;
@@ -49,8 +51,8 @@ public class ExerciseCreationInteractor implements ExerciseInputBoundary {
 //        ResultScreen rs = new ResultScreen("Exercise added!");
 //        rs.setVisible(true);
 //        return true;
-        if (map.contains(currentUser.getName())) {
-            ArrayList<Exercise> exerciseList = map.get(currentUser.getName());
+        if (map.contains(currentUser.getUsername())) {
+            ArrayList<Exercise> exerciseList = map.get(currentUser.getUsername());
             for (Exercise exercise : exerciseList) {
                 if (exercise.getName().equals(name)) {
                     ResultScreen rs = new ResultScreen("An Exercise with that name already exists!");

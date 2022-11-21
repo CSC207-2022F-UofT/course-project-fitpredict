@@ -1,9 +1,9 @@
 package screens;
 
 
+import entities.User;
 import use_cases.UserAccountList;
 import use_cases.UserLogin;
-import user_login.User;
 import controllers.UserLoginController;
 
 public class LoginScreenMain {
@@ -12,7 +12,7 @@ public class LoginScreenMain {
      */
     public static void main(String[] args) {
         UserAccountList users = new UserAccountList();
-        users.addNewUser(new User("selintasman1", "Hello1234", "Hello1234", 15.0, 1.64, "Female",
+        users.addNewUser(new entities.User("selintasman1", "Hello1234", "Hello1234", 15.0, 1.64, "Female",
                 "2002-08-14"));
         UserLogin userLogin = new UserLogin(users);
         UserLoginController controller = new UserLoginController(userLogin);

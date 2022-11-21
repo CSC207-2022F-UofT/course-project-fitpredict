@@ -1,12 +1,10 @@
 package entities;
 
-import user_login.User;
-
 // This is our CurrentUser entity.
-public class CurrentUser extends user_login.User {
+public class CurrentUser extends User {
 
     private static CurrentUser currentUser = null;
-    private user_login.User user;
+    private User user;
 
 
     /**
@@ -36,7 +34,7 @@ public class CurrentUser extends user_login.User {
         return currentUser;
     }
 
-    public void setUser(user_login.User newUser) {
+    public void setUser(User newUser) {
         this.user = newUser;
     }
 
@@ -47,5 +45,11 @@ public class CurrentUser extends user_login.User {
     public User getUser() {
         return user;
     }
+
+    /**
+     * Returns the current user that is logged in's username
+     * @return the username of the user
+     */
+    public String getUsername() { return getUser().getUsername(); }
 
 }

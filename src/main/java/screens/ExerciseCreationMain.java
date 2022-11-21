@@ -3,6 +3,7 @@ package screens;
 // Frameworks & Drivers
 
 import controllers.ExerciseCreationController;
+import entities.User;
 import use_cases.ExerciseCreationInteractor;
 import use_cases.ExerciseManager;
 import use_cases.ExerciseMap;

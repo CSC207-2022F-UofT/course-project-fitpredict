@@ -1,6 +1,6 @@
 package use_cases;
 
-import user_login.User;
+import entities.User;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -16,8 +16,8 @@ public class UserAccountList implements Serializable {
      /**
      * Add a new User to the existing list of users
      */
-     public void addNewUser(User NewUser){
-         userAccountList.put(NewUser.getUsername(), NewUser);
+     public void addNewUser(User newUser){
+         userAccountList.put(newUser.getUsername(), newUser);
 
      }
 

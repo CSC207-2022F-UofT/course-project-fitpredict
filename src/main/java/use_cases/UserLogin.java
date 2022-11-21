@@ -4,8 +4,7 @@ package use_cases;
 import entities.CurrentUser;
 import use_cases.LoginInputBoundary;
 import use_cases.UserAccountList;
-import user_login.User;
-import user_login.UserReadWriter;
+import entities.User;
 
 public class UserLogin implements LoginInputBoundary {
 
@@ -14,7 +13,7 @@ public class UserLogin implements LoginInputBoundary {
      */
     private UserAccountList users;
     private CurrentUser currentUser;
-    user_login.UserReadWriter userReadWriter = new UserReadWriter();
+    UserReadWriter userReadWriter = new UserReadWriter();
 
     public UserLogin(UserAccountList userAccountList) {
         this.users = userAccountList;

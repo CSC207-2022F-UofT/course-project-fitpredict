@@ -1,6 +1,5 @@
 package screens;
 
-import user_creator.LabelTextPanel;
 import controllers.UserCreationController;
 
 import javax.swing.*;
@@ -23,13 +22,13 @@ public class UserCreationScreen extends JFrame implements ActionListener {
         this.userCreationController = controller;
         JLabel title = new JLabel("Register Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-        user_creator.LabelTextPanel usernameInfo = new user_creator.LabelTextPanel(new JLabel("Choose Username (At least 5 characters: must include letters and numbers)"), username);
-        user_creator.LabelTextPanel passwordInfo = new user_creator.LabelTextPanel(new JLabel("Choose Password (At least 5 characters: must include letters and numbers)"), password);
-        user_creator.LabelTextPanel repeatPasswordInfo = new user_creator.LabelTextPanel(new JLabel("Please enter your password again"), repeatPassword);
-        user_creator.LabelTextPanel weightInfo = new user_creator.LabelTextPanel(new JLabel("Enter your weight"), weight);
-        user_creator.LabelTextPanel heightInfo = new user_creator.LabelTextPanel(new JLabel("Enter your height"), height);
-        user_creator.LabelTextPanel sexInfo = new user_creator.LabelTextPanel(new JLabel("Enter your gender (Options: Male, Female, Other)"), sex);
-        user_creator.LabelTextPanel birthdayInfo = new LabelTextPanel(new JLabel("Enter your birthday (Use the form: YYYY-MM-DD"), birthday);
+        LabelTextPanel usernameInfo = new LabelTextPanel(new JLabel("Choose Username (At least 5 characters: must include letters and numbers)"), username);
+        LabelTextPanel passwordInfo = new LabelTextPanel(new JLabel("Choose Password (At least 5 characters: must include letters and numbers)"), password);
+        LabelTextPanel repeatPasswordInfo = new LabelTextPanel(new JLabel("Please enter your password again"), repeatPassword);
+        LabelTextPanel weightInfo = new LabelTextPanel(new JLabel("Enter your weight"), weight);
+        LabelTextPanel heightInfo = new LabelTextPanel(new JLabel("Enter your height"), height);
+        LabelTextPanel sexInfo = new LabelTextPanel(new JLabel("Enter your gender (Options: Male, Female, Other)"), sex);
+        LabelTextPanel birthdayInfo = new LabelTextPanel(new JLabel("Enter your birthday (Use the form: YYYY-MM-DD"), birthday);
 
         JButton signUp = new JButton("Create account");
         JPanel button = new JPanel();

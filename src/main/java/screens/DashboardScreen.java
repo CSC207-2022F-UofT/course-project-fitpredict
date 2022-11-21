@@ -1,5 +1,7 @@
 package screens;
 
+import entities.CurrentUser;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

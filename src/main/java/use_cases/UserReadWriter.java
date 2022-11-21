@@ -1,6 +1,5 @@
 package use_cases;
 
-import user_creator.UserAccountList;
 
 import java.io.*;
 

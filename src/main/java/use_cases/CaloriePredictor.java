@@ -1,6 +1,6 @@
 package use_cases;
 
-import org.junit.experimental.theories.DataPoint;
+import entities.DataPoint;
 
 import java.util.Date;
 import java.util.Map;
