@@ -52,7 +52,7 @@ public class UserCreationScreen extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent evt) {
         JOptionPane.showMessageDialog(this, userCreationController.accountCreator(username.getText(), password.getText(), repeatPassword.getText(),
-                Double.parseDouble(weight.getText()), Double.parseDouble(height.getText()),
+                Double.parseDouble(height.getText()), Double.parseDouble(weight.getText()),
                 sex.getText(), birthday.getText()));
 
     }
