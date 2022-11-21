@@ -3,8 +3,6 @@ package exercise;
 import entities.Exercise;
 import org.junit.jupiter.api.Test;
 
-import java.util.Objects;
-
 public class ExerciseTest {
     Exercise e = new Exercise("Push Up", 7);
 
@@ -15,23 +13,27 @@ public class ExerciseTest {
 
     @Test
     public void ExerciseGetName() {
-        assert (e.getName().equals("Push Up"));
+        String expected = "Push Up";
+        assert (e.getName().equals(expected));
     }
 
     @Test
     public void ExerciseGetCaloriesBurnt() {
-        assert (e.getCaloriesBurntPerMin() == 7);
+        double expected = 7;
+        assert (e.getCaloriesBurntPerMin() == expected);
     }
 
     @Test
     public void ExerciseSetName() {
-        e.setName("Jumping Jack");
-        assert (e.getName().equals("Jumping Jack"));
+        String expected = "Jumping Jack";
+        e.setName(expected);
+        assert (e.getName().equals(expected));
     }
 
     @Test
     public void ExerciseSetCaloriesBurnt() {
-        e.setCaloriesBurntPerMin(10);
-        assert (e.getCaloriesBurntPerMin() == 10);
+        double expected = 10;
+        e.setCaloriesBurntPerMin(expected);
+        assert (e.getCaloriesBurntPerMin() == expected);
     }
 }

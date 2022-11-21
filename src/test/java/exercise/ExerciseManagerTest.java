@@ -1,0 +1,24 @@
+package exercise;
+
+import entities.Exercise;
+import use_cases.ExerciseManager;
+import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertThrows;
+
+public class ExerciseManagerTest {
+    ExerciseManager em = new ExerciseManager();
+
+    @Test
+    public void NameInvalidExercise() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {em.createExercise("_", 10);});
+        String expected = "An exercise cannot be named _";
+        assert (exception.getMessage().equals(expected));
+    }
+
+    @Test void DeleteExercise() {
+        Exercise exercise = new Exercise("Push Up", 7);
+        em.deleteExercise(exercise);
+        String expected = "_";
+        assert (exercise.getName().equals(expected));
+    }
+}
