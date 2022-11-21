@@ -31,7 +31,7 @@ public class DataPoint {
      * @param year The year of calendar date - greater than or equal to 1
      * @return epochMilliseconds number of milliseconds from Epoch
      */
-    public long convertEpochMilliseconds(int month, int day, int year) {
+    public static long convertEpochMilliseconds(int month, int day, int year) {
         LocalDateTime time = LocalDateTime.of(year, month, day, 0, 0);
         return time.toEpochSecond(ZoneOffset.UTC);
     }
