@@ -2,6 +2,8 @@ package exercise;
 
 // Frameworks & Drivers
 
+import user_login.CurrentUser;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -38,8 +40,8 @@ public class ExerciseMap {
      * @param currentUser The user who is creating a new exercise
      * @param newExercise The new exercise to be added
      */
-    public void addExercise (User currentUser, Exercise newExercise) {
-        String name = currentUser.getName();
+    public void addExercise (CurrentUser currentUser, Exercise newExercise) {
+        String name = currentUser.getUsername();
         if (exerciseMap.containsKey(name)) {
             exerciseMap.get(name).add(newExercise);
         }
