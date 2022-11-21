@@ -1,4 +1,6 @@
 package entities;
+import use_cases.DataPointMap;
+
 import java.io.Serializable;
 
 // This is going to be our User entity.
@@ -11,6 +13,7 @@ public class User implements Serializable {
     private Double height;
     private String sex;
     private String birthday;
+    private DataPointMap dataPointMap;
 
     /**
      * A user with account information.
@@ -32,6 +35,7 @@ public class User implements Serializable {
         this.sex = sex;
         this.birthday = birthday;
         this.repeatPassword = repeatPassword;
+        this.dataPointMap = new DataPointMap();
     }
 
     public User() {}
@@ -142,5 +146,9 @@ public class User implements Serializable {
      */
     public boolean checkPasswordMatches(String password) {
         return this.password.equals(password);
+    }
+
+    public DataPointMap getDataPointMap() {
+        return this.dataPointMap;
     }
 }
