@@ -3,7 +3,7 @@ package screens;
 // Frameworks & Drivers
 
 import controllers.ExerciseCreationController;
-import entities.User;
+import entities.CurrentUser;
 import use_cases.ExerciseCreationInteractor;
 import use_cases.ExerciseManager;
 
@@ -14,8 +14,7 @@ public class ExerciseCreationMain {
     /**
      * Create the final GUI
      */
-    public static void main(String[] args) {
-        User currentUser = User.getCurrentUser();
+    public static void generateExerciseCreationGUI(CurrentUser currentUser) {
         ExerciseCreationController ecc = new ExerciseCreationController(
                 new ExerciseCreationInteractor(new ExerciseManager(), currentUser));
 

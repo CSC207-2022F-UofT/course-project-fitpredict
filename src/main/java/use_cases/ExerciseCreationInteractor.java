@@ -4,7 +4,6 @@ package use_cases;
 
 import entities.CurrentUser;
 import entities.Exercise;
-import entities.User;
 import screens.ResultScreen;
 import java.util.ArrayList;
 
