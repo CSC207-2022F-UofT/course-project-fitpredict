@@ -18,19 +18,19 @@ public class Table implements VisualUnit {
     public static Object[][] generate(DataPointMap data) {
         Object[][] tableFormat = new Object[data.getData().keySet().size()][3];
 
-//        String[] table_headers = {
+//        information: the table headers are the following: {
 //                "Date",
 //                "Weight",
 //                "Calories Burnt"
-//        };
+//        }
 
         ArrayList<Date> dates = new ArrayList<Date>(data.getData().keySet());
         Collections.sort(dates);
         int i = 0;
         for (Date date : dates) {
-            tableFormat[i] = {date.toString(),
-                            data.getDataPoint(date).getWeight().toString(),
-                            data.getDataPoint(date).getCaloriesBurnt().toString()};
+            tableFormat[i] = new Object[]{date.toString(),
+                    String.valueOf(data.getDataPoint(date).getWeight()),
+                    String.valueOf(data.getDataPoint(date).getCaloriesBurnt())};
             i += 1;
         }
 
