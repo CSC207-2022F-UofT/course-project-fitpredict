@@ -1,6 +1,7 @@
 package predictor;
 
 import org.junit.jupiter.api.Test;
+import use_cases.WeightPredictor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

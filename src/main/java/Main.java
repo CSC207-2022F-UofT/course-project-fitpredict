@@ -1,4 +1,4 @@
-import DisplayView.DashboardScreen;
+import screens.DashboardScreen;
 
 import javax.swing.*;
 import java.awt.*;
