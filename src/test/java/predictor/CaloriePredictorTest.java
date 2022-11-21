@@ -1,8 +1,12 @@
 package predictor;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import entities.DataPoint;
 import org.junit.jupiter.api.Test;
 import use_cases.CaloriePredictor;
+import use_cases.DataPointManager;
+import use_cases.DataPointMap;
 
 import java.util.Arrays;
 

@@ -2,6 +2,7 @@ package predictor;
 
 import org.junit.jupiter.api.Test;
 import use_cases.WeightPredictor;
+import use_cases.DataPointMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,6 +19,7 @@ public class WeightPredictorTest {
         // test that the Weight predictor knows when not to change
         // TODO: when this function is implemented, write a test case
         // because at the moment, it cannot properly be written
+
     }
 
     @Test
