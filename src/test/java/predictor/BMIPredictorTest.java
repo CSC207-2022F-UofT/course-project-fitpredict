@@ -18,7 +18,10 @@ public class BMIPredictorTest {
     public void BMIPredictorEmpty() {
         DataPointMap data = new DataPointMap();
         // Assert that the function works with an empty DataPointMap()
-        assertEquals(BMIPredictor.predict(data).size(), 0);
+        CurrentUser user = new CurrentUser("mooga", "123",
+                "123", 100.0, 100.0, "Male", "");
+        // Assert that the function works with an empty DataPointMap(), BMI should be exactly the same as CurrentUser
+        assertEquals(BMIPredictor.predict(data).size(), 100.0);
     }
 
     @Test
