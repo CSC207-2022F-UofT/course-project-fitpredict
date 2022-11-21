@@ -8,6 +8,8 @@ import java.util.HashMap;
  */
 public abstract class Predictor {
 
+    // This is the lengths of the predictions in days
+    static final int PREDICTION_LENGTH = 90;
     /**
      * An abstract class that will return some prediction based on the inputted DataPointMap
      * @param data The data that is used for the prediction

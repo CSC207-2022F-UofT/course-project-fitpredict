@@ -6,11 +6,14 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.HashMap;
 
+import static use_cases.Predictor.PREDICTION_LENGTH;
+
 
 /**
  * Use Case: A class to predict BMI over time
  */
 public class BMIPredictor {
+
     /**
      * Returns a predicted BMI in the future over the days based on the inputted DataPointMap
      *         It simply uses the BMI formula taken from:
@@ -33,7 +36,8 @@ public class BMIPredictor {
         // Get Height
         double height = CurrentUser.getInstance().getHeight();
 
-        for (int day = 1; day <= 90; day++) {
+        for (int day = 1; day <= PREDICTION_LENGTH; day++) {
+            // Get new date (there is 86400000 milliseconds per day)
             Date date = new Date(milliseconds + day * 86400000L);
             Double bmi = WeightPredictor.predict(data).get(date) * 10000/ height * height;
             predictions.put(date, bmi);

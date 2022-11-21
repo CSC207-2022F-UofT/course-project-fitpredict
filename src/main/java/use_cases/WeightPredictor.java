@@ -42,7 +42,7 @@ public class WeightPredictor extends Predictor {
         double finalWeight = CurrentUser.getInstance().getWeight();
 
         // Create predictions map
-        for (int day = 1; day <= 90; day++) {
+        for (int day = 1; day <= PREDICTION_LENGTH; day++) {
             // Get new date (there is 86400000 milliseconds per day)
             Date date = new Date(milliseconds + day * 86400000L);
 
