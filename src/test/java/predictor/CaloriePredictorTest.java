@@ -2,6 +2,7 @@ package predictor;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import use_cases.CaloriePredictor;
 
 import java.util.Arrays;
 
