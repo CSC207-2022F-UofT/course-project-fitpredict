@@ -4,6 +4,7 @@ package screens;
 
 import controllers.ExerciseCreationController;
 import entities.CurrentUser;
+import entities.User;
 import use_cases.ExerciseCreationInteractor;
 import use_cases.ExerciseManager;
 
@@ -29,5 +30,12 @@ public class ExerciseCreationMain {
         app.add(screens);
         app.pack();
         app.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        User sampleUser = new User("selintasman1", "Hello1234", "Hello1234", 15.0, 1.64, "Female", "2002-08-14");
+        CurrentUser currentUser = new CurrentUser();
+        currentUser.setUser(sampleUser);
+        generateExerciseCreationGUI(currentUser);
     }
 }
