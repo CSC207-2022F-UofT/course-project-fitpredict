@@ -1,6 +1,8 @@
 package user_login;
 
 
+import entities.CurrentUser;
+
 public class UserLogin implements LoginInputBoundary{
 
     /**

@@ -1,4 +1,6 @@
 package DisplayZoom;
+import entities.DataPoint;
+
 import java.util.*;
 import java.util.HashMap;
 

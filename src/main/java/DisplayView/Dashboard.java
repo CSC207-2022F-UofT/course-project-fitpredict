@@ -1,8 +1,8 @@
 package DisplayView;
 
-//import DisplayZoom.DataPoint;
+//import entities.DataPoint;
 //import DisplayZoom.DataPointMap;
-//import exercise.Exercise;
+//import entities.Exercise;
 //import user_login.User;
 
 import java.util.ArrayList;

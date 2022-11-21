@@ -2,6 +2,8 @@ package exercise;
 
 // Frameworks & Drivers
 
+import entities.Exercise;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 

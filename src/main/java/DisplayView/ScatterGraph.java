@@ -1,6 +1,6 @@
 package DisplayView;
 
-//import DisplayZoom.DataPoint;
+//import entities.DataPoint;
 //import DisplayZoom.DataPointMap;
 
 import java.util.Date;

@@ -1,6 +1,5 @@
 package DisplayView;
 
-import DisplayZoom.DataPoint;
 import DisplayZoom.DataPointMap;
 
 import java.util.ArrayList;

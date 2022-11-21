@@ -1,4 +1,4 @@
-package user_creator;
+package entities;
 import java.io.Serializable;
 
 // This is going to be our User entity.

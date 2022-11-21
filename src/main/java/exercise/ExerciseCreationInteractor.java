@@ -2,6 +2,7 @@ package exercise;
 
 // Use Case
 
+import entities.Exercise;
 import exercise_screens.ResultScreen;
 import java.util.ArrayList;
 

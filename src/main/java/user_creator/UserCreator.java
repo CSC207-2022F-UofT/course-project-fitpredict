@@ -1,5 +1,7 @@
 package user_creator;
 
+import entities.User;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;

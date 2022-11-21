@@ -1,5 +1,7 @@
 package DisplayZoom;
 
+import entities.DataPoint;
+
 /**
  * DataPointManager class
  */

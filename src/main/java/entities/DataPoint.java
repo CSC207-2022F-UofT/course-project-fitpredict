@@ -1,4 +1,4 @@
-package DisplayZoom;
+package entities;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.*;

@@ -1,5 +1,7 @@
 package user_login;
 
+import entities.CurrentUser;
+
 public class UserLoginController {
     private final LoginInputBoundary loginInputBoundary;
     private CurrentUser currentUser;

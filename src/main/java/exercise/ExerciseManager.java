@@ -2,6 +2,8 @@ package exercise;
 
 // Use Case
 
+import entities.Exercise;
+
 public class ExerciseManager {
 
     /**
