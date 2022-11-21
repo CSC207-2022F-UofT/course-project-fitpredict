@@ -1,5 +1,4 @@
 package UserCreator;
-import entities.User;
 import use_cases.UserAccountList;
 import use_cases.UserCreator;
 import org.junit.Test;
@@ -37,6 +36,20 @@ public class UserCreatorTest {
 
         // Assert that the return message is the 'username already exists' message
         assertEquals(newUser, usernameExists);
+    }
+
+    @Test
+    public void UserCreatorInvalidUsername(){
+        UserAccountList userList = new UserAccountList();
+        UserCreator uc = new UserCreator(userList);
+
+        ArrayList<String> newUser = uc.accountCreator("DinaL2003", "goodbye1", "goodbye1", 123.0, 123.0, "Other", "199-05-15");
+
+        ArrayList<String> usernameInvalid = new ArrayList<>(0);
+        usernameInvalid.add("Username is invalid");
+
+        // Assert that the return message is the 'username already exists' message
+        assertEquals(newUser, usernameInvalid);
     }
 
     @Test
