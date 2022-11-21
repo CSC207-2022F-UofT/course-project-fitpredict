@@ -25,9 +25,9 @@ public class Table implements VisualUnit {
 //        };
 
         ArrayList<Date> dates = new ArrayList<Date>(data.getData().keySet());
-        ArrayList<Date> sorted_dates = Collections.sort(dates);
+        Collections.sort(dates);
         int i = 0;
-        for (Date date : sorted_dates) {
+        for (Date date : dates) {
             tableFormat[i] = {date.toString(),
                             data.getDataPoint(date).getWeight().toString(),
                             data.getDataPoint(date).getCaloriesBurnt().toString()};
