@@ -1,13 +1,16 @@
 package use_cases;
 
+import entities.CurrentUser;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.HashMap;
+
 
 /**
  * Use Case: A class to predict BMI over time
  */
 public class BMIPredictor {
-
     /**
      * Returns a predicted BMI in the future over the days based on the inputted DataPointMap
      *         It simply uses the BMI formula taken from:
@@ -18,11 +21,26 @@ public class BMIPredictor {
      * @return A hashmap of Dates that map to a Double corresponding to the BMI prediction of that date
      */
     public static HashMap<Date, Double> predict(DataPointMap data) {
-        HashMap<Date, Double> dataMap = new HashMap<>();
-        // TODO: use WeightPredictor to then calculate your weight loss, then plug this into
-        //   BMI formula
+        HashMap<Date, Double> predictions = new HashMap<>();
 
-        return dataMap; // placeholder
+        // Get start date of predictions
+        LocalDate startLocalDate = LocalDate.now().plusDays(1);
+        Date startDate = Date.from(startLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+        // Convert date to milliseconds
+        long milliseconds = startDate.getTime();
+
+        // Get Height
+        double height = CurrentUser.getInstance().getHeight();
+
+        for (int day = 1; day <= 90; day++) {
+            Date date = new Date(milliseconds + day * 86400000L);
+            Double bmi = WeightPredictor.predict(data).get(date) * 10000/ height * height;
+            predictions.put(date, bmi);
+        }
+
+        return predictions;
     }
+
 
 }
