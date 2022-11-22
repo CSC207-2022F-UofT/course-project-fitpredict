@@ -26,14 +26,9 @@ public class BMIPredictor {
     public static HashMap<Date, Double> predict(DataPointMap data) {
         HashMap<Date, Double> predictions = new HashMap<>();
 
-        // Get start date of predictions
-        LocalDate startLocalDate = LocalDate.now().plusDays(1);
-        Date startDate = Date.from(startLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        // Get date in milliseconds so can be easily manipulated
+        long milliseconds = CurrentUser.currentDateEpoch();
 
-        // Convert date to milliseconds
-        long milliseconds = startDate.getTime();
-
-        // Get Height
         double height = CurrentUser.getInstance().getHeight();
 
         for (int day = 1; day <= PREDICTION_LENGTH; day++) {

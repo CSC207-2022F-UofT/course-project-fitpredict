@@ -31,14 +31,9 @@ public class WeightPredictor extends Predictor {
         HashMap<Date, Double> predictions = new HashMap<>();
         double caloriesBurnt = CaloriePredictor.calculateCalories(data);
 
-        // Get start date of predictions
-        LocalDate startLocalDate = LocalDate.now().plusDays(1);
-        Date startDate = Date.from(startLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        // Get date in milliseconds so can be easily manipulated
+        long milliseconds = CurrentUser.currentDateEpoch();
 
-        // Convert date to milliseconds
-        long milliseconds = startDate.getTime();
-
-        // Get current weight of the user
         double finalWeight = CurrentUser.getInstance().getWeight();
 
         // Create predictions map
