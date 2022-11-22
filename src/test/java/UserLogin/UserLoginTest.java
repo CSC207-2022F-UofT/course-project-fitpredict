@@ -1,15 +1,25 @@
 package UserLogin;
 
 import entities.User;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import use_cases.UserAccountList;
 import use_cases.UserLogin;
 
 public class UserLoginTest {
-
-    User user1 = new User("selin1", "Hello1234", "Hello1234",
-            15.0, 1.64, "Female", "2002-08-14");
     UserAccountList users = new UserAccountList();
+    User user1;
+
+    @Before
+    public void setUp() {
+        user1 = new User("selin1", "Hello1234", "Hello1234",
+                15.0, 1.64, "Female", "2002-08-14");
+    }
+
+    @After
+    public void tearDown() {}
+
 
     @Test
     public void loginUserNoLogTest() {

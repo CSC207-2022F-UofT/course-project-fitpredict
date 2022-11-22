@@ -1,5 +1,7 @@
 package UserLogin;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import entities.User;
@@ -9,12 +11,21 @@ import static org.junit.Assert.assertEquals;
 
 
 class UserAccountListTest {
-
     UserAccountList users = new UserAccountList();
-    User user1 = new User("selin1", "Hello1234", "Hello1234",
-            15.0, 1.64, "Female", "2002-08-14");
-    User user2 = new User("sarp1", "Bonjour1234", "Bonjour1234",
-            16.0, 1.80, "Male", "2003-10-21");
+    User user1;
+    User user2;
+
+    @Before
+    public void setUp() {
+        UserAccountList users = new UserAccountList();
+        user1 = new User("selin1", "Hello1234", "Hello1234",
+                15.0, 1.64, "Female", "2002-08-14");
+        user2 = new User("sarp1", "Bonjour1234", "Bonjour1234",
+                16.0, 1.80, "Male", "2003-10-21");
+    }
+
+    @After
+    public void tearDown(){}
 
     @Test
     public void testUserAccountListAdd() {
