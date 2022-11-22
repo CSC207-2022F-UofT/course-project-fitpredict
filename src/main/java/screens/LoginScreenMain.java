@@ -19,6 +19,5 @@ public class LoginScreenMain {
         UserLoginScreen screen = new UserLoginScreen(controller);
         screen.pack();
         screen.setVisible(true);
-
     }
 }

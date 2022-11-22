@@ -32,7 +32,7 @@ public class ExerciseMap {
      * @param userName The name of the user who we want to get the exercise array from
      * @return The exercise array of the passed user
      */
-    public ArrayList<Exercise> get(String userName) {
+    public static ArrayList<Exercise> get(String userName) {
         return exerciseMap.get(userName);
     }
 
@@ -41,7 +41,7 @@ public class ExerciseMap {
      * @param currentUser The user who is creating a new exercise
      * @param newExercise The new exercise to be added
      */
-    public void addExercise (CurrentUser currentUser, Exercise newExercise) {
+    public static void addExercise (CurrentUser currentUser, Exercise newExercise) {
         String name = currentUser.getUsername();
         if (exerciseMap.containsKey(name)) {
             exerciseMap.get(name).add(newExercise);
