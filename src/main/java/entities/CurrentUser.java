@@ -1,5 +1,9 @@
 package entities;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+
 // This is our CurrentUser entity.
 public class CurrentUser extends User {
 
@@ -52,5 +56,15 @@ public class CurrentUser extends User {
      * @return the username of the user
      */
     public String getUsername() { return getUser().getUsername(); }
+    /**
+     * Returns the number of milliseconds since Epoch at the current date at 12:00 am.
+     * This is necessary to use the current date since other constructors are deprecated.
+     * @return number of milliseconds from Epoch
+     */
+    public static long currentDateEpoch() {
+        LocalDate startLocalDate = LocalDate.now();
+        Date startDate = Date.from(startLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        return startDate.getTime();
+    }
 
 }
