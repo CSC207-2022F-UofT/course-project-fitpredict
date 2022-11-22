@@ -43,12 +43,12 @@ public class UserCreatorTest {
         UserAccountList userList = new UserAccountList();
         UserCreator uc = new UserCreator(userList);
 
-        ArrayList<String> newUser = uc.accountCreator("DinaL2003", "goodbye1", "goodbye1", 123.0, 123.0, "Other", "199-05-15");
+        ArrayList<String> newUser = uc.accountCreator("D", "goodbye1", "goodbye1", 123.0, 123.0, "Other", "199-05-15");
 
         ArrayList<String> usernameInvalid = new ArrayList<>(0);
         usernameInvalid.add("Username is invalid");
 
-        // Assert that the return message is the 'username already exists' message
+        // Assert that the return message is the 'username is invalid' message
         assertEquals(newUser, usernameInvalid);
     }
 
