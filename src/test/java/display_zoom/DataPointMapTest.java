@@ -2,9 +2,9 @@
  * This file contains JUnit test cases for DataPointMap.java
  */
 
-package DisplayZoom;
+package display_zoom;
 import org.junit.*;
-import static org.junit.Assert.*;
+
 import java.io.*;
 
 public class DataPointMapTest {

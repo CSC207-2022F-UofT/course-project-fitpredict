@@ -2,7 +2,7 @@
  * This file contains JUnit test cases for DataPointManagerTest.java
  */
 
-package DisplayZoom;
+package display_zoom;
 import org.junit.*;
 
 public class DataPointManagerTest {
