@@ -26,7 +26,7 @@ public class User implements Serializable {
      * @param sex The user's sex
      * @param birthday The user's birthday
      */
-    public User(String username, String password,String repeatPassword,  Double weight, Double height, String sex,
+    public User(String username, String password,String repeatPassword,  Double height, Double weight, String sex,
                 String birthday) {
         this.username = username;
         this.password = password;
