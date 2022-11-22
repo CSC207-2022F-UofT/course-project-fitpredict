@@ -61,7 +61,7 @@ public class CurrentUser extends User {
      * @return number of milliseconds from Epoch
      */
     public static long currentDateEpoch() {
-        LocalDate startLocalDate = LocalDate.now().plusDays(1);
+        LocalDate startLocalDate = LocalDate.now();
         Date startDate = Date.from(startLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
         return startDate.getTime();
     }
