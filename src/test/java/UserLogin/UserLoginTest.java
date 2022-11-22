@@ -16,11 +16,12 @@ public class UserLoginTest {
         UserLogin userLogin = new UserLogin(users);
         UserLogin.LogInResult expected = UserLogin.LogInResult.NO_LOG;
         UserLogin.LogInResult actual = userLogin.loginUser(user1.getUsername(), user1.getPassword());
-        assert (expected != actual);
+        assert (expected == actual);
 
     }
     @Test
     public void loginUserLogTest() {
+        users.addNewUser(user1);
         UserLogin userLogin = new UserLogin(users);
         UserLogin.LogInResult expected = UserLogin.LogInResult.LOG;
         UserLogin.LogInResult actual = userLogin.loginUser(user1.getUsername(), user1.getPassword());

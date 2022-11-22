@@ -23,4 +23,12 @@ class UserAccountListTest {
         Assertions.assertEquals(users.getUser("selin1"), user1);
         Assertions.assertEquals(users.getUser("sarp1"), user2);
     }
+
+    @Test
+    public void testUserAccountListGetUser() {
+        UserAccountList list = new UserAccountList();
+        list.addNewUser(user1);
+        User user = list.getUser("selin1");
+        Assertions.assertEquals(user, user1);
+    }
 }
