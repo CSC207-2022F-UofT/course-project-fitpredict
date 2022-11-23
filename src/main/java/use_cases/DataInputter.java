@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Inputs the data given by the user
  */
-public class DataInputter implements DataInputBoundary  str
+public class DataInputter implements DataInputBoundary {
     /**
      * Takes the user input and inputs the data of this day (month, day, year)
      * @param month The month of the calendar date
