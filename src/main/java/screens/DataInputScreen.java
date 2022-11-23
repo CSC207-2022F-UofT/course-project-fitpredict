@@ -19,6 +19,11 @@ public class DataInputScreen extends JFrame implements ActionListener {
     JTextField exerciseTimes = new JTextField(15);
     DataInputController dataInputController;
 
+
+    /**
+     * Creates the UI to input data
+     * @param controller The controller used by the UI
+     */
     public DataInputScreen(DataInputController controller) {
         this.dataInputController = controller;
         JLabel title = new JLabel("Data Input Screen");
@@ -45,6 +50,9 @@ public class DataInputScreen extends JFrame implements ActionListener {
         this.pack();
     }
 
+    /**
+     * Implements what happens once the input data button is clicked.
+     */
     public void actionPerformed(ActionEvent evt) {
         if (!(CurrentUser.getInstance().getUser() == null)) {
             String dateString = date.getText();
