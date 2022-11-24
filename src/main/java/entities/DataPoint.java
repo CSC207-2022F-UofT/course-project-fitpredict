@@ -21,6 +21,7 @@ public class DataPoint {
      */
     public DataPoint(int month, int day, int year) {
         date = new Date(convertEpochMilliseconds(month, day, year));
+        exerciseList = new ArrayList<Exercise>();
     }
 
     /**
