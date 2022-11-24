@@ -24,16 +24,18 @@ public class DataInputController {
      * @param times The times spend on the exercises respectively to the position in exercisesNames
      */
     public void inputData(int month, int day, int year, double weight, String[] exercisesNames, String[] times) {
-            double caloriesBurnt = 0;
-            ArrayList<Exercise> exercises = new ArrayList<>();
-            for (int i = 0; i <= exercisesNames.length; i++) {
+        ArrayList<Exercise> exercises = new ArrayList<>();
+        double caloriesBurnt = 0;
+        if (exercisesNames.length != 0) {
+            for (int i = 0; i < exercisesNames.length; i++) {
                 for (Exercise exercise : ExerciseMap.get(CurrentUser.getInstance().getUsername())) {
                     if (exercise.getName().equals(exercisesNames[i])) {
                         exercises.add(exercise);
                         caloriesBurnt += exercise.getCaloriesBurntPerMin() * Integer.parseInt(times[i]);
+                        }
+                    }
                 }
             }
-            this.dataInputBoundary.inputData(month, day, year, weight, exercises, caloriesBurnt);
-        }
+        this.dataInputBoundary.inputData(month, day, year, weight, exercises, caloriesBurnt);
     }
 }
