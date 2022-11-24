@@ -28,7 +28,7 @@ public class DataPointMapTest {
         dp2 = new DataPoint(11, 11, 2022);
         dp3 = new DataPoint(11, 12, 2022);
 
-        long seconds1 = DataPoint.convertEpochSeconds(11, 10, 2022);
+        long seconds1 = DataPoint.convertEpochMilliseconds(11, 10, 2022);
         date = new Date(seconds1);
 
         mapToMerge.put(dp2.getDate(), dp2);

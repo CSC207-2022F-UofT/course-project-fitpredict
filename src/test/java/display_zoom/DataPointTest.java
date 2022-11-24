@@ -28,7 +28,6 @@ public class DataPointTest {
         exercise3 = new Exercise("jumping", 10);
         exercises.add(exercise1);
         exercises.add(exercise3);
-
     }
 
     @After
@@ -37,14 +36,14 @@ public class DataPointTest {
 
     @Test(timeout = 50)
     public void testConvertEpochSecondsBeginning() {
-        long actual = DataPoint.convertEpochSeconds(1, 1, 1970);
+        long actual = DataPoint.convertEpochMilliseconds(1, 1, 1970);
         long expected = 0;
         assertEquals(actual, expected);
     }
 
     @Test(timeout = 50)
-    public void testConvertEpochSecondsLaterDate() {
-        long actual = DataPoint.convertEpochSeconds(11, 21, 2022);
+    public void testConvertEpochMillisecondsLaterDate() {
+        long actual = DataPoint.convertEpochMilliseconds(11, 21, 2022);
         long expected = 1669006800;
         assertEquals(actual, expected);
     }
