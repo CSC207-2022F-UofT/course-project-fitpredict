@@ -28,7 +28,7 @@ public class DataInputScreen extends JFrame implements ActionListener {
         this.dataInputController = controller;
         JLabel title = new JLabel("Data Input Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-        LabelTextPanel dateInfo = new LabelTextPanel(new JLabel("Enter Date (mm/dd/yyyy)"), date);
+        LabelTextPanel dateInfo = new LabelTextPanel(new JLabel("Enter Date (no leading zeroes, month/day/year)"), date);
         LabelTextPanel weightInfo = new LabelTextPanel(new JLabel("Enter your weight"), weight);
         LabelTextPanel exercisesInfo = new LabelTextPanel(new JLabel("Enter the exercises you did (comma seperated)"), exercises);
         LabelTextPanel exerciseTimesInfo = new LabelTextPanel(new JLabel("Enter how long you did each exercise in minutes (comma seperated)"), exerciseTimes);
