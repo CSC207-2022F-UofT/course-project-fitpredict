@@ -19,11 +19,11 @@ public class DataInputter implements DataInputBoundary {
      * @param caloriesBurnt The number of calories burned from the exercises
      */
     public void inputData(int month, int day, int year, double weight, ArrayList<Exercise> exercises, double caloriesBurnt) {
-        DataPointMap dataPointMap = CurrentUser.getInstance().getDataPointMap();
+        DataPointMap dataPointMap = CurrentUser.getInstance().getUser().getDataPointMap();
         DataPointManager manager = new DataPointManager();
         DataPoint dataPoint = manager.createDataPoint(month, day, year);
         dataPoint.setWeight(weight);
-        dataPoint.addExercise(exercises);
+        for (Exercise exercise : exercises) {dataPoint.addExercise(exercise);}
         dataPoint.setCaloriesBurnt(caloriesBurnt);
         dataPointMap.addDataPoint(dataPoint);
     }
