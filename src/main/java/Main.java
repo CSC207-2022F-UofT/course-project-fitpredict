@@ -10,7 +10,6 @@ public class Main {
         CardLayout cardLayout = new CardLayout();
         JPanel screens = new JPanel(cardLayout);
         application.add(screens);
-
         DashboardScreen dashboardScreen = new DashboardScreen();
         screens.add(dashboardScreen);
         cardLayout.show(screens, "dashboard");

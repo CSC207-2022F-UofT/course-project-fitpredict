@@ -16,6 +16,11 @@ public class Table implements VisualUnit {
      * @return 2D array to be displayed on UI
      */
     public static Object[][] generate(DataPointMap data) {
+        // error handling for the event that a user finds an exploit to get to this screen without logging in
+        if (data == null) {
+            return new Object[0][3];
+        }
+
         Object[][] tableFormat = new Object[data.getData().keySet().size()][3];
 
 //        information: the table headers are the following: {
