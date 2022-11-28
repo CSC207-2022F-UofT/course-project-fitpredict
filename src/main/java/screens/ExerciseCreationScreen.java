@@ -19,7 +19,6 @@ public class ExerciseCreationScreen extends JPanel implements ActionListener{
      * @param controller The controller object in the interface adapter layer
      */
     public ExerciseCreationScreen(ExerciseCreationController controller) {
-        this.ecc = controller;
 
         JLabel title = new JLabel("Create New Exercise");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -28,9 +27,29 @@ public class ExerciseCreationScreen extends JPanel implements ActionListener{
         this.add(new LabelTextPanel(new JLabel("Exercise Name"), name));
         this.add(new LabelTextPanel(new JLabel("Calories Burnt Per Minute"), calories));
 
-        JButton create = new JButton("Create Exercise");
+        JButton create = new JButton(new AbstractAction("Create Exercise") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ecc = controller;
+                ResultScreen rs;
+                if (name.getText().equals("")) {
+                    rs = new ResultScreen("An Exercise cannot have no name!");
+                }
+                else if (calories.getText().equals("") || Double.parseDouble(calories.getText()) <= 0) {
+                    rs = new ResultScreen("An Exercise must burn calories!");
+                }
+                else {
+                    boolean exerciseCreated = ecc.create(name.getText(), Double.parseDouble(calories.getText()));
+                    if (exerciseCreated) {
+                        rs = new ResultScreen("Exercise added!");
+                    } else {
+                        rs = new ResultScreen("An Exercise with that name already exists!");
+                    }
+                }
+                rs.setVisible(true);
+            }
+        });
         create.setAlignmentX(Component.CENTER_ALIGNMENT);
-        create.addActionListener(this);
         this.add(create);
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -44,21 +63,6 @@ public class ExerciseCreationScreen extends JPanel implements ActionListener{
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        ResultScreen rs;
-        if (name.getText().equals("")) {
-            rs = new ResultScreen("An Exercise cannot have no name!");
-        }
-        else if (calories.getText().equals("") || Double.parseDouble(calories.getText()) <= 0) {
-            rs = new ResultScreen("An Exercise must burn calories!");
-        }
-        else {
-            boolean exerciseCreated = this.ecc.create(name.getText(), Double.parseDouble(calories.getText()));
-            if (exerciseCreated) {
-                rs = new ResultScreen("Exercise added!");
-            } else {
-                rs = new ResultScreen("An Exercise with that name already exists!");
-            }
-        }
-        rs.setVisible(true);
+
     }
 }
