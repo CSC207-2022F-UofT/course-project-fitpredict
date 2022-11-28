@@ -19,7 +19,7 @@ public class BMIPredictorTest {
         DataPointMap data = new DataPointMap();
         // Assert that the function works with an empty DataPointMap()
         CurrentUser user = new CurrentUser("mooga", "123",
-                "123", 100.0, 100.0, "Male", "");
+                "123", 100.0, 101.0, "Male", "");
         // Assert that the function works with an empty DataPointMap(), BMI should be exactly the same as CurrentUser
         assertEquals(BMIPredictor.predict(data).size(), 100.0);
     }
@@ -34,7 +34,7 @@ public class BMIPredictorTest {
         };
         // create a current user with weight 100kg, height 100cm
         CurrentUser user = new CurrentUser("mooga", "123",
-                "123", 100.0, 100.0, "Male", "");
+                "123", 100.0, 101.0, "Male", "");
         DataPointMap data = new DataPointMap();
         DataPointManager manager = new DataPointManager();
         for (int i = 0; i < 3; i++) {
@@ -43,8 +43,8 @@ public class BMIPredictorTest {
             data.addDataPoint(input);
         }
         HashMap<Date, Double> expected = new HashMap<>();
-        // expected value is: (100 / (100^2)) * 10000 = 100
-        expected.put(new Date(DataPoint.convertEpochMilliseconds(1, 1, 4)), 100.0);
+        // expected value is: (100 / (101^2)) * 10000 = 100
+        expected.put(new Date(DataPoint.convertEpochMilliseconds(1, 1, 4)), 98.03);
         assertEquals(BMIPredictor.predict(data), expected);
     }
 
@@ -59,7 +59,7 @@ public class BMIPredictorTest {
         };
         // create a current user with weight 100kg, height 100cm
         CurrentUser user = new CurrentUser("mooga", "123",
-                "123", 100.0, 100.0, "Male", "");
+                "123", 100.0, 101.0, "Male", "");
         DataPointMap data = new DataPointMap();
         DataPointManager manager = new DataPointManager();
         for (int i = 0; i < 4; i++) {
@@ -68,7 +68,7 @@ public class BMIPredictorTest {
             data.addDataPoint(input);
         }
         HashMap<Date, Double> expected = new HashMap<>();
-        // expected value is: (100 / (100^2)) * 10000 = 100
+        // expected value is: (100 / (101^2)) * 10000 = 100
         expected.put(new Date(DataPoint.convertEpochMilliseconds(1, 1, 4)), 100.0);
         assertEquals(BMIPredictor.predict(data), expected);
 
@@ -80,14 +80,14 @@ public class BMIPredictorTest {
         DataPointMap data = new DataPointMap();
         // create a current user with weight 100kg, height 100cm
         CurrentUser user = new CurrentUser("mooga", "123",
-                "123", 100.0, 100.0, "Male", "");
+                "123", 100.0, 101.0, "Male", "");
 
         DataPointManager manager = new DataPointManager();
         DataPoint input = manager.createDataPoint(1, 1, 1);
         input.setCaloriesBurnt(caloriesBurnt);
         data.addDataPoint(input);
         HashMap<Date, Double> expected = new HashMap<>();
-        // expected value is: (99 / (100^2)) * 10000 = 99
+        // expected value is: (99 / (101^2)) * 10000 = 99
         expected.put(new Date(DataPoint.convertEpochMilliseconds(1, 1, 2)), 99.0);
         assertEquals(BMIPredictor.predict(data), expected);
     }
@@ -102,7 +102,7 @@ public class BMIPredictorTest {
         DataPointMap data = new DataPointMap();
         // create a current user with weight 100kg, height 100cm
         CurrentUser user = new CurrentUser("mooga", "123",
-                "123", 100.0, 100.0, "Male", "");
+                "123", 100.0, 101.0, "Male", "");
 
         DataPointManager manager = new DataPointManager();
         for (int i = 0; i < 2; i++) {
@@ -111,7 +111,7 @@ public class BMIPredictorTest {
             data.addDataPoint(input);
         }
         HashMap<Date, Double> expected = new HashMap<>();
-        // expected value is: (97.5 / (100^2)) * 10000 = 97.5
+        // expected value is: (97.5 / (101^2)) * 10000 = 97.5
         expected.put(new Date(DataPoint.convertEpochMilliseconds(1, 1, 2)), 97.5);
         assertEquals(BMIPredictor.predict(data), expected);
     }
