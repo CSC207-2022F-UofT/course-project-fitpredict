@@ -44,7 +44,7 @@ public class DashboardScreen extends JPanel implements ActionListener {
         // Creating the buttons for actions
         JButton logOut = new JButton(logOutText);
         JButton back = new JButton(backText);
-
+        
         JPanel buttons = new JPanel();
         buttons.add(back);
         buttons.add(logOut);
