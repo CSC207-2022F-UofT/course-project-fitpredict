@@ -52,6 +52,11 @@ public class ExerciseCreationScreen extends JPanel implements ActionListener{
         create.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.add(create);
 
+        JButton back = new JButton("Go Back");
+        back.setAlignmentX(Component.CENTER_ALIGNMENT);
+        back.addActionListener(this);
+        this.add(back);
+
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setVisible(true);
     }
@@ -63,6 +68,9 @@ public class ExerciseCreationScreen extends JPanel implements ActionListener{
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        System.out.println("Click " + e.getActionCommand());
+        JComponent jc = (JComponent) e.getSource();
+        Window w = SwingUtilities.getWindowAncestor(jc);
+        w.dispose();
     }
 }
