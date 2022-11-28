@@ -3,6 +3,9 @@ package screens;
 // Frameworks & Drivers
 
 import controllers.ExerciseCreationController;
+import controllers.UserCreationController;
+import use_cases.UserAccountList;
+import use_cases.UserCreator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -72,5 +75,12 @@ public class ExerciseCreationScreen extends JPanel implements ActionListener{
         JComponent jc = (JComponent) e.getSource();
         Window w = SwingUtilities.getWindowAncestor(jc);
         w.dispose();
+
+        UserAccountList users = new UserAccountList();
+        UserCreator userCreator = new UserCreator(users);
+        UserCreationController userCreationController = new UserCreationController(userCreator);
+        UserCreationScreen screen = new UserCreationScreen(userCreationController);
+        screen.pack();
+        screen.setVisible(true);
     }
 }
