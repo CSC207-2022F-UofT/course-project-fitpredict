@@ -8,9 +8,7 @@ import use_cases.BMIPredictor;
 import use_cases.DataPointManager;
 import use_cases.DataPointMap;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -44,7 +42,6 @@ public class BMIPredictorTest {
             input.setWeight(100.0);
             data.addDataPoint(input);
         }
-        HashMap<Date, Double> expected = new HashMap<>();
         CurrentUser.getInstance().setUser(user);
         // expected value is: (100 / (101^2)) * 10000 ~ 98.03
         Date new_date = new Date(DataPoint.convertEpochMilliseconds(1, 1, 4));
@@ -66,7 +63,6 @@ public class BMIPredictorTest {
             input.setCaloriesBurnt(caloriesBurnt[i]);
             data.addDataPoint(input);
         }
-        HashMap<Date, Double> expected = new HashMap<>();
         CurrentUser.getInstance().setUser(user);
         // expected value is: (100 / (101^2)) * 10000 ~ 98.03
         Date new_date = new Date(DataPoint.convertEpochMilliseconds(1, 1, 4));
@@ -82,7 +78,6 @@ public class BMIPredictorTest {
         DataPoint input = manager.createDataPoint(1, 1, 1);
         input.setCaloriesBurnt(caloriesBurnt);
         data.addDataPoint(input);
-        HashMap<Date, Double> expected = new HashMap<>();
         CurrentUser.getInstance().setUser(user);
         // expected value is: (99 / (101^2)) * 10000 ~ 97.05
         Date new_date = new Date(DataPoint.convertEpochMilliseconds(1, 1, 2));
@@ -102,7 +97,6 @@ public class BMIPredictorTest {
             input.setCaloriesBurnt(caloriesBurnt[i]);
             data.addDataPoint(input);
         }
-        HashMap<Date, Double> expected = new HashMap<>();
         CurrentUser.getInstance().setUser(user);
         // expected value is: (97.5 / (101^2)) * 10000 ~ 95.1
         Date newDate = new Date(DataPoint.convertEpochMilliseconds(1, 1, 2));

@@ -16,21 +16,26 @@ public class Table implements VisualUnit {
      * @return 2D array to be displayed on UI
      */
     public static Object[][] generate(DataPointMap data) {
+        // error handling for the event that a user finds an exploit to get to this screen without logging in
+        if (data == null) {
+            return new Object[0][3];
+        }
+
         Object[][] tableFormat = new Object[data.getData().keySet().size()][3];
 
-//        String[] table_headers = {
+//        information: the table headers are the following: {
 //                "Date",
 //                "Weight",
 //                "Calories Burnt"
-//        };
+//        }
 
         ArrayList<Date> dates = new ArrayList<Date>(data.getData().keySet());
-        ArrayList<Date> sorted_dates = Collections.sort(dates);
+        Collections.sort(dates);
         int i = 0;
-        for (Date date : sorted_dates) {
-            tableFormat[i] = {date.toString(),
-                            data.getDataPoint(date).getWeight().toString(),
-                            data.getDataPoint(date).getCaloriesBurnt().toString()};
+        for (Date date : dates) {
+            tableFormat[i] = new Object[]{date.toString(),
+                    String.valueOf(data.getDataPoint(date).getWeight()),
+                    String.valueOf(data.getDataPoint(date).getCaloriesBurnt())};
             i += 1;
         }
 

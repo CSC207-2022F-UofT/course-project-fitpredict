@@ -21,7 +21,7 @@ public class DashboardScreen extends JPanel implements ActionListener {
     /* in refactoring: we may need to define an empty Object[][] and then generate it in the screen, so
       we have access to CurrentUser currentUser.
      */
-    Object[][] data = Table.generate(CurrentUser.getDataPointMap());
+    Object[][] data = Table.generate(CurrentUser.getInstance().getDataPointMap());
 
     String backText = "Back";
     String logOutText = "Log out";
@@ -44,7 +44,7 @@ public class DashboardScreen extends JPanel implements ActionListener {
         // Creating the buttons for actions
         JButton logOut = new JButton(logOutText);
         JButton back = new JButton(backText);
-
+        
         JPanel buttons = new JPanel();
         buttons.add(back);
         buttons.add(logOut);

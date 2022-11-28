@@ -15,7 +15,7 @@ public class ResultScreen extends JFrame implements ActionListener {
     public ResultScreen(String text) {
         JPanel main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
-        main.setPreferredSize(new Dimension(200, 40));
+        main.setPreferredSize(new Dimension(300, 40));
 
         JLabel title = new JLabel(text);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);

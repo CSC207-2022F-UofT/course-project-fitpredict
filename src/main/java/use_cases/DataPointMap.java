@@ -8,7 +8,14 @@ import java.util.HashMap;
  * DataPointMap use case - Mapping of Date objects to DataPoint objects
  */
 public class DataPointMap {
-    private HashMap<Date, DataPoint> dataPointMap = new HashMap<Date, DataPoint>();
+    private HashMap<Date, DataPoint> dataPointMap;
+
+    /**
+     * creates a new DataPointMap object
+     */
+    public DataPointMap() {
+        dataPointMap = new HashMap<Date, DataPoint>();
+    }
 
     /**
      * Gets the dataPointMap
