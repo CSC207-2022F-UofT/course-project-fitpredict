@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-public class ExerciseCreationScreen extends JPanel implements ActionListener{
+public class ExerciseCreationScreen extends JFrame implements ActionListener{
     JTextField name = new JTextField(15);
     JTextField calories = new JTextField(10);
     ExerciseCreationController ecc;
