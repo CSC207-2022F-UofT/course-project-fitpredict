@@ -1,6 +1,9 @@
 package predictor;
 
+import entities.CurrentUser;
 import org.junit.jupiter.api.Test;
+import use_cases.BMIPredictor;
+import use_cases.DataPointMap;
 import use_cases.WeightPredictor;
 import use_cases.DataPointMap;
 import entities.DataPoint;
@@ -11,6 +14,16 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WeightPredictorTest {
+    @Test
+    public void WeightPredictorEmpty() {
+        DataPointMap data = new DataPointMap();
+        // Assert that the function works with an empty DataPointMap()
+        CurrentUser user = new CurrentUser("mooga", "123",
+                "123", 100.0, 101.0, "Male", "");
+        // Assert that the function works with an empty DataPointMap(), Weight should be exactly the same as CurrentUser
+        assertEquals(BMIPredictor.predict(data).size(), 100.0);
+    }
+
     @Test
     public void WeightPredictorZero() {
         DataPointMap data = new DataPointMap();
