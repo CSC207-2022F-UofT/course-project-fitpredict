@@ -1,11 +1,9 @@
 package screens;
 
+import controllers.DataInputController;
 import controllers.ExerciseCreationController;
 import controllers.UserLoginController;
-import use_cases.ExerciseCreationInteractor;
-import use_cases.ExerciseManager;
-import use_cases.UserAccountList;
-import use_cases.UserLogin;
+import use_cases.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,8 +21,8 @@ public class MainMenuScreen extends JFrame implements ActionListener {
         this.userAccountList = userAccountList;
         this.setPreferredSize(new Dimension(300, 300));
 
-        JLabel title = new JLabel("1. Create a new exercise");
-        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JLabel title1 = new JLabel("1. Create a new exercise");
+        title1.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JButton create = new JButton(new AbstractAction("Create Exercise") {
             @Override
@@ -42,16 +40,32 @@ public class MainMenuScreen extends JFrame implements ActionListener {
         });
         create.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JButton back = new JButton("Go Back");
+        JLabel title2 = new JLabel("2. Track your workouts");
+        title2.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JButton input = new JButton(new AbstractAction("Input exercises") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DataInputBoundary boundary = new DataInputter();
+                DataInputController controller = new DataInputController(boundary);
+                DataInputScreen screen = new DataInputScreen(controller);
+                screen.pack();
+                screen.setVisible(true);
+            }
+        });
+        input.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JButton back = new JButton("Logout");
         back.setAlignmentX(Component.CENTER_ALIGNMENT);
         back.addActionListener(this);
         this.add(back);
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.add(title);
-        panel.add(title);
+        panel.add(title1);
         panel.add(create);
+        panel.add(title2);
+        panel.add(input);
         panel.add(back);
         this.setContentPane(panel);
         this.pack();

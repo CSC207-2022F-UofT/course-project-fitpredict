@@ -37,6 +37,17 @@ public class DataInputScreen extends JFrame implements ActionListener {
         button.add(inputButton);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        JButton back = new JButton(new AbstractAction("Go back") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JComponent jc = (JComponent) e.getSource();
+                Window w = SwingUtilities.getWindowAncestor(jc);
+                w.dispose();
+            }
+        });
+        JPanel backButton = new JPanel();
+        backButton.add(back);
+
         inputButton.addActionListener(this);
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -46,6 +57,7 @@ public class DataInputScreen extends JFrame implements ActionListener {
         panel.add(exercisesInfo);
         panel.add(exerciseTimesInfo);
         panel.add(button);
+        panel.add(backButton);
         this.setContentPane(panel);
         this.pack();
     }
