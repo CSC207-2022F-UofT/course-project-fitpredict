@@ -5,4 +5,6 @@ package use_cases;
  */
 public interface LoginInputBoundary {
     UserLogin.LogInResult loginUser(String username, String password);
+
+    UserAccountList getUserAccountList();
 }

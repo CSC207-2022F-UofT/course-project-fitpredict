@@ -48,4 +48,8 @@ public class UserLogin implements LoginInputBoundary {
             return LogInResult.NO_LOG;
         }
     }
+
+    public UserAccountList getUserAccountList(){
+        return this.users;
+    }
 }

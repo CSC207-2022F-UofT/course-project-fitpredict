@@ -1,5 +1,8 @@
 package screens;
 
+import controllers.UserCreationController;
+import use_cases.UserAccountList;
+import use_cases.UserCreator;
 import use_cases.UserLogin;
 import controllers.UserLoginController;
 
@@ -21,16 +24,34 @@ public class UserLoginScreen extends JFrame implements ActionListener {
      */
     public UserLoginScreen(UserLoginController controller) {
         this.userLoginController = controller;
+        UserAccountList userAccountList = this.userLoginController.getUserAccountList();
+        UserCreator userCreator = new UserCreator(userAccountList);
+        UserCreationController userCreationController = new UserCreationController(userCreator);
+
         JLabel title = new JLabel("Login Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         LabelTextPanel usernameInfo = new LabelTextPanel(new JLabel("Username"), username);
         LabelTextPanel passwordInfo = new LabelTextPanel(new JLabel("Password"), password);
 
-        JButton logIn = new JButton("Login");
+        JButton logIn = new JButton(new AbstractAction("Login") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
         JPanel button = new JPanel();
         button.add(logIn);
-
         logIn.addActionListener(this);
+        JButton createUser = new JButton(new AbstractAction("Create New User") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                UserCreationScreen screen = new UserCreationScreen(userCreationController);
+                screen.pack();
+                screen.setVisible(true);
+            }
+        });
+        JPanel button2 = new JPanel();
+        button2.add(createUser);
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -38,6 +59,7 @@ public class UserLoginScreen extends JFrame implements ActionListener {
         panel.add(usernameInfo);
         panel.add(passwordInfo);
         panel.add(button);
+        panel.add(button2);
         this.setContentPane(panel);
         this.pack();
 
