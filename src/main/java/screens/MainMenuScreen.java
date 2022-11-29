@@ -19,7 +19,7 @@ public class MainMenuScreen extends JFrame implements ActionListener, WindowClos
     public MainMenuScreen(UserAccountList userAccountList) {
 
         this.userAccountList = userAccountList;
-        this.setPreferredSize(new Dimension(300, 250));
+        this.setPreferredSize(new Dimension(300, 220));
 
         JLabel title1 = new JLabel("1. Create a new exercise");
         title1.setAlignmentX(Component.CENTER_ALIGNMENT);

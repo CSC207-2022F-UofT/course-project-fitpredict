@@ -2,7 +2,6 @@ package screens;
 
 import controllers.UserLoginController;
 import entities.CurrentUser;
-import entities.User;
 import use_cases.UserAccountList;
 import use_cases.UserLogin;
 
@@ -75,8 +74,11 @@ public class DashboardScreen extends JFrame implements ActionListener, WindowClo
     public void actionPerformed(ActionEvent event) {
         try {
             if (event.getActionCommand().equals(backText)) {
-                JOptionPane.showMessageDialog(this, "This would " +
-                        "return back to the home screen");
+                closeWindow(event);
+
+                MainMenuScreen screen = new MainMenuScreen(userAccountList);
+                screen.pack();
+                screen.setVisible(true);
             } else if (event.getActionCommand().equals(logOutText)) {
                 JOptionPane.showMessageDialog(this, "Logged out!");
 
