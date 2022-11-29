@@ -9,9 +9,6 @@ import use_cases.ExerciseCreationInteractor;
 import use_cases.ExerciseManager;
 import use_cases.UserAccountList;
 
-import javax.swing.*;
-import java.awt.*;
-
 public class ExerciseCreationMain {
     /**
      * Create the final GUI

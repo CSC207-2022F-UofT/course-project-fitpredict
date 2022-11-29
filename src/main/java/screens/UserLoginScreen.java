@@ -1,6 +1,5 @@
 package screens;
 
-import com.sun.tools.javac.Main;
 import controllers.UserCreationController;
 import use_cases.UserAccountList;
 import use_cases.UserCreator;

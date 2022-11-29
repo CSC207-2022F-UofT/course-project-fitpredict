@@ -1,13 +1,10 @@
 package screens;
 
-import com.sun.tools.javac.Main;
 import controllers.ExerciseCreationController;
 import controllers.UserLoginController;
-import entities.CurrentUser;
 import use_cases.ExerciseCreationInteractor;
 import use_cases.ExerciseManager;
 import use_cases.UserAccountList;
-import screens.ExerciseCreationMain;
 import use_cases.UserLogin;
 
 import javax.swing.*;
