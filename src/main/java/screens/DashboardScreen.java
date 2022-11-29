@@ -54,7 +54,7 @@ public class DashboardScreen extends JFrame implements ActionListener {
         back.addActionListener(this);
 
         // setting the layout of the screen
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        //this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         // adding all the components via JSwing
         this.add(tableScrollPane);

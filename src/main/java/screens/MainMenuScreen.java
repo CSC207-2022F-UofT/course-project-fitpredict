@@ -46,9 +46,13 @@ public class MainMenuScreen extends JFrame implements ActionListener {
         JButton input = new JButton(new AbstractAction("Input exercises") {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JComponent jc = (JComponent) e.getSource();
+                Window w = SwingUtilities.getWindowAncestor(jc);
+                w.dispose();
+
                 DataInputBoundary boundary = new DataInputter();
                 DataInputController controller = new DataInputController(boundary);
-                DataInputScreen screen = new DataInputScreen(controller);
+                DataInputScreen screen = new DataInputScreen(controller, userAccountList);
                 screen.pack();
                 screen.setVisible(true);
             }

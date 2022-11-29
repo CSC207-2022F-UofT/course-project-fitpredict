@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-public class UserLoginScreen extends JFrame {
+public class UserLoginScreen extends JFrame implements ActionListener{
     JTextField username = new JTextField(15);
     JPasswordField password = new JPasswordField(15);
 
@@ -33,31 +33,11 @@ public class UserLoginScreen extends JFrame {
         LabelTextPanel usernameInfo = new LabelTextPanel(new JLabel("Username"), username);
         LabelTextPanel passwordInfo = new LabelTextPanel(new JLabel("Password"), password);
 
-        JButton logIn = new JButton(new AbstractAction("Login") {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                UserLogin.LogInResult result = userLoginController.login(username.getText(),
-                        String.valueOf(password.getPassword()));
-                switch (result) {
-                    case LOG:
-                        JComponent jc = (JComponent) e.getSource();
-                        Window w = SwingUtilities.getWindowAncestor(jc);
-                        w.dispose();
-
-                        JOptionPane.showMessageDialog(UserLoginScreen.super.getFocusOwner(), "Logged in successfully");
-
-                        MainMenuScreen screen = new MainMenuScreen(userAccountList);
-                        screen.pack();
-                        screen.setVisible(true);
-                        break;
-                    case NO_LOG:
-                        JOptionPane.showMessageDialog(UserLoginScreen.super.getFocusOwner(), "Login failed");
-                        break;
-                }
-            }
-        });
+        JButton logIn = new JButton("Login");
         JPanel buttonLogIn = new JPanel();
         buttonLogIn.add(logIn);
+        logIn.addActionListener(this);
+
         JButton createUser = new JButton(new AbstractAction("Create New User") {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -89,5 +69,32 @@ public class UserLoginScreen extends JFrame {
         this.setContentPane(panel);
         this.pack();
 
+    }
+
+    /**
+     * Invoked when an action occurs.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        UserLogin.LogInResult result = userLoginController.login(username.getText(),
+                String.valueOf(password.getPassword()));
+        switch (result) {
+            case LOG:
+                JOptionPane.showMessageDialog(this, "Logged in successfully");
+
+                JComponent jc = (JComponent) e.getSource();
+                Window w = SwingUtilities.getWindowAncestor(jc);
+                w.dispose();
+
+                MainMenuScreen screen = new MainMenuScreen(this.userLoginController.getUserAccountList());
+                screen.pack();
+                screen.setVisible(true);
+                break;
+            case NO_LOG:
+                JOptionPane.showMessageDialog(this, "Login failed");
+                break;
+        }
     }
 }
