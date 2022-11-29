@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UserCreationScreen extends JFrame implements ActionListener {
+public class UserCreationScreen extends JFrame implements ActionListener,  WindowCloser{
     JTextField username = new JTextField(15);
     JPasswordField password = new JPasswordField(15);
     JPasswordField repeatPassword = new JPasswordField(15);
@@ -37,9 +37,7 @@ public class UserCreationScreen extends JFrame implements ActionListener {
         JButton close = new JButton(new AbstractAction("Close Window") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JComponent jc = (JComponent) e.getSource();
-                Window w = SwingUtilities.getWindowAncestor(jc);
-                w.dispose();
+                closeWindow(e);
             }
         });
         buttons.add(close);

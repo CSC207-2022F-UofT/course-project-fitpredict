@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-public class ExerciseCreationScreen extends JFrame implements ActionListener{
+public class ExerciseCreationScreen extends JFrame implements ActionListener, WindowCloser {
     JTextField name = new JTextField(15);
     JTextField calories = new JTextField(10);
     ExerciseCreationController ecc;
@@ -77,9 +77,7 @@ public class ExerciseCreationScreen extends JFrame implements ActionListener{
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        JComponent jc = (JComponent) e.getSource();
-        Window w = SwingUtilities.getWindowAncestor(jc);
-        w.dispose();
+        closeWindow(e);
 
         MainMenuScreen screen = new MainMenuScreen(this.userAccountList);
         screen.pack();

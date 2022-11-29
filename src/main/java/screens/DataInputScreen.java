@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 
 
-public class DataInputScreen extends JFrame implements ActionListener {
+public class DataInputScreen extends JFrame implements ActionListener, WindowCloser {
     JTextField date = new JTextField(15);
 
     JTextField weight = new JTextField(15);
@@ -46,9 +46,7 @@ public class DataInputScreen extends JFrame implements ActionListener {
         JButton back = new JButton(new AbstractAction("Go back") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JComponent jc = (JComponent) e.getSource();
-                Window w = SwingUtilities.getWindowAncestor(jc);
-                w.dispose();
+                closeWindow(e);
 
                 MainMenuScreen screen = new MainMenuScreen(userAccountList);
                 screen.pack();

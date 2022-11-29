@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainMenuScreen extends JFrame implements ActionListener {
+public class MainMenuScreen extends JFrame implements ActionListener, WindowCloser {
     UserAccountList userAccountList;
 
     /**
@@ -27,9 +27,7 @@ public class MainMenuScreen extends JFrame implements ActionListener {
         JButton create = new JButton(new AbstractAction("Create Exercise") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JComponent jc = (JComponent) e.getSource();
-                Window w = SwingUtilities.getWindowAncestor(jc);
-                w.dispose();
+                closeWindow(e);
 
                 ExerciseCreationController ecc = new ExerciseCreationController(
                         new ExerciseCreationInteractor(new ExerciseManager()));
@@ -46,9 +44,7 @@ public class MainMenuScreen extends JFrame implements ActionListener {
         JButton input = new JButton(new AbstractAction("Input exercises") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JComponent jc = (JComponent) e.getSource();
-                Window w = SwingUtilities.getWindowAncestor(jc);
-                w.dispose();
+                closeWindow(e);
 
                 DataInputBoundary boundary = new DataInputter();
                 DataInputController controller = new DataInputController(boundary);
@@ -65,11 +61,9 @@ public class MainMenuScreen extends JFrame implements ActionListener {
         JButton predict = new JButton(new AbstractAction("Predict!") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JComponent jc = (JComponent) e.getSource();
-                Window w = SwingUtilities.getWindowAncestor(jc);
-                w.dispose();
+                closeWindow(e);
 
-                DashboardScreen screen = new DashboardScreen();
+                DashboardScreen screen = new DashboardScreen(userAccountList);
                 screen.pack();
                 screen.setVisible(true);
             }
@@ -105,9 +99,7 @@ public class MainMenuScreen extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        JComponent jc = (JComponent) e.getSource();
-        Window w = SwingUtilities.getWindowAncestor(jc);
-        w.dispose();
+        closeWindow(e);
 
         UserLogin userLogin = new UserLogin(userAccountList);
         UserLoginController userLoginController = new UserLoginController(userLogin);

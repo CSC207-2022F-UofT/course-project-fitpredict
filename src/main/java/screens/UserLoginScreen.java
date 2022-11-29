@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-public class UserLoginScreen extends JFrame implements ActionListener{
+public class UserLoginScreen extends JFrame implements ActionListener, WindowCloser {
     JTextField username = new JTextField(15);
     JPasswordField password = new JPasswordField(15);
 
@@ -82,9 +82,7 @@ public class UserLoginScreen extends JFrame implements ActionListener{
             case LOG:
                 JOptionPane.showMessageDialog(this, "Logged in successfully");
 
-                JComponent jc = (JComponent) e.getSource();
-                Window w = SwingUtilities.getWindowAncestor(jc);
-                w.dispose();
+                closeWindow(e);
 
                 MainMenuScreen screen = new MainMenuScreen(this.userLoginController.getUserAccountList());
                 screen.pack();

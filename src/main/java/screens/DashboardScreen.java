@@ -1,6 +1,10 @@
 package screens;
 
+import controllers.UserLoginController;
 import entities.CurrentUser;
+import entities.User;
+import use_cases.UserAccountList;
+import use_cases.UserLogin;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +14,7 @@ import java.awt.event.ActionListener;
 /**
  * DashboardScreen class
  */
-public class DashboardScreen extends JFrame implements ActionListener {
+public class DashboardScreen extends JFrame implements ActionListener, WindowCloser {
     String[] columnNames = {
             "Date",
             "Weight",
@@ -25,11 +29,14 @@ public class DashboardScreen extends JFrame implements ActionListener {
 
     String backText = "Back";
     String logOutText = "Log out";
+    UserAccountList userAccountList;
 
     /**
      * Constructor for DashboardScreen
      */
-    public DashboardScreen() {
+    public DashboardScreen(UserAccountList userAccountList) {
+        this.userAccountList = userAccountList;
+
         // Setting the title and alignment
         JLabel title = new JLabel("Dashboard");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -71,8 +78,15 @@ public class DashboardScreen extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "This would " +
                         "return back to the home screen");
             } else if (event.getActionCommand().equals(logOutText)) {
-                JOptionPane.showMessageDialog(this, "This would " +
-                        "log the user out");
+                JOptionPane.showMessageDialog(this, "Logged out!");
+
+                closeWindow(event);
+
+                UserLogin userLogin = new UserLogin(userAccountList);
+                UserLoginController userLoginController = new UserLoginController(userLogin);
+                UserLoginScreen userLoginScreen = new UserLoginScreen(userLoginController);
+                userLoginScreen.pack();
+                userLoginScreen.setVisible(true);
             } else {
                 System.out.println("Button clicked has no function");
             }
