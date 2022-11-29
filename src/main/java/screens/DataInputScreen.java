@@ -36,11 +36,14 @@ public class DataInputScreen extends JFrame implements ActionListener {
         LabelTextPanel exercisesInfo = new LabelTextPanel(new JLabel("Enter the exercises you did (comma seperated)"), exercises);
         LabelTextPanel exerciseTimesInfo = new LabelTextPanel(new JLabel("Enter how long you did each exercise in minutes (comma seperated)"), exerciseTimes);
         JButton inputButton = new JButton("Input Data");
-        JPanel button = new JPanel();
-        button.add(inputButton);
+        JButton backButton = new JButton("Main Menu");
+        JPanel buttons = new JPanel();
+        buttons.add(inputButton);
+        buttons.add(backButton);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         inputButton.addActionListener(this);
+        backButton.addActionListener(this);
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(title);
@@ -48,7 +51,7 @@ public class DataInputScreen extends JFrame implements ActionListener {
         panel.add(weightInfo);
         panel.add(exercisesInfo);
         panel.add(exerciseTimesInfo);
-        panel.add(button);
+        panel.add(buttons);
         this.setContentPane(panel);
         this.pack();
     }
@@ -57,17 +60,20 @@ public class DataInputScreen extends JFrame implements ActionListener {
      * Implements what happens once the input data button is clicked.
      */
     public void actionPerformed(ActionEvent evt) {
-
-        String dateString = date.getText();
-        int month = Integer.parseInt(dateString.substring(0, 2));
-        int day = Integer.parseInt(dateString.substring(3, 5));
-        int year = Integer.parseInt(dateString.substring(6));
-        double weightInput = Double.parseDouble(weight.getText());
-        String[] exercisesNames = {exercises.getText()};
-        String[] timesStrings = {exerciseTimes.getText()};
-        inputDataResult(month, day, year, weightInput, exercisesNames, timesStrings);
+        if (evt.getActionCommand().equals("Main Menu")) {
+            JOptionPane.showMessageDialog(this, "This would " +
+                    "return back to the main menu screen");
+        } else {
+            String dateString = date.getText();
+            int month = Integer.parseInt(dateString.substring(0, 2));
+            int day = Integer.parseInt(dateString.substring(3, 5));
+            int year = Integer.parseInt(dateString.substring(6));
+            double weightInput = Double.parseDouble(weight.getText());
+            String[] exercisesNames = {exercises.getText()};
+            String[] timesStrings = {exerciseTimes.getText()};
+            inputDataResult(month, day, year, weightInput, exercisesNames, timesStrings);
+        }
     }
-
     /**
      * Helper method for actionPerformed.
      * Creates the ResultScreen after the input data button is pushed
