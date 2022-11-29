@@ -55,8 +55,7 @@ public class DataInputScreen extends JFrame implements ActionListener {
                 screen.setVisible(true);
             }
         });
-        JPanel backButton = new JPanel();
-        backButton.add(back);
+        buttons.add(back);
 
         inputButton.addActionListener(this);
         JPanel panel = new JPanel();
@@ -67,7 +66,6 @@ public class DataInputScreen extends JFrame implements ActionListener {
         panel.add(exercisesInfo);
         panel.add(exerciseTimesInfo);
         panel.add(buttons);
-        panel.add(backButton);
         this.setContentPane(panel);
         this.pack();
     }

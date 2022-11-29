@@ -51,11 +51,13 @@ public class ExerciseCreationScreen extends JFrame implements ActionListener{
                 rs.setVisible(true);
             }
         });
-        create.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JButton back = new JButton("Go Back");
-        back.setAlignmentX(Component.CENTER_ALIGNMENT);
         back.addActionListener(this);
+
+        JPanel buttons = new JPanel();
+        buttons.add(create);
+        buttons.add(back);
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -63,8 +65,7 @@ public class ExerciseCreationScreen extends JFrame implements ActionListener{
         panel.add(title);
         panel.add(nameField);
         panel.add(calorieField);
-        panel.add(create);
-        panel.add(back);
+        panel.add(buttons);
         this.setContentPane(panel);
         this.pack();
     }

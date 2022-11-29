@@ -34,8 +34,8 @@ public class UserLoginScreen extends JFrame implements ActionListener{
         LabelTextPanel passwordInfo = new LabelTextPanel(new JLabel("Password"), password);
 
         JButton logIn = new JButton("Login");
-        JPanel buttonLogIn = new JPanel();
-        buttonLogIn.add(logIn);
+        JPanel buttons = new JPanel();
+        buttons.add(logIn);
         logIn.addActionListener(this);
 
         JButton createUser = new JButton(new AbstractAction("Create New User") {
@@ -46,8 +46,7 @@ public class UserLoginScreen extends JFrame implements ActionListener{
                 screen.setVisible(true);
             }
         });
-        JPanel buttonCreate = new JPanel();
-        buttonCreate.add(createUser);
+        buttons.add(createUser);
 
         JButton quit = new JButton(new AbstractAction("Quit") {
             @Override
@@ -63,8 +62,7 @@ public class UserLoginScreen extends JFrame implements ActionListener{
         panel.add(title);
         panel.add(usernameInfo);
         panel.add(passwordInfo);
-        panel.add(buttonLogIn);
-        panel.add(buttonCreate);
+        panel.add(buttons);
         panel.add(buttonQuit);
         this.setContentPane(panel);
         this.pack();

@@ -19,7 +19,7 @@ public class MainMenuScreen extends JFrame implements ActionListener {
     public MainMenuScreen(UserAccountList userAccountList) {
 
         this.userAccountList = userAccountList;
-        this.setPreferredSize(new Dimension(300, 300));
+        this.setPreferredSize(new Dimension(300, 250));
 
         JLabel title1 = new JLabel("1. Create a new exercise");
         title1.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -76,6 +76,9 @@ public class MainMenuScreen extends JFrame implements ActionListener {
         });
         predict.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        JLabel spacer = new JLabel("\n");
+        spacer.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         JButton back = new JButton("Logout");
         back.setAlignmentX(Component.CENTER_ALIGNMENT);
         back.addActionListener(this);
@@ -89,6 +92,7 @@ public class MainMenuScreen extends JFrame implements ActionListener {
         panel.add(input);
         panel.add(title3);
         panel.add(predict);
+        panel.add(spacer);
         panel.add(back);
         this.setContentPane(panel);
         this.pack();
