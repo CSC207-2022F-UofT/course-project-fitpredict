@@ -4,6 +4,8 @@ import com.sun.tools.javac.Main;
 import controllers.ExerciseCreationController;
 import controllers.UserLoginController;
 import entities.CurrentUser;
+import use_cases.ExerciseCreationInteractor;
+import use_cases.ExerciseManager;
 import use_cases.UserAccountList;
 import screens.ExerciseCreationMain;
 import use_cases.UserLogin;
@@ -34,7 +36,11 @@ public class MainMenuScreen extends JFrame implements ActionListener {
                 Window w = SwingUtilities.getWindowAncestor(jc);
                 w.dispose();
 
-                ExerciseCreationMain.generateExerciseCreationGUI(CurrentUser.getInstance());
+                ExerciseCreationController ecc = new ExerciseCreationController(
+                        new ExerciseCreationInteractor(new ExerciseManager()));
+                ExerciseCreationScreen screen = new ExerciseCreationScreen(ecc, userAccountList);
+                screen.pack();
+                screen.setVisible(true);
             }
         });
         create.setAlignmentX(Component.CENTER_ALIGNMENT);

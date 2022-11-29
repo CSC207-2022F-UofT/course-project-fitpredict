@@ -28,7 +28,6 @@ public class ExerciseCreationScreen extends JFrame implements ActionListener{
         this.userAccountList = userAccountList;
         JLabel title = new JLabel("Create New Exercise");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-        //this.add(title);
 
         LabelTextPanel nameField = new LabelTextPanel(new JLabel("Exercise Name"), name);
         LabelTextPanel calorieField = new LabelTextPanel(new JLabel("Calories Burnt Per Minute"), calories);
@@ -56,12 +55,10 @@ public class ExerciseCreationScreen extends JFrame implements ActionListener{
             }
         });
         create.setAlignmentX(Component.CENTER_ALIGNMENT);
-        //this.add(create);
 
         JButton back = new JButton("Go Back");
         back.setAlignmentX(Component.CENTER_ALIGNMENT);
         back.addActionListener(this);
-        //this.add(back);
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
