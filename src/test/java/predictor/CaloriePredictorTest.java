@@ -12,9 +12,20 @@ import java.util.Arrays;
 
 public class CaloriePredictorTest {
     @Test
-    public void CaloriePredictorZero() {
+    public void CaloriePredictorEmpty() {
         DataPointMap data = new DataPointMap();
         assertEquals(CaloriePredictor.calculateCalories(data), 0.0);
+    }
+
+    @Test
+    public void CaloriePredictorZero() {
+        double caloriesBurnt = 0.0;
+        DataPointMap data = new DataPointMap();
+        DataPointManager manager = new DataPointManager();
+        DataPoint input1 = manager.createDataPoint(1, 1, 1);
+        input1.setCaloriesBurnt(caloriesBurnt);
+        data.addDataPoint(input1);
+        assertEquals(CaloriePredictor.calculateCalories(data), caloriesBurnt);
     }
 
     @Test
