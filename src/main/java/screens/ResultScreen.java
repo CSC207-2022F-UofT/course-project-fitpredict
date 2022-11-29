@@ -38,7 +38,6 @@ public class ResultScreen extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Click " + e.getActionCommand());
         this.dispose();
     }
 }

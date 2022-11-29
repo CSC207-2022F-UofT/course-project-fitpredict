@@ -71,7 +71,6 @@ public class ExerciseCreationScreen extends JFrame implements ActionListener{
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Click " + e.getActionCommand());
         JComponent jc = (JComponent) e.getSource();
         Window w = SwingUtilities.getWindowAncestor(jc);
         w.dispose();

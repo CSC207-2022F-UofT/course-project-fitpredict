@@ -30,9 +30,20 @@ public class UserCreationScreen extends JFrame implements ActionListener {
         LabelTextPanel sexInfo = new LabelTextPanel(new JLabel("Enter your gender (Options: Male, Female, Other)"), sex);
         LabelTextPanel birthdayInfo = new LabelTextPanel(new JLabel("Enter your birthday (Use the form: YYYY-MM-DD"), birthday);
 
-        JButton signUp = new JButton("Create account");
+        JButton signUp = new JButton("Create Account");
         JPanel button = new JPanel();
         button.add(signUp);
+
+        JButton close = new JButton(new AbstractAction("Close Window") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JComponent jc = (JComponent) e.getSource();
+                Window w = SwingUtilities.getWindowAncestor(jc);
+                w.dispose();
+            }
+        });
+        JPanel buttonClose = new JPanel();
+        buttonClose.add(close);
 
         signUp.addActionListener(this);
         JPanel panel = new JPanel();
@@ -46,6 +57,7 @@ public class UserCreationScreen extends JFrame implements ActionListener {
         panel.add(sexInfo);
         panel.add(birthdayInfo);
         panel.add(button);
+        panel.add(buttonClose);
         this.setContentPane(panel);
         this.pack();
     }

@@ -3,15 +3,15 @@ package screens;
 import controllers.UserCreationController;
 import use_cases.UserAccountList;
 import use_cases.UserCreator;
-import use_cases.UserLogin;
 import controllers.UserLoginController;
+import use_cases.UserLogin;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 
-public class UserLoginScreen extends JFrame implements ActionListener {
+public class UserLoginScreen extends JFrame {
     JTextField username = new JTextField(15);
     JPasswordField password = new JPasswordField(15);
 
@@ -36,12 +36,20 @@ public class UserLoginScreen extends JFrame implements ActionListener {
         JButton logIn = new JButton(new AbstractAction("Login") {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                UserLogin.LogInResult result = userLoginController.login(username.getText(),
+                        String.valueOf(password.getPassword()));
+                switch (result) {
+                    case LOG:
+                        JOptionPane.showMessageDialog(UserLoginScreen.super.getFocusOwner(), "Logged in successfully");
+                        break;
+                    case NO_LOG:
+                        JOptionPane.showMessageDialog(UserLoginScreen.super.getFocusOwner(), "Login failed");
+                        break;
+                }
             }
         });
-        JPanel button = new JPanel();
-        button.add(logIn);
-        logIn.addActionListener(this);
+        JPanel buttonLogIn = new JPanel();
+        buttonLogIn.add(logIn);
         JButton createUser = new JButton(new AbstractAction("Create New User") {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,33 +58,28 @@ public class UserLoginScreen extends JFrame implements ActionListener {
                 screen.setVisible(true);
             }
         });
-        JPanel button2 = new JPanel();
-        button2.add(createUser);
+        JPanel buttonCreate = new JPanel();
+        buttonCreate.add(createUser);
+
+        JButton quit = new JButton(new AbstractAction("Quit") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        JPanel buttonQuit = new JPanel();
+        buttonQuit.add(quit);
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(title);
         panel.add(usernameInfo);
         panel.add(passwordInfo);
-        panel.add(button);
-        panel.add(button2);
+        panel.add(buttonLogIn);
+        panel.add(buttonCreate);
+        panel.add(buttonQuit);
         this.setContentPane(panel);
         this.pack();
 
-    }
-    /**
-     * Implements what happens once the button is clicked.
-     * @param event the event to be processed
-     */
-    public void actionPerformed(ActionEvent event) {
-        UserLogin.LogInResult  result = userLoginController.login(username.getText(), String.valueOf(password.getPassword()));
-        switch (result) {
-            case LOG:
-                JOptionPane.showMessageDialog(this, "Logged in successfully");
-                break;
-            case NO_LOG:
-                JOptionPane.showMessageDialog(this, "Login failed");
-                break;
-        }
     }
 }
