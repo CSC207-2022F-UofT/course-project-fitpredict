@@ -67,5 +67,8 @@ public class UserCreationScreen extends JFrame implements ActionListener {
                 Double.parseDouble(height.getText()), Double.parseDouble(weight.getText()),
                 sex.getText(), birthday.getText()));
 
+        JComponent jc = (JComponent) evt.getSource();
+        Window w = SwingUtilities.getWindowAncestor(jc);
+        w.dispose();
     }
 }

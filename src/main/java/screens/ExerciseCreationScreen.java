@@ -60,7 +60,7 @@ public class ExerciseCreationScreen extends JFrame implements ActionListener{
         back.addActionListener(this);
         this.add(back);
 
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        //this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setVisible(true);
     }
 

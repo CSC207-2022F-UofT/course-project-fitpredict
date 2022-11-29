@@ -1,5 +1,6 @@
 package screens;
 
+import com.sun.tools.javac.Main;
 import controllers.UserCreationController;
 import use_cases.UserAccountList;
 import use_cases.UserCreator;
@@ -40,7 +41,15 @@ public class UserLoginScreen extends JFrame {
                         String.valueOf(password.getPassword()));
                 switch (result) {
                     case LOG:
+                        JComponent jc = (JComponent) e.getSource();
+                        Window w = SwingUtilities.getWindowAncestor(jc);
+                        w.dispose();
+
                         JOptionPane.showMessageDialog(UserLoginScreen.super.getFocusOwner(), "Logged in successfully");
+
+                        MainMenuScreen screen = new MainMenuScreen(userAccountList);
+                        screen.pack();
+                        screen.setVisible(true);
                         break;
                     case NO_LOG:
                         JOptionPane.showMessageDialog(UserLoginScreen.super.getFocusOwner(), "Login failed");
