@@ -55,6 +55,23 @@ public class MainMenuScreen extends JFrame implements ActionListener {
         });
         input.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        JLabel title3= new JLabel("3. Forecast your weight loss!");
+        title3.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JButton predict = new JButton(new AbstractAction("Predict!") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JComponent jc = (JComponent) e.getSource();
+                Window w = SwingUtilities.getWindowAncestor(jc);
+                w.dispose();
+
+                DashboardScreen screen = new DashboardScreen();
+                screen.pack();
+                screen.setVisible(true);
+            }
+        });
+        predict.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         JButton back = new JButton("Logout");
         back.setAlignmentX(Component.CENTER_ALIGNMENT);
         back.addActionListener(this);
@@ -66,6 +83,8 @@ public class MainMenuScreen extends JFrame implements ActionListener {
         panel.add(create);
         panel.add(title2);
         panel.add(input);
+        panel.add(title3);
+        panel.add(predict);
         panel.add(back);
         this.setContentPane(panel);
         this.pack();

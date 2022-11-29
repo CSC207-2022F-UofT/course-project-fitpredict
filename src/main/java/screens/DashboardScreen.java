@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 /**
  * DashboardScreen class
  */
-public class DashboardScreen extends JPanel implements ActionListener {
+public class DashboardScreen extends JFrame implements ActionListener {
     String[] columnNames = {
             "Date",
             "Weight",
