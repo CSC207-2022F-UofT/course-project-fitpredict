@@ -14,7 +14,7 @@ public class ExerciseMapTest {
         Exercise e =new Exercise("Push Up", 7);
         CurrentUser cu = new CurrentUser();
         cu.setUser(u);
-        ExerciseMap.addExercise(cu, e);
+        ExerciseMap.addExercise(e);
         assert (ExerciseMap.contains("Alex"));
     }
 
@@ -24,7 +24,7 @@ public class ExerciseMapTest {
         Exercise e =new Exercise("Push Up", 7);
         CurrentUser cu = new CurrentUser();
         cu.setUser(u);
-        ExerciseMap.addExercise(cu, e);
+        ExerciseMap.addExercise(e);
         Exercise expected = e;
         assert (ExerciseMap.get("Alex").contains(expected));
     }

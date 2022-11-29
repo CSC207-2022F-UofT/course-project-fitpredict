@@ -4,6 +4,7 @@ package screens;
 
 import controllers.ExerciseCreationController;
 import controllers.UserCreationController;
+import entities.User;
 import use_cases.UserAccountList;
 import use_cases.UserCreator;
 
@@ -17,18 +18,20 @@ public class ExerciseCreationScreen extends JFrame implements ActionListener{
     JTextField calories = new JTextField(10);
     ExerciseCreationController ecc;
 
+    UserAccountList userAccountList;
+
     /**
      * The "main" screen of exercise creation
      * @param controller The controller object in the interface adapter layer
      */
-    public ExerciseCreationScreen(ExerciseCreationController controller) {
-
+    public ExerciseCreationScreen(ExerciseCreationController controller, UserAccountList userAccountList) {
+        this.userAccountList = userAccountList;
         JLabel title = new JLabel("Create New Exercise");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-        this.add(title);
+        //this.add(title);
 
-        this.add(new LabelTextPanel(new JLabel("Exercise Name"), name));
-        this.add(new LabelTextPanel(new JLabel("Calories Burnt Per Minute"), calories));
+        LabelTextPanel nameField = new LabelTextPanel(new JLabel("Exercise Name"), name);
+        LabelTextPanel calorieField = new LabelTextPanel(new JLabel("Calories Burnt Per Minute"), calories);
 
         JButton create = new JButton(new AbstractAction("Create Exercise") {
             @Override
@@ -53,15 +56,23 @@ public class ExerciseCreationScreen extends JFrame implements ActionListener{
             }
         });
         create.setAlignmentX(Component.CENTER_ALIGNMENT);
-        this.add(create);
+        //this.add(create);
 
         JButton back = new JButton("Go Back");
         back.setAlignmentX(Component.CENTER_ALIGNMENT);
         back.addActionListener(this);
-        this.add(back);
+        //this.add(back);
 
-        //this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.setVisible(true);
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.add(title);
+        panel.add(title);
+        panel.add(nameField);
+        panel.add(calorieField);
+        panel.add(create);
+        panel.add(back);
+        this.setContentPane(panel);
+        this.pack();
     }
 
     /**
@@ -75,10 +86,7 @@ public class ExerciseCreationScreen extends JFrame implements ActionListener{
         Window w = SwingUtilities.getWindowAncestor(jc);
         w.dispose();
 
-        UserAccountList users = new UserAccountList();
-        UserCreator userCreator = new UserCreator(users);
-        UserCreationController userCreationController = new UserCreationController(userCreator);
-        UserCreationScreen screen = new UserCreationScreen(userCreationController);
+        MainMenuScreen screen = new MainMenuScreen(this.userAccountList);
         screen.pack();
         screen.setVisible(true);
     }

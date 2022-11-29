@@ -17,14 +17,14 @@ public class ExerciseCreationMain {
      */
     public static void generateExerciseCreationGUI(CurrentUser currentUser) {
         ExerciseCreationController ecc = new ExerciseCreationController(
-                new ExerciseCreationInteractor(new ExerciseManager(), currentUser));
+                new ExerciseCreationInteractor(new ExerciseManager()));
 
         JFrame app = new JFrame("Create Exercise");
         CardLayout cl = new CardLayout();
         JPanel screens = new JPanel(cl);
 
-        ExerciseCreationScreen ecs = new ExerciseCreationScreen(ecc);
-        screens.add(ecs);
+        //ExerciseCreationScreen ecs = new ExerciseCreationScreen(ecc);
+        //screens.add(ecs);
 
         cl.show(screens, "screen");
         app.add(screens);
