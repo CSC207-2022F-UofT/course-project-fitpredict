@@ -2,14 +2,16 @@ package screens;
 
 import controllers.DataInputController;
 import entities.CurrentUser;
+import entities.DataPoint;
+import use_cases.DataPointMap;
+import use_cases.ExerciseMap;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.time.LocalDate;
 import java.util.Date;
+
 
 public class DataInputScreen extends JFrame implements ActionListener {
     JTextField date = new JTextField(15);
@@ -22,22 +24,26 @@ public class DataInputScreen extends JFrame implements ActionListener {
 
     /**
      * Creates the UI to input data
+     *
      * @param controller The controller used by the UI
      */
     public DataInputScreen(DataInputController controller) {
         this.dataInputController = controller;
         JLabel title = new JLabel("Data Input Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-        LabelTextPanel dateInfo = new LabelTextPanel(new JLabel("Enter Date (no leading zeroes, month/day/year)"), date);
+        LabelTextPanel dateInfo = new LabelTextPanel(new JLabel("Enter Date (mm/dd/yyyy)"), date);
         LabelTextPanel weightInfo = new LabelTextPanel(new JLabel("Enter your weight"), weight);
         LabelTextPanel exercisesInfo = new LabelTextPanel(new JLabel("Enter the exercises you did (comma seperated)"), exercises);
         LabelTextPanel exerciseTimesInfo = new LabelTextPanel(new JLabel("Enter how long you did each exercise in minutes (comma seperated)"), exerciseTimes);
         JButton inputButton = new JButton("Input Data");
-        JPanel button = new JPanel();
-        button.add(inputButton);
+        JButton backButton = new JButton("Main Menu");
+        JPanel buttons = new JPanel();
+        buttons.add(inputButton);
+        buttons.add(backButton);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         inputButton.addActionListener(this);
+        backButton.addActionListener(this);
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(title);
@@ -45,7 +51,7 @@ public class DataInputScreen extends JFrame implements ActionListener {
         panel.add(weightInfo);
         panel.add(exercisesInfo);
         panel.add(exerciseTimesInfo);
-        panel.add(button);
+        panel.add(buttons);
         this.setContentPane(panel);
         this.pack();
     }
@@ -54,20 +60,40 @@ public class DataInputScreen extends JFrame implements ActionListener {
      * Implements what happens once the input data button is clicked.
      */
     public void actionPerformed(ActionEvent evt) {
-        if (!(CurrentUser.getInstance().getUser() == null)) {
+        if (evt.getActionCommand().equals("Main Menu")) {
+            JOptionPane.showMessageDialog(this, "This would " +
+                    "return back to the main menu screen");
+        } else {
             String dateString = date.getText();
             int month = Integer.parseInt(dateString.substring(0, 2));
             int day = Integer.parseInt(dateString.substring(3, 5));
             int year = Integer.parseInt(dateString.substring(6));
-            LocalDate localDate = LocalDate.of(year, month, day);
-            Date dateInput = new Date(localDate.toEpochDay());
+            double weightInput = Double.parseDouble(weight.getText());
             String[] exercisesNames = {exercises.getText()};
             String[] timesStrings = {exerciseTimes.getText()};
-            if (!(CurrentUser.getInstance().getDataPointMap().getData().containsKey(dateInput))) {
-                dataInputController.inputData(month, day, year, Double.parseDouble(weight.getText()),
-                        exercisesNames, timesStrings);
-            }
+            inputDataResult(month, day, year, weightInput, exercisesNames, timesStrings);
         }
-        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }
+    /**
+     * Helper method for actionPerformed.
+     * Creates the ResultScreen after the input data button is pushed
+     */
+    public void inputDataResult(int month, int day, int year,
+                                double weightInput, String[] exercisesNames, String[] timesStrings) {
+        ResultScreen rs;
+        DataPointMap dataPointMap = CurrentUser.getInstance().getUser().getDataPointMap();
+        Date dateInput = new Date(DataPoint.convertEpochMilliseconds(month, day, year));
+        System.out.println(dataPointMap.getDataPoint(dateInput));
+        if (!(ExerciseMap.contains(CurrentUser.getInstance().getUsername()))) {
+            rs = new ResultScreen("There are no created exercises");
+        } else if (dataPointMap.getData().containsKey(dateInput)) {
+            rs = new ResultScreen("There is already data inputted for this day");
+        } else if (weightInput <= 0) {
+            rs = new ResultScreen("Please enter a valid weight");
+        } else {
+            dataInputController.inputData(month, day, year, weightInput, exercisesNames, timesStrings);
+            rs = new ResultScreen("Data Inputted Successfully");
+        }
+        rs.setVisible(true);
     }
 }
