@@ -22,7 +22,7 @@ public class DataInputTest {
     Exercise e2 = new Exercise("Sit Up", 3);
     Exercise e3 = new Exercise("Running", 12);
     Exercise e4 = new Exercise("Basketball", 9);
-    Date d = new Date(DataPoint.convertEpochMilliSeconds(9, 22, 2022));
+    Date d = new Date(DataPoint.convertEpochMilliseconds(9, 22, 2022));
 
     @Test
     public void DataInputTestNoExercise() {
