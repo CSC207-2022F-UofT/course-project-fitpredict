@@ -28,7 +28,7 @@ public class DataInputController {
         double caloriesBurnt = 0;
         if (exercisesNames.length != 0) {
             for (int i = 0; i < exercisesNames.length; i++) {
-                for (Exercise exercise : ExerciseMap.get(CurrentUser.getInstance().getUsername())) {
+                for (Exercise exercise : ExerciseMap.get(CurrentUser.getInstance().getUser().getUsername())) {
                     if (exercise.getName().equals(exercisesNames[i])) {
                         exercises.add(exercise);
                         caloriesBurnt += exercise.getCaloriesBurntPerMin() * Integer.parseInt(times[i]);

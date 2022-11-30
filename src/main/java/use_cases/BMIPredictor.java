@@ -29,7 +29,7 @@ public class BMIPredictor {
         // Get date in milliseconds so can be easily manipulated
         long milliseconds = CurrentUser.currentDateEpoch();
 
-        double height = CurrentUser.getInstance().getHeight();
+        double height = CurrentUser.getInstance().getUser().getHeight();
 
         for (int day = 1; day <= PREDICTION_LENGTH; day++) {
             // Get new date (there is 86400000 milliseconds per day)

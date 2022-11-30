@@ -1,6 +1,7 @@
 package predictor;
 
 import entities.CurrentUser;
+import entities.User;
 import org.junit.jupiter.api.Test;
 import use_cases.BMIPredictor;
 import use_cases.DataPointMap;
@@ -10,19 +11,13 @@ import entities.DataPoint;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WeightPredictorTest {
-    @Test
-    public void WeightPredictorEmpty() {
-        DataPointMap data = new DataPointMap();
-        // Assert that the function works with an empty DataPointMap()
-        CurrentUser user = new CurrentUser("mooga", "123",
-                "123", 100.0, 101.0, "Male", "");
-        // Assert that the function works with an empty DataPointMap(), Weight should be exactly the same as CurrentUser
-        assertEquals(BMIPredictor.predict(data).size(), 100.0);
-    }
+    User u = new User("Josh", "123abc", "123abc",
+            62.0, 150.0, "Male", "2006-10-12");
 
     @Test
     public void WeightPredictorZero() {
@@ -34,33 +29,41 @@ public class WeightPredictorTest {
     @Test
     public void WeightPredictorCalorieDeficitZero() {
         DataPointMap data = new DataPointMap();
+        CurrentUser.getInstance().setUser(u);
         for (int day = 1; day <= 10; day ++) {
             DataPoint dataPoint = new DataPoint(1, day, 2000);
             dataPoint.setWeight(150);
             dataPoint.setCaloriesBurnt(0);
             data.addDataPoint(dataPoint);
         }
-        // Getting final date to check if weight is unchanged at the end
-        LocalDate milliseconds = LocalDate.of(2000, 1, 10);
-        Date finalDate = new Date(milliseconds.toEpochDay());
+        // Getting date to check if weight is unchanged at the end
+        long milliseconds = CurrentUser.currentDateEpoch();
+        // get current date, then add one to date
+        Date finalDate = new Date(milliseconds + 86400000L);
 
-        assertEquals(150, WeightPredictor.predict(data).get(finalDate));
+        HashMap<Date, Double> actual = WeightPredictor.predict(data);
+        assertEquals(150, actual.get(finalDate));
     }
 
     @Test
     public void WeightPredictorOneDataPoint() {
         DataPoint dataPoint = new DataPoint(11, 10, 1971);
-        Date date = dataPoint.getDate();
+        CurrentUser.getInstance().setUser(u);
         dataPoint.setWeight(150);
         dataPoint.setCaloriesBurnt(700);
         DataPointMap data = new DataPointMap();
         data.addDataPoint(dataPoint);
-        assertEquals(149.8, WeightPredictor.predict(data).get(date));
+
+        long milliseconds = CurrentUser.currentDateEpoch();
+        // get current date, then add one to date
+        Date finalDate = new Date(milliseconds + 86400000L);
+        assertEquals(149.8, WeightPredictor.predict(data).get(finalDate));
     }
 
     @Test
     public void WeightPredictorManyDataPoints() {
         DataPointMap data = new DataPointMap();
+        CurrentUser.getInstance().setUser(u);
         for (int day = 1; day <= 30; day ++) {
             DataPoint dataPoint = new DataPoint(1, day, 2000);
             dataPoint.setWeight(150);
@@ -72,9 +75,10 @@ public class WeightPredictorTest {
 
             data.addDataPoint(dataPoint);
         }
-        // Getting final date to check if weight is as expected
-        LocalDate milliseconds = LocalDate.of(2000, 1, 30);
-        Date finalDate = new Date(milliseconds.toEpochDay());
+        // Getting date to check if weight is unchanged at the end
+        long milliseconds = CurrentUser.currentDateEpoch();
+        // get current date, then add 30 days to date
+        Date finalDate = new Date(milliseconds + 86400000L * 30);
 
         assertEquals(147, WeightPredictor.predict(data).get(finalDate));
 
