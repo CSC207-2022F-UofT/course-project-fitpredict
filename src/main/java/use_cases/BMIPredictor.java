@@ -31,10 +31,19 @@ public class BMIPredictor {
 
         double height = CurrentUser.getInstance().getUser().getHeight();
 
+        // if the DataPointMap is empty, simply return the BMI of the CurrentUser without changes
+        if (data.getData().isEmpty()) {
+            Date date = new Date(milliseconds + 86400000L); // make this prediciton for tomorrow
+            Double bmi = CurrentUser.getInstance().getUser().getWeight() * 10000 / (height * height);
+            predictions.put(date, bmi);
+            return predictions;
+        }
+
+        // otherwise, make predictions for the PREDICTION_LENGTH number of days.
         for (int day = 1; day <= PREDICTION_LENGTH; day++) {
             // Get new date (there is 86400000 milliseconds per day)
             Date date = new Date(milliseconds + day * 86400000L);
-            Double bmi = WeightPredictor.predict(data).get(date) * 10000/ height * height;
+            Double bmi = WeightPredictor.predict(data).get(date) / (height * height) * 10000;
             predictions.put(date, bmi);
         }
 
