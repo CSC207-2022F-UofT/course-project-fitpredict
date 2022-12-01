@@ -18,10 +18,10 @@ public class UserLogin implements LoginInputBoundary {
     public UserLogin(UserAccountList userAccountList) {
         this.users = userAccountList;
         try {
-            userReadWriter.saveToFile("accounts.ser", users);
+            //userReadWriter.saveToFile("accounts.ser", users);
             userReadWriter.readFromFile("accounts.ser");
         } catch (Exception e) {
-            //System.out.println("Error!");
+            System.out.println("Error!");
         }
     }
 

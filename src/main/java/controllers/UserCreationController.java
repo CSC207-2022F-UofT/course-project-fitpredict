@@ -1,4 +1,5 @@
 package controllers;
+import use_cases.UserAccountList;
 import use_cases.UserCreator;
 
 import java.util.ArrayList;
@@ -29,6 +30,8 @@ public class UserCreationController {
         return userCreator.accountCreator(username, password, repeatPassword, height, weight, sex, birthday);
     }
 
-
+    public UserAccountList getUserAccountList() {
+        return this.userCreator.getExistingUsers();
+    }
 
 }
