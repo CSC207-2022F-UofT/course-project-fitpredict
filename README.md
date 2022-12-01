@@ -81,7 +81,7 @@ Once you are done, click the `Go Back` button to return to the Main Menu screen.
 Next, under '2. Track your workouts', click the `Input exercises` button.
 This will take you to the Data Input screen:
 
-<img src="images/10input_data_screen.png" width="500">
+<img src="images/10input_data_screen.png" width="600">
 
 Here, you can enter your fitness information for a given day. 
 You must enter:
@@ -93,7 +93,7 @@ You must enter:
 Then, click the `Input Data` button to add this data to your account.
 If your data was inputted successfully, this message will pop up:
 
-<img src="images/11data_inputted_successfully" width="500">
+<img src="images/11data_inputted_successfully.png" width="600">
 
 Next, under '3. Forecast your weight loss!', you can click the `Predict!` button. 
 This will take you to the Dashboard screen, which uses the Predictions feature.
