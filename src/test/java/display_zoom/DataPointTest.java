@@ -35,7 +35,7 @@ public class DataPointTest {
     }
 
     @Test(timeout = 50)
-    public void testConvertEpochSecondsBeginning() {
+    public void testConvertEpochMillisecondsBeginning() {
         long actual = DataPoint.convertEpochMilliseconds(1, 1, 1970);
         long expected = 0;
         assertEquals(actual, expected);
@@ -44,7 +44,7 @@ public class DataPointTest {
     @Test(timeout = 50)
     public void testConvertEpochMillisecondsLaterDate() {
         long actual = DataPoint.convertEpochMilliseconds(11, 21, 2022);
-        long expected = 1669006800;
+        long expected = 1668988800000L;
         assertEquals(actual, expected);
     }
 
@@ -60,7 +60,7 @@ public class DataPointTest {
     public void testAddExerciseMultiple() {
         dp.addExercise(exercises);
         int actual = dp.getExerciseList().size();
-        int expected = 3;
+        int expected = 2;
         assertEquals(actual, expected);
     }
 
@@ -68,7 +68,7 @@ public class DataPointTest {
     public void testAddExerciseEmptyList() {
         dp.addExercise(exercisesEmpty);
         int actual = dp.getExerciseList().size();
-        int expected = 3;
+        int expected = 0;
         assertEquals(actual, expected);
     }
 

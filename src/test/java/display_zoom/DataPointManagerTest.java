@@ -10,7 +10,7 @@ import use_cases.DataPointManager;
 import static org.junit.Assert.assertEquals;
 
 public class DataPointManagerTest {
-    DataPointManager dpManager;
+    DataPointManager dpManager = new DataPointManager();
 
     @Before
     public void setUp() {
