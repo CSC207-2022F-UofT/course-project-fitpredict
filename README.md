@@ -1,39 +1,105 @@
-# Project Template
+# FitPredict 💪
+This is our repository for Group 88's CSC207 Final Project.
+This project allows users to make fitness predictions based on their current, daily fitness stats.
+Below, we will include a description of how to run and use it.
 
-This is a template repository for CSC 207 projects. 
-This repository contains starter code for a gradle project.
-It also contains workflow documents that give instructions on how to manage your Github repository and how to use Github Projects for efficient collaboration.
+## How To Run & Open
+You will first need to download the `main` branch of this repository. 
+After it is downloaded, open `src/main/java/Main.java`.
+This is the main file of the project, where the UI screen can be run from. 
+After opening this file, right-click on any part of the code and click `Run 'Main.main()'`, as shown in the picture:
 
-## Checklist For Your Project
-- [ ] Verify the correct settings for your project repository
-- [ ] Set up Github Projects
-- [ ] Create the implementation plan using issues and Github Projects
-- [ ] Create deveopment branches for your features
-- [ ] Use pull requests to merge finished features into main branch
-- [ ] Conduct code reviews
+![image](images/1run_main.png)
 
-**If your team has trouble with any of these steps, please ask on Piazza. For example, with how GitHub Classroom works, your team *may* not have permissions to do some of the first few steps, in which case we'll post alternative instructions as needed.**
+This will run the program. The program screen should pop up and prompt you to enter login information or create a new account. 
 
-## Workflow Documents
+## How To Use
+Next, we will go over how to use the program's features. 
+After running `Main.main()` in `src/main/java/Main.java`, the Login & Create Account screen will pop up:
 
-* Github Workflow: Please refer to the workflow that was introduced in the first lab. You should follow this when working on your code. The following document provides additional details too.
+<img src="images/2first_login_screen.png" width="300">
 
-* [Project Planning and Development Guide](project_plan_dev.md): This document helps you to understand how to create and maintain a project plan for your class project. **This document helps you to complete the Implementation Plan Milestone.**
+To create a new user, click the `Create New User` button. This will take you to the Account Creation screen:
 
-## Gradle Project
-Import this project into your Intellij editor. It should automatically recognise this as a gradle repository.
-The starter code was built using SDK version 11.0.1. Ensure that you are using this version for this project. (You can, of course, change the SDK version as per your requirement if your team has all agreed to use a different version)
+<img src="images/3create_user_screen.png" width="600">
 
-You have been provided with two starter files for demonstration: HelloWorld and HelloWorldTest.
+Enter your information into the text fields provided. You need to input:
+1. **Username**: at least 5 characters with letters and numbers.
+2. **Password**: at least 5 characters with letters and numbers.
+3. **Re-enter password**: enter the same password you chose above.
+4. **Weight**: must be a number; will be used in fitness stats calculations.
+5. **Height**: must be a number; will be used in fitness stats calculations.
+6. **Gender**: enter 'Male', 'Female', or 'Other'; will be used in fitness stats calculations.
+7. **Birthday**: enter in the form 'YYYY-MM-DD'; will be used in fitness stats calculations.
 
-You will find HelloWorld in `src/main/java/tutorial` directory. Right click on the HelloWorld file and click on `Run HelloWorld.main()`.
-This should run the program and print on your console.
+Then, click the `Create Account` button.
+This will create your account with the information that you entered. 
+If the account creation was successful, this message will pop up on your screen:
 
-You will find HelloWorldTest in `src/test/java/tutorial` directory. Right click on the HelloWorldTest file and click on `Run HelloWorldTest`.
-All tests should pass. Your team can remove this sample of how testing works once you start adding your project code to the repo.
+<img src="images/4account_created_successfully.png" width="600">
 
-Moving forward, we expect you to maintain this project structure. You *should* use Gradle as the build environment, but it is fine if your team prefers to use something else -- just remove the gradle files and push your preferred project setup. Assuming you stick with Gradle, your source code should go into `src/main/java` (you can keep creating more subdirectories as per your project requirement). Every source class can auto-generate a test file for you. For example, open HelloWorld.java file and click on the `HelloWorld` variable as shown in the image below. You should see an option `Generate` and on clicking this your should see an option `Test`. Clicking on this will generate a JUnit test file for `HelloWorld` class. This was used to generate the `HelloWorldTest`.
+Click the `OK` button.
+This will take you to the original login screen again. 
 
-![image](https://user-images.githubusercontent.com/5333020/196066655-d3c97bf4-fdbd-46b0-b6ae-aeb8dbcf351d.png)
+Now, you will be prompted to log in using the login information that you just created an account with:
 
-You can create another simple class and try generating a test for this class.
+<img src="images/5login_to_account_screen.png" width="300">
+
+Click the `Login` button. 
+If you entered your login information correctly and were successfully logged in, this message will pop up on your screen:
+
+<img src="images/6logged_in_successfully_screen.png" width="300">
+
+Click the `OK` button. 
+
+Next, you will be taken to the Main Menu screen:
+
+<img src="images/7main_menu_click_create_exercise.png" width="350">
+
+As you can see, our program has a few different features that you can play around with. 
+First, you should create a couple of exercises for a more personalized experience.
+Here's how to do that:
+
+Under '*1. Create a new exercise*', click the `Create Exercise` button.
+This will take you to the Exercise Creation screen:
+
+<img src="images/8create_exercise_screen.png" width="330">
+
+Here, enter the necessary information into the text fields provided:
+1. **Exercise Name**: name of your custom exercise, be creative! This cannot be left empty.
+2. **Calories Burnt Per Minute**: average number of calories that this exercise burns per minute, this cannot be left empty.
+
+Click the `Create Exercise` button to create this exercise for your account. Now, you can use this exercise to track your fitness!
+If the exercise was created successfully, this message will pop up:
+
+<img src="images/9exercise_added_screen.png" width="330">
+
+You can close this message. 
+If you want, you can continue to add more exercises.
+Once you are done, click the `Go Back` button to return to the Main Menu screen. 
+
+Next, under '*2. Track your workouts*', click the `Input exercises` button.
+This will take you to the Data Input screen:
+
+<img src="images/10input_data_screen.png" width="600">
+
+Here, you can enter your fitness information for a given day. 
+You must enter:
+1. **Date**: in the format mm/dd/yyyy.
+2. **Weight**: for that date, will be used in health calculations.
+3. **Exercises**: exercises you completed on that date, must be comma separated. 
+4. **Length of Exercises**: number of minutes you completed those exercises for, must be comma separated. 
+
+Then, click the `Input Data` button to add this data to your account.
+If your data was inputted successfully, this message will pop up:
+
+<img src="images/11data_inputted_successfully.png" width="600">
+
+Next, under '*3. Forecast your weight loss!*', you can click the `Predict!` button. 
+This will take you to the Dashboard screen, which uses the Predictions feature.
+Your fitness journey will be forecasted and mapped on a table. 
+
+Have fun with this!
+
+
+
