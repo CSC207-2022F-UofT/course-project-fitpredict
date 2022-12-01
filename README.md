@@ -4,7 +4,7 @@ This project allows users to make fitness predictions based on their current, da
 Below, we will include a description of how to run and use it.
 
 ## How To Run & Open
-You will first need to download the main branch of this repository. 
+You will first need to download the `main` branch of this repository. 
 After it is downloaded, open `src/main/java/Main.java`.
 This is the main file of the project, where the UI screen can be run from. 
 After opening this file, right-click on any part of the code and click `Run 'Main.main()'`, as shown in the picture:
@@ -60,7 +60,7 @@ As you can see, our program has a few different features that you can play aroun
 First, you should create a couple of exercises for a more personalized experience.
 Here's how to do that:
 
-Under '1. Create a new exercise', click the `Create Exercise` button.
+Under '*1. Create a new exercise*', click the `Create Exercise` button.
 This will take you to the Exercise Creation screen:
 
 <img src="images/8create_exercise_screen.png" width="330">
@@ -78,7 +78,7 @@ You can close this message.
 If you want, you can continue to add more exercises.
 Once you are done, click the `Go Back` button to return to the Main Menu screen. 
 
-Next, under '2. Track your workouts', click the `Input exercises` button.
+Next, under '*2. Track your workouts*', click the `Input exercises` button.
 This will take you to the Data Input screen:
 
 <img src="images/10input_data_screen.png" width="600">
@@ -95,7 +95,7 @@ If your data was inputted successfully, this message will pop up:
 
 <img src="images/11data_inputted_successfully.png" width="600">
 
-Next, under '3. Forecast your weight loss!', you can click the `Predict!` button. 
+Next, under '*3. Forecast your weight loss!*', you can click the `Predict!` button. 
 This will take you to the Dashboard screen, which uses the Predictions feature.
 Your fitness journey will be forecasted and mapped on a table. 
 
