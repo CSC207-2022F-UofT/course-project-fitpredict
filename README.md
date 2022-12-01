@@ -1,5 +1,5 @@
 # FitPredict
-This is our repository for CSC207 Final Project.
+This is our repository for Group 88's CSC207 Final Project.
 This project allows users to make fitness predictions based on their current, daily fitness stats.
 Below, we will include a description of how to run and use it.
 
