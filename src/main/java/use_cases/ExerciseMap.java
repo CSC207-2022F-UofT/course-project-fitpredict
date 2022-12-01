@@ -41,7 +41,7 @@ public class ExerciseMap {
      * @param newExercise The new exercise to be added
      */
     public static void addExercise (Exercise newExercise) {
-        String name = CurrentUser.getInstance().getUsername();
+        String name = CurrentUser.getInstance().getUser().getUsername();
         if (exerciseMap.containsKey(name)) {
             exerciseMap.get(name).add(newExercise);
         }

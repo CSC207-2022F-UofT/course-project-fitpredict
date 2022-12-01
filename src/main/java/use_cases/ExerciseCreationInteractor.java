@@ -4,7 +4,6 @@ package use_cases;
 
 import entities.CurrentUser;
 import entities.Exercise;
-import screens.ResultScreen;
 import java.util.ArrayList;
 
 public class ExerciseCreationInteractor implements ExerciseInputBoundary {
@@ -26,8 +25,8 @@ public class ExerciseCreationInteractor implements ExerciseInputBoundary {
      */
     @Override
     public boolean create(String name, double caloriesBurntPerMin) {
-        if (ExerciseMap.contains(CurrentUser.getInstance().getUsername())) {
-            ArrayList<Exercise> exerciseList = ExerciseMap.get(CurrentUser.getInstance().getUsername());
+        if (ExerciseMap.contains(CurrentUser.getInstance().getUser().getUsername())) {
+            ArrayList<Exercise> exerciseList = ExerciseMap.get(CurrentUser.getInstance().getUser().getUsername());
             for (Exercise exercise : exerciseList) {
                 if (exercise.getName().equals(name)) {
                     return false;
