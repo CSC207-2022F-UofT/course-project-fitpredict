@@ -1,12 +1,10 @@
-package User;
+package user_refactored;
 import entities.User;
-//import org.junit.Test;
-
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class UserTest {
-
+public class UserEntityRefactoredTests {
     @Test
     public void userGetUsername(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
@@ -14,6 +12,7 @@ public class UserTest {
 
         assertEquals(userUsername, "dinalojpur1");
     }
+
 
     @Test
     public void userSetUsername(){

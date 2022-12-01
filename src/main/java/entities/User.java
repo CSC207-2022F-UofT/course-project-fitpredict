@@ -135,7 +135,7 @@ public class User implements Serializable {
      * Sets the user's repeated password.
      */
     public void setRepeatPassword(String repeatPassword) {
-        this.password = repeatPassword;
+        this.repeatPassword = repeatPassword;
     }
 
     // This function was initially in UserCreation but it should be in the entity file.
