@@ -28,7 +28,7 @@ public class UserCreator {
         try {
             userReadWriter.saveToFile("RegisteredAccountsList.ser", existingUsers);
         } catch (IOException e) {
-            //System.out.println("The Account List could not be saved.");
+            System.out.println("The Account List could not be saved.");
         }
     }
 
