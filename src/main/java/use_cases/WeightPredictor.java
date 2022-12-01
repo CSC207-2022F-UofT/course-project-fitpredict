@@ -27,6 +27,10 @@ public class WeightPredictor extends Predictor {
      * @return A hashmap of Dates that map to a Double corresponding to the Weight prediction of that Date
      */
     public static HashMap<Date, Double> predict(DataPointMap data) {
+        // if there is an empty DataPointMap inputted, return an empty result
+        if (data.getData().isEmpty()) {
+            return new HashMap<>();
+        }
 
         HashMap<Date, Double> predictions = new HashMap<>();
         double caloriesBurnt = CaloriePredictor.calculateCalories(data);
@@ -34,7 +38,7 @@ public class WeightPredictor extends Predictor {
         // Get date in milliseconds so can be easily manipulated
         long milliseconds = CurrentUser.currentDateEpoch();
 
-        double finalWeight = CurrentUser.getInstance().getWeight();
+        double finalWeight = CurrentUser.getInstance().getUser().getWeight();
 
         // Create predictions map
         for (int day = 1; day <= PREDICTION_LENGTH; day++) {

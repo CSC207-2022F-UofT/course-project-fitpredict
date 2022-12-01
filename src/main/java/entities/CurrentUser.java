@@ -24,7 +24,7 @@ public class CurrentUser extends User {
      */
     public CurrentUser(String username, String password, String repeatPassword, Double weight, Double height,
                        String sex, String birthday) {
-        super(username, password, repeatPassword, weight, height, sex, birthday);
+        super(username, password, repeatPassword, height,weight, sex, birthday);
     }
 
     public CurrentUser() {

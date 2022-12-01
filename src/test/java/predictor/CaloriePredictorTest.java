@@ -14,7 +14,7 @@ public class CaloriePredictorTest {
     @Test
     public void CaloriePredictorEmpty() {
         DataPointMap data = new DataPointMap();
-        assertEquals(CaloriePredictor.calculateCalories(data), 0.0);
+        assertEquals(CaloriePredictor.calculateCalories(data), 0.0, 0.01);
     }
 
     @Test
@@ -25,7 +25,7 @@ public class CaloriePredictorTest {
         DataPoint input1 = manager.createDataPoint(1, 1, 1);
         input1.setCaloriesBurnt(caloriesBurnt);
         data.addDataPoint(input1);
-        assertEquals(CaloriePredictor.calculateCalories(data), caloriesBurnt);
+        assertEquals(CaloriePredictor.calculateCalories(data), caloriesBurnt, 0.01);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class CaloriePredictorTest {
         DataPoint input1 = manager.createDataPoint(1, 1, 1);
         input1.setCaloriesBurnt(caloriesBurnt);
         data.addDataPoint(input1);
-        assertEquals(CaloriePredictor.calculateCalories(data), caloriesBurnt);
+        assertEquals(CaloriePredictor.calculateCalories(data), caloriesBurnt, 0.01);
     }
 
     @Test
@@ -49,13 +49,13 @@ public class CaloriePredictorTest {
         };
         DataPointMap data = new DataPointMap();
         DataPointManager manager = new DataPointManager();
-        for (int i = 0; i < 4; i++) {
-            DataPoint input = manager.createDataPoint(1, 1, i);
-            input.setCaloriesBurnt(caloriesBurnt[i]);
+        for (int i = 1; i < 5; i++) {
+            DataPoint input = manager.createDataPoint(1, i, 1);
+            input.setCaloriesBurnt(caloriesBurnt[i - 1]);
             data.addDataPoint(input);
         }
         assertEquals(CaloriePredictor.calculateCalories(data),
-                Arrays.stream(caloriesBurnt).sum() / caloriesBurnt.length);
+                Arrays.stream(caloriesBurnt).sum() / caloriesBurnt.length, 0.01);
     }
 
 }

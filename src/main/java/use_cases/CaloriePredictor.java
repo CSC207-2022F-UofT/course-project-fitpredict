@@ -24,6 +24,9 @@ public class CaloriePredictor {
             prediction += entry.getValue().getCaloriesBurnt();
         }
 
+        if (dataMap.size() == 0) {
+            return prediction;  // to account for divide by zero errors
+        }
         return prediction / dataMap.size(); // return average calories burnt
     }
 
