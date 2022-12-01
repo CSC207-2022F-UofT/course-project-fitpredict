@@ -21,7 +21,7 @@ public class UserLogin implements LoginInputBoundary {
             userReadWriter.saveToFile("accounts.ser", users);
             userReadWriter.readFromFile("accounts.ser");
         } catch (Exception e) {
-            System.out.println("Error!");
+            //System.out.println("Error!");
         }
     }
 
@@ -47,5 +47,9 @@ public class UserLogin implements LoginInputBoundary {
         else {
             return LogInResult.NO_LOG;
         }
+    }
+
+    public UserAccountList getUserAccountList(){
+        return this.users;
     }
 }

@@ -1,7 +1,5 @@
 package screens;
 
-
-import entities.User;
 import use_cases.UserAccountList;
 import use_cases.UserLogin;
 import controllers.UserLoginController;

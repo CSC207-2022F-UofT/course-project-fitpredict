@@ -1,6 +1,9 @@
 package screens;
 
+import controllers.UserLoginController;
 import entities.CurrentUser;
+import use_cases.UserAccountList;
+import use_cases.UserLogin;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +13,7 @@ import java.awt.event.ActionListener;
 /**
  * DashboardScreen class
  */
-public class DashboardScreen extends JPanel implements ActionListener {
+public class DashboardScreen extends JFrame implements ActionListener, WindowCloser {
     String[] columnNames = {
             "Date",
             "Weight",
@@ -25,11 +28,14 @@ public class DashboardScreen extends JPanel implements ActionListener {
 
     String backText = "Back";
     String logOutText = "Log out";
+    UserAccountList userAccountList;
 
     /**
      * Constructor for DashboardScreen
      */
-    public DashboardScreen() {
+    public DashboardScreen(UserAccountList userAccountList) {
+        this.userAccountList = userAccountList;
+
         // Setting the title and alignment
         JLabel title = new JLabel("Dashboard");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -54,7 +60,7 @@ public class DashboardScreen extends JPanel implements ActionListener {
         back.addActionListener(this);
 
         // setting the layout of the screen
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        //this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         // adding all the components via JSwing
         this.add(tableScrollPane);
@@ -68,11 +74,21 @@ public class DashboardScreen extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         try {
             if (event.getActionCommand().equals(backText)) {
-                JOptionPane.showMessageDialog(this, "This would " +
-                        "return back to the home screen");
+                closeWindow(event);
+
+                MainMenuScreen screen = new MainMenuScreen(userAccountList);
+                screen.pack();
+                screen.setVisible(true);
             } else if (event.getActionCommand().equals(logOutText)) {
-                JOptionPane.showMessageDialog(this, "This would " +
-                        "log the user out");
+                JOptionPane.showMessageDialog(this, "Logged out!");
+
+                closeWindow(event);
+
+                UserLogin userLogin = new UserLogin(userAccountList);
+                UserLoginController userLoginController = new UserLoginController(userLogin);
+                UserLoginScreen userLoginScreen = new UserLoginScreen(userLoginController);
+                userLoginScreen.pack();
+                userLoginScreen.setVisible(true);
             } else {
                 System.out.println("Button clicked has no function");
             }

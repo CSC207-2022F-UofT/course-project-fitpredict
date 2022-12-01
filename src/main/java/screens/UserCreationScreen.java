@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UserCreationScreen extends JFrame implements ActionListener {
+public class UserCreationScreen extends JFrame implements ActionListener,  WindowCloser{
     JTextField username = new JTextField(15);
     JPasswordField password = new JPasswordField(15);
     JPasswordField repeatPassword = new JPasswordField(15);
@@ -25,14 +25,22 @@ public class UserCreationScreen extends JFrame implements ActionListener {
         LabelTextPanel usernameInfo = new LabelTextPanel(new JLabel("Choose Username (At least 5 characters: must include letters and numbers)"), username);
         LabelTextPanel passwordInfo = new LabelTextPanel(new JLabel("Choose Password (At least 5 characters: must include letters and numbers)"), password);
         LabelTextPanel repeatPasswordInfo = new LabelTextPanel(new JLabel("Please enter your password again"), repeatPassword);
-        LabelTextPanel weightInfo = new LabelTextPanel(new JLabel("Enter your weight"), weight);
-        LabelTextPanel heightInfo = new LabelTextPanel(new JLabel("Enter your height"), height);
+        LabelTextPanel weightInfo = new LabelTextPanel(new JLabel("Enter your weight (kg)"), weight);
+        LabelTextPanel heightInfo = new LabelTextPanel(new JLabel("Enter your height (cm)"), height);
         LabelTextPanel sexInfo = new LabelTextPanel(new JLabel("Enter your gender (Options: Male, Female, Other)"), sex);
         LabelTextPanel birthdayInfo = new LabelTextPanel(new JLabel("Enter your birthday (Use the form: YYYY-MM-DD"), birthday);
 
-        JButton signUp = new JButton("Create account");
-        JPanel button = new JPanel();
-        button.add(signUp);
+        JButton signUp = new JButton("Create Account");
+        JPanel buttons = new JPanel();
+        buttons.add(signUp);
+
+        JButton close = new JButton(new AbstractAction("Close Window") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                closeWindow(e);
+            }
+        });
+        buttons.add(close);
 
         signUp.addActionListener(this);
         JPanel panel = new JPanel();
@@ -45,7 +53,7 @@ public class UserCreationScreen extends JFrame implements ActionListener {
         panel.add(heightInfo);
         panel.add(sexInfo);
         panel.add(birthdayInfo);
-        panel.add(button);
+        panel.add(buttons);
         this.setContentPane(panel);
         this.pack();
     }
@@ -55,5 +63,8 @@ public class UserCreationScreen extends JFrame implements ActionListener {
                 Double.parseDouble(height.getText()), Double.parseDouble(weight.getText()),
                 sex.getText(), birthday.getText()));
 
+        JComponent jc = (JComponent) evt.getSource();
+        Window w = SwingUtilities.getWindowAncestor(jc);
+        w.dispose();
     }
 }

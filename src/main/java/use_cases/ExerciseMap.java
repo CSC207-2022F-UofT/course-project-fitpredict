@@ -38,11 +38,10 @@ public class ExerciseMap {
 
     /**
      * Adds a new exercise to the exercise array of the passed user
-     * @param currentUser The user who is creating a new exercise
      * @param newExercise The new exercise to be added
      */
-    public static void addExercise (CurrentUser currentUser, Exercise newExercise) {
-        String name = currentUser.getUsername();
+    public static void addExercise (Exercise newExercise) {
+        String name = CurrentUser.getInstance().getUser().getUsername();
         if (exerciseMap.containsKey(name)) {
             exerciseMap.get(name).add(newExercise);
         }

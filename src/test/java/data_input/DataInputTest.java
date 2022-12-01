@@ -62,10 +62,10 @@ public class DataInputTest {
     public void DataInputTestManyExercises() {
         CurrentUser.getInstance().setUser(u);
         CurrentUser cu = CurrentUser.getInstance();
-        ExerciseMap.addExercise(cu, e1);
-        ExerciseMap.addExercise(cu, e2);
-        ExerciseMap.addExercise(cu, e3);
-        ExerciseMap.addExercise(cu, e4);
+        ExerciseMap.addExercise(e1);
+        ExerciseMap.addExercise(e2);
+        ExerciseMap.addExercise(e3);
+        ExerciseMap.addExercise(e4);
         String[] eNames3 = new String[3];
         eNames3[0] = "Sit Up";
         eNames3[1] = "Running";

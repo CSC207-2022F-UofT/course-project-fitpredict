@@ -5,6 +5,7 @@ import entities.CurrentUser;
 import entities.DataPoint;
 import use_cases.DataPointMap;
 import use_cases.ExerciseMap;
+import use_cases.UserAccountList;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,13 +14,14 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 
 
-public class DataInputScreen extends JFrame implements ActionListener {
+public class DataInputScreen extends JFrame implements ActionListener, WindowCloser {
     JTextField date = new JTextField(15);
 
     JTextField weight = new JTextField(15);
     JTextField exercises = new JTextField(15);
     JTextField exerciseTimes = new JTextField(15);
     DataInputController dataInputController;
+    UserAccountList userAccountList;
 
 
     /**
@@ -27,23 +29,33 @@ public class DataInputScreen extends JFrame implements ActionListener {
      *
      * @param controller The controller used by the UI
      */
-    public DataInputScreen(DataInputController controller) {
+    public DataInputScreen(DataInputController controller, UserAccountList userAccountList) {
         this.dataInputController = controller;
+        this.userAccountList = userAccountList;
         JLabel title = new JLabel("Data Input Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         LabelTextPanel dateInfo = new LabelTextPanel(new JLabel("Enter Date (mm/dd/yyyy)"), date);
-        LabelTextPanel weightInfo = new LabelTextPanel(new JLabel("Enter your weight"), weight);
+        LabelTextPanel weightInfo = new LabelTextPanel(new JLabel("Enter your weight (kg)"), weight);
         LabelTextPanel exercisesInfo = new LabelTextPanel(new JLabel("Enter the exercises you did (comma seperated)"), exercises);
         LabelTextPanel exerciseTimesInfo = new LabelTextPanel(new JLabel("Enter how long you did each exercise in minutes (comma seperated)"), exerciseTimes);
         JButton inputButton = new JButton("Input Data");
-        JButton backButton = new JButton("Main Menu");
         JPanel buttons = new JPanel();
         buttons.add(inputButton);
-        buttons.add(backButton);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        JButton back = new JButton(new AbstractAction("Go back") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                closeWindow(e);
+
+                MainMenuScreen screen = new MainMenuScreen(userAccountList);
+                screen.pack();
+                screen.setVisible(true);
+            }
+        });
+        buttons.add(back);
+
         inputButton.addActionListener(this);
-        backButton.addActionListener(this);
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(title);
@@ -60,19 +72,14 @@ public class DataInputScreen extends JFrame implements ActionListener {
      * Implements what happens once the input data button is clicked.
      */
     public void actionPerformed(ActionEvent evt) {
-        if (evt.getActionCommand().equals("Main Menu")) {
-            JOptionPane.showMessageDialog(this, "This would " +
-                    "return back to the main menu screen");
-        } else {
-            String dateString = date.getText();
-            int month = Integer.parseInt(dateString.substring(0, 2));
-            int day = Integer.parseInt(dateString.substring(3, 5));
-            int year = Integer.parseInt(dateString.substring(6));
-            double weightInput = Double.parseDouble(weight.getText());
-            String[] exercisesNames = {exercises.getText()};
-            String[] timesStrings = {exerciseTimes.getText()};
-            inputDataResult(month, day, year, weightInput, exercisesNames, timesStrings);
-        }
+        String dateString = date.getText();
+        int month = Integer.parseInt(dateString.substring(0, 2));
+        int day = Integer.parseInt(dateString.substring(3, 5));
+        int year = Integer.parseInt(dateString.substring(6));
+        double weightInput = Double.parseDouble(weight.getText());
+        String[] exercisesNames = {exercises.getText()};
+        String[] timesStrings = {exerciseTimes.getText()};
+        inputDataResult(month, day, year, weightInput, exercisesNames, timesStrings);
     }
     /**
      * Helper method for actionPerformed.

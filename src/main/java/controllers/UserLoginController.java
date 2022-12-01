@@ -2,6 +2,7 @@ package controllers;
 
 import entities.CurrentUser;
 import use_cases.LoginInputBoundary;
+import use_cases.UserAccountList;
 import use_cases.UserLogin;
 
 public class UserLoginController {
@@ -22,5 +23,9 @@ public class UserLoginController {
      */
     public UserLogin.LogInResult login(String username, String password) {
         return loginInputBoundary.loginUser(username, password);
+    }
+
+    public UserAccountList getUserAccountList(){
+        return this.loginInputBoundary.getUserAccountList();
     }
 }

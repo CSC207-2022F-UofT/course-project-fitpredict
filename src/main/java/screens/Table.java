@@ -18,7 +18,7 @@ public class Table implements VisualUnit {
     public static Object[][] generate(DataPointMap data) {
         // error handling for the event that a user finds an exploit to get to this screen without logging in
         if (data == null) {
-            return new Object[0][3];
+            return new Object[1][3];
         }
 
         Object[][] tableFormat = new Object[data.getData().keySet().size()][3];

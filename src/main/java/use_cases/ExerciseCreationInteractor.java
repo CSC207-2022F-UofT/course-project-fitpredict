@@ -4,21 +4,17 @@ package use_cases;
 
 import entities.CurrentUser;
 import entities.Exercise;
-import screens.ResultScreen;
 import java.util.ArrayList;
 
 public class ExerciseCreationInteractor implements ExerciseInputBoundary {
     final ExerciseManager manager;
-    private final CurrentUser currentUser;
 
     /**
      * Constructor
      * @param manager Used to create exercises
-     * @param currentUser The user currently logged in who may create a new exercise
      */
-    public ExerciseCreationInteractor (ExerciseManager manager, CurrentUser currentUser) {
+    public ExerciseCreationInteractor (ExerciseManager manager) {
         this.manager = manager;
-        this.currentUser = currentUser;
     }
 
     /**
@@ -29,15 +25,15 @@ public class ExerciseCreationInteractor implements ExerciseInputBoundary {
      */
     @Override
     public boolean create(String name, double caloriesBurntPerMin) {
-        if (ExerciseMap.contains(currentUser.getUsername())) {
-            ArrayList<Exercise> exerciseList = ExerciseMap.get(currentUser.getUsername());
+        if (ExerciseMap.contains(CurrentUser.getInstance().getUser().getUsername())) {
+            ArrayList<Exercise> exerciseList = ExerciseMap.get(CurrentUser.getInstance().getUser().getUsername());
             for (Exercise exercise : exerciseList) {
                 if (exercise.getName().equals(name)) {
                     return false;
                 }
             }
         }
-        ExerciseMap.addExercise(currentUser, manager.createExercise(name, caloriesBurntPerMin));
+        ExerciseMap.addExercise(manager.createExercise(name, caloriesBurntPerMin));
         return true;
     }
 }
