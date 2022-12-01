@@ -23,6 +23,15 @@ To create a new user, click the `Create New User` button. This will take you to 
 
 <img src="images/3create_user_screen.png" width="600">
 
+Enter your information into the text fields provided. You need to input:
+1. **Username**: at least 5 characters with letters and numbers.
+2. **Password**: at least 5 characters with letters and numbers.
+3. **Re-enter password**: enter the same password you chose above.
+4. **Weight**: must be a number; will be used in fitness stats calculations.
+5. **Height**: must be a number; will be used in fitness stats calculations.
+6. **Gender**: enter 'Male', 'Female', or 'Other'; will be used in fitness stats calculations.
+7. **Birthday**: enter in the form 'YYYY-MM-DD'; will be used in fitness stats calculations.
+
 Then, click the `Create Account` button.
 This will create your account with the information that you entered. 
 If the account creation was successful, this message will pop up on your screen:
