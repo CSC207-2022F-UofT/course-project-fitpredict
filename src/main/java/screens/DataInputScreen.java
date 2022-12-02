@@ -92,13 +92,13 @@ public class DataInputScreen extends JFrame implements ActionListener, WindowClo
         Date dateInput = new Date(DataPoint.convertEpochMilliseconds(month, day, year));
         if (!(ExerciseMap.contains(CurrentUser.getInstance().getUser().getUsername()))) {
             rs = new ResultScreen("There are no created exercises");
-        } else if (dataPointMap.getData().containsKey(dateInput)) {
-            rs = new ResultScreen("There is already data inputted for this day");
         } else if (weightInput <= 0) {
             rs = new ResultScreen("Please enter a valid weight");
         } else {
+            if (dataPointMap.getData().containsKey(dateInput)) {
+                rs = new ResultScreen("Data Updated Successfully");
+            } else {rs = new ResultScreen("Data Inputted Successfully");}
             dataInputController.inputData(month, day, year, weightInput, exercisesNames, timesStrings);
-            rs = new ResultScreen("Data Inputted Successfully");
         }
         rs.setVisible(true);
     }
