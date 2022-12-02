@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class UserCreator {
     private final UserAccountList existingUsers;
-    UserReadWriter userReadWriter = new UserReadWriter();
+    ReadWriter userReadWriter = new UserReadWriter();
 
     // File methods
 
@@ -26,7 +26,7 @@ public class UserCreator {
     public UserCreator(UserAccountList existingUsers) {
         this.existingUsers = existingUsers;
         try {
-            userReadWriter.saveToFile("RegisteredAccountsList.ser", existingUsers);
+            userReadWriter.saveToFile("accounts.ser", existingUsers);
         } catch (IOException e) {
             System.out.println("The Account List could not be saved.");
         }
@@ -282,5 +282,9 @@ public class UserCreator {
         } else if (Objects.equals(sex, "Male")) {
             return true;
         } else return Objects.equals(sex, "Other");
+    }
+
+    public UserAccountList getExistingUsers() {
+        return this.existingUsers;
     }
 }

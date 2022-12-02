@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class MainMenuScreen extends JFrame implements ActionListener, WindowCloser {
     UserAccountList userAccountList;
@@ -101,6 +102,12 @@ public class MainMenuScreen extends JFrame implements ActionListener, WindowClos
     public void actionPerformed(ActionEvent e) {
         closeWindow(e);
 
+        UserReadWriter urw = new UserReadWriter();
+        try {
+            userAccountList = urw.readFromFile("accounts.ser");
+        } catch (IOException | ClassNotFoundException ex) {
+            throw new RuntimeException(ex);
+        }
         UserLogin userLogin = new UserLogin(userAccountList);
         UserLoginController userLoginController = new UserLoginController(userLogin);
         UserLoginScreen userLoginScreen = new UserLoginScreen(userLoginController);

@@ -1,11 +1,13 @@
 package screens;
 
 import controllers.UserCreationController;
+import use_cases.UserReadWriter;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class UserCreationScreen extends JFrame implements ActionListener,  WindowCloser{
     JTextField username = new JTextField(15);
@@ -62,6 +64,12 @@ public class UserCreationScreen extends JFrame implements ActionListener,  Windo
         JOptionPane.showMessageDialog(this, userCreationController.accountCreator(username.getText(), password.getText(), repeatPassword.getText(),
                 Double.parseDouble(height.getText()), Double.parseDouble(weight.getText()),
                 sex.getText(), birthday.getText()));
+        UserReadWriter urw = new UserReadWriter();
+        try {
+            urw.saveToFile("accounts.ser", userCreationController.getUserAccountList());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         JComponent jc = (JComponent) evt.getSource();
         Window w = SwingUtilities.getWindowAncestor(jc);

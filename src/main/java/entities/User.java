@@ -35,7 +35,7 @@ public class User implements Serializable {
         this.sex = sex;
         this.birthday = birthday;
         this.repeatPassword = repeatPassword;
-        this.dataPointMap = new DataPointMap();
+        //this.dataPointMap = new DataPointMap();
     }
 
     public User() {}
@@ -149,6 +149,9 @@ public class User implements Serializable {
     }
 
     public DataPointMap getDataPointMap() {
+        if (this.dataPointMap == null) {
+            this.dataPointMap = new DataPointMap();
+        }
         return this.dataPointMap;
     }
 }
