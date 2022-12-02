@@ -90,7 +90,6 @@ public class DataInputScreen extends JFrame implements ActionListener, WindowClo
         ResultScreen rs;
         DataPointMap dataPointMap = CurrentUser.getInstance().getUser().getDataPointMap();
         Date dateInput = new Date(DataPoint.convertEpochMilliseconds(month, day, year));
-        System.out.println(dataPointMap.getDataPoint(dateInput));
         if (!(ExerciseMap.contains(CurrentUser.getInstance().getUser().getUsername()))) {
             rs = new ResultScreen("There are no created exercises");
         } else if (dataPointMap.getData().containsKey(dateInput)) {
