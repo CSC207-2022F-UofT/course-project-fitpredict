@@ -55,6 +55,16 @@ public class DataPointMapTest {
     }
 
     @Test(timeout = 50)
+    public void testGetDataPointNotInMap() {
+        map.addDataPoint(dp1);
+        map.addDataPoint(dp2);
+        date = new Date(DataPoint.convertEpochMilliseconds(11, 12, 2022));
+        boolean actual = map.getDataPoint(date) == null;
+        boolean expected = true;
+        assertEquals(actual, expected);
+    }
+
+    @Test(timeout = 50)
     public void testMergeDataPoints() {
         map.mergeDataPoints(mapToMerge);
         int actual = map.getData().size();
@@ -76,6 +86,21 @@ public class DataPointMapTest {
         map.removeDataPoint(dp1);
         int actual = map.getData().size();
         int expected = 0;
+        assertEquals(actual, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testGetDataEmpty() {
+        int actual = map.getData().size();
+        int expected = 0;
+        assertEquals(actual, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testGetDataNonEmpty() {
+        map.addDataPoint(dp1);
+        int actual = map.getData().size();
+        int expected = 1;
         assertEquals(actual, expected);
     }
 }
