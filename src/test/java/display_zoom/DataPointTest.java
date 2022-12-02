@@ -9,6 +9,7 @@ import org.junit.*;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
@@ -23,6 +24,8 @@ public class DataPointTest {
     @Before
     public void setUp() {
         dp = new DataPoint(1, 1, 2022);
+        dp.setWeight(100);
+        dp.setCaloriesBurnt(500);
         exercise1 = new Exercise("walking", 1.0);
         exercise2 = new Exercise("running", 7);
         exercise3 = new Exercise("jumping", 10);
@@ -72,5 +75,57 @@ public class DataPointTest {
         assertEquals(actual, expected);
     }
 
+    @Test(timeout = 50)
+    public void testGetDate() {
+        Date date = new Date(DataPoint.convertEpochMilliseconds(1, 1, 2022));
+        int actual = dp.getDate().compareTo(date);
+        int expected = 0;
+        assertEquals(actual, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testGetExerciseListEmpty() {
+        int actual = dp.getExerciseList().size();
+        int expected = 0;
+        assertEquals(actual, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testGetExerciseListNonEmpty() {
+        dp.addExercise(exercise1);
+        int actual = dp.getExerciseList().size();
+        int expected = 1;
+        assertEquals(actual, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testGetCaloriesBurnt() {
+        double actual = dp.getCaloriesBurnt();
+        double expected = 500;
+        assertEquals(actual, expected, 0.0001);
+    }
+
+    @Test(timeout = 50)
+    public void testGetWeight() {
+        double actual = dp.getWeight();
+        double expected = 100;
+        assertEquals(actual, expected, 0.0001);
+    }
+
+    @Test(timeout = 50)
+    public void testSetCaloriesBurnt() {
+        dp.setCaloriesBurnt(150);
+        double actual = dp.getCaloriesBurnt();
+        double expected = 150;
+        assertEquals(actual, expected, 0.0001);
+    }
+
+    @Test(timeout = 50)
+    public void testSetWeight() {
+        dp.setWeight(50);
+        double actual = dp.getWeight();
+        double expected = 50;
+        assertEquals(actual, expected, 0.0001);
+    }
 
 }
