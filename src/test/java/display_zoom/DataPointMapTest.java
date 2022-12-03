@@ -19,8 +19,8 @@ public class DataPointMapTest {
     DataPoint dp2;
     DataPoint dp3;
     Date date;
-    HashMap<Date, DataPoint> mapToMerge;
-    HashMap<Date, DataPoint> mapEmpty;
+    HashMap<Date, DataPoint> mapToMerge = new HashMap<>();
+    HashMap<Date, DataPoint> mapEmpty = new HashMap<>();
 
     @Before
     public void setUp() {
@@ -48,8 +48,19 @@ public class DataPointMapTest {
 
     @Test(timeout = 50)
     public void testGetDataPoint() {
+        map.addDataPoint(dp1);
         String actual = map.getDataPoint(date).getDate().toString();
         String expected = date.toString();
+        assertEquals(actual, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testGetDataPointNotInMap() {
+        map.addDataPoint(dp1);
+        map.addDataPoint(dp2);
+        date = new Date(DataPoint.convertEpochMilliseconds(11, 12, 2022));
+        boolean actual = map.getDataPoint(date) == null;
+        boolean expected = true;
         assertEquals(actual, expected);
     }
 
@@ -57,7 +68,7 @@ public class DataPointMapTest {
     public void testMergeDataPoints() {
         map.mergeDataPoints(mapToMerge);
         int actual = map.getData().size();
-        int expected = 2;
+        int expected = 1;
         assertEquals(actual, expected);
     }
 
@@ -65,13 +76,29 @@ public class DataPointMapTest {
     public void testMergeDataPointsEmptyMap() {
         map.mergeDataPoints(mapEmpty);
         int actual = map.getData().size();
-        int expected = 2;
+        int expected = 0;
         assertEquals(actual, expected);
     }
 
     @Test(timeout = 50)
     public void testRemoveDataPoint() {
+        map.addDataPoint(dp1);
         map.removeDataPoint(dp1);
+        int actual = map.getData().size();
+        int expected = 0;
+        assertEquals(actual, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testGetDataEmpty() {
+        int actual = map.getData().size();
+        int expected = 0;
+        assertEquals(actual, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testGetDataNonEmpty() {
+        map.addDataPoint(dp1);
         int actual = map.getData().size();
         int expected = 1;
         assertEquals(actual, expected);

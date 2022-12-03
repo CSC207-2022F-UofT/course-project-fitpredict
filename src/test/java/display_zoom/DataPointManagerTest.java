@@ -10,7 +10,7 @@ import use_cases.DataPointManager;
 import static org.junit.Assert.assertEquals;
 
 public class DataPointManagerTest {
-    DataPointManager dpManager;
+    DataPointManager dpManager = new DataPointManager();
 
     @Before
     public void setUp() {
@@ -26,5 +26,77 @@ public class DataPointManagerTest {
         boolean actual = dp instanceof DataPoint;
         boolean expected = true;
         assertEquals(actual, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testCreateDataPoint1InvalidArgument() {
+        boolean thrown = false;
+        try {
+            dpManager.createDataPoint(13, 21, 2022);
+        } catch (IllegalArgumentException e) {
+            thrown = true;
+        }
+        boolean expected = true;
+        assertEquals(thrown, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testCreateDataPointMultipleInvalidArguments() {
+        boolean thrown = false;
+        try {
+            dpManager.createDataPoint(20, 0, -1);
+        } catch (IllegalArgumentException e) {
+            thrown = true;
+        }
+        boolean expected = true;
+        assertEquals(thrown, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testCheckValidInputValid() {
+        boolean thrown = false;
+        try {
+            dpManager.createDataPoint(12, 14, 2001);
+        } catch (IllegalArgumentException e) {
+            thrown = true;
+        }
+        boolean expected = false;
+        assertEquals(thrown, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testCheckValidInputInvalidMonth() {
+        boolean thrown = false;
+        try {
+            dpManager.createDataPoint(0, 14, 2001);
+        } catch (IllegalArgumentException e) {
+            thrown = true;
+        }
+        boolean expected = true;
+        assertEquals(thrown, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testCheckValidInputInvalidDay() {
+        boolean thrown = false;
+        try {
+            dpManager.createDataPoint(12, 32, 2001);
+        } catch (IllegalArgumentException e) {
+            thrown = true;
+        }
+        boolean expected = true;
+        assertEquals(thrown, expected);
+    }
+
+    @Test(timeout = 50)
+    public void testCheckValidInputInvalidYear() {
+        boolean thrown = false;
+        try {
+            dpManager.createDataPoint(12, 14, 0);
+        } catch (IllegalArgumentException e) {
+            thrown = true;
+        }
+        boolean expected = true;
+        assertEquals(thrown, expected);
     }
 }
