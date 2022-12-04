@@ -73,13 +73,19 @@ public class DataInputScreen extends JFrame implements ActionListener, WindowClo
      */
     public void actionPerformed(ActionEvent evt) {
         String dateString = date.getText();
-        int month = Integer.parseInt(dateString.substring(0, 2));
-        int day = Integer.parseInt(dateString.substring(3, 5));
-        int year = Integer.parseInt(dateString.substring(6));
         double weightInput = Double.parseDouble(weight.getText());
         String[] exercisesNames = {exercises.getText()};
         String[] timesStrings = {exerciseTimes.getText()};
-        inputDataResult(month, day, year, weightInput, exercisesNames, timesStrings);
+        try {
+            int month = Integer.parseInt(dateString.substring(0, 2));
+            int day = Integer.parseInt(dateString.substring(3, 5));
+            int year = Integer.parseInt(dateString.substring(6));
+            inputDataResult(month, day, year, weightInput, exercisesNames, timesStrings);
+        } catch (Exception e) {
+            ResultScreen rs = new ResultScreen("Date is invalid");
+            rs.setVisible(true);
+        }
+
     }
     /**
      * Helper method for actionPerformed.
@@ -97,7 +103,8 @@ public class DataInputScreen extends JFrame implements ActionListener, WindowClo
         } else {
             if (dataPointMap.getData().containsKey(dateInput)) {
                 rs = new ResultScreen("Data Updated Successfully");
-            } else {rs = new ResultScreen("Data Inputted Successfully");}
+            } else {
+                rs = new ResultScreen("Data Inputted Successfully");}
             dataInputController.inputData(month, day, year, weightInput, exercisesNames, timesStrings);
         }
         rs.setVisible(true);
