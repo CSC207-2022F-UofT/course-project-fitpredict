@@ -50,7 +50,8 @@ public class DashboardScreen extends JFrame implements ActionListener, WindowClo
         // Creating the buttons for actions
         JButton logOut = new JButton(logOutText);
         JButton back = new JButton(backText);
-        
+
+        JPanel main = new JPanel();
         JPanel buttons = new JPanel();
         buttons.add(back);
         buttons.add(logOut);
@@ -60,11 +61,13 @@ public class DashboardScreen extends JFrame implements ActionListener, WindowClo
         back.addActionListener(this);
 
         // setting the layout of the screen
-        //this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
+
 
         // adding all the components via JSwing
-        this.add(tableScrollPane);
-        this.add(buttons);
+        main.add(tableScrollPane);
+        main.add(buttons);
+        this.add(main);
     }
 
     /**
