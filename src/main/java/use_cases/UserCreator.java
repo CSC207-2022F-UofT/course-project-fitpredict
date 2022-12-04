@@ -1,8 +1,6 @@
 package use_cases;
 
 import entities.User;
-import use_cases.UserReadWriter;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
@@ -12,7 +10,7 @@ import java.util.Objects;
 /**
  * Creates a valid user account
  */
-public class UserCreator {
+public class UserCreator implements CreationInputBoundary{
     private final UserAccountList existingUsers;
     ReadWriter userReadWriter = new UserReadWriter();
 
