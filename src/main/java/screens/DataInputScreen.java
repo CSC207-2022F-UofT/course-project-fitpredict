@@ -73,13 +73,19 @@ public class DataInputScreen extends JFrame implements ActionListener, WindowClo
      */
     public void actionPerformed(ActionEvent evt) {
         String dateString = date.getText();
-        int month = Integer.parseInt(dateString.substring(0, 2));
-        int day = Integer.parseInt(dateString.substring(3, 5));
-        int year = Integer.parseInt(dateString.substring(6));
         double weightInput = Double.parseDouble(weight.getText());
         String[] exercisesNames = {exercises.getText()};
         String[] timesStrings = {exerciseTimes.getText()};
-        inputDataResult(month, day, year, weightInput, exercisesNames, timesStrings);
+        try {
+            int month = Integer.parseInt(dateString.substring(0, 2));
+            int day = Integer.parseInt(dateString.substring(3, 5));
+            int year = Integer.parseInt(dateString.substring(6));
+            inputDataResult(month, day, year, weightInput, exercisesNames, timesStrings);
+        } catch (Exception e) {
+            ResultScreen rs = new ResultScreen("Date is invalid");
+            rs.setVisible(true);
+        }
+
     }
     /**
      * Helper method for actionPerformed.
@@ -90,16 +96,16 @@ public class DataInputScreen extends JFrame implements ActionListener, WindowClo
         ResultScreen rs;
         DataPointMap dataPointMap = CurrentUser.getInstance().getUser().getDataPointMap();
         Date dateInput = new Date(DataPoint.convertEpochMilliseconds(month, day, year));
-        System.out.println(dataPointMap.getDataPoint(dateInput));
         if (!(ExerciseMap.contains(CurrentUser.getInstance().getUser().getUsername()))) {
             rs = new ResultScreen("There are no created exercises");
-        } else if (dataPointMap.getData().containsKey(dateInput)) {
-            rs = new ResultScreen("There is already data inputted for this day");
         } else if (weightInput <= 0) {
             rs = new ResultScreen("Please enter a valid weight");
         } else {
+            if (dataPointMap.getData().containsKey(dateInput)) {
+                rs = new ResultScreen("Data Updated Successfully");
+            } else {
+                rs = new ResultScreen("Data Inputted Successfully");}
             dataInputController.inputData(month, day, year, weightInput, exercisesNames, timesStrings);
-            rs = new ResultScreen("Data Inputted Successfully");
         }
         rs.setVisible(true);
     }

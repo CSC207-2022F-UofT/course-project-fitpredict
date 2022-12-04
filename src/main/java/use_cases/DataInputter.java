@@ -23,7 +23,8 @@ public class DataInputter implements DataInputBoundary {
         DataPointManager manager = new DataPointManager();
         DataPoint dataPoint = manager.createDataPoint(month, day, year);
         dataPoint.setWeight(weight);
-        for (Exercise exercise : exercises) {dataPoint.addExercise(exercise);}
+//        for (Exercise exercise : exercises) {dataPoint.addExercise(exercise);}
+        dataPoint.addExercise(exercises);
         dataPoint.setCaloriesBurnt(caloriesBurnt);
         dataPointMap.addDataPoint(dataPoint);
     }
