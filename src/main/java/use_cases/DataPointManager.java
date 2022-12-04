@@ -2,6 +2,8 @@ package use_cases;
 
 import entities.DataPoint;
 
+import java.util.Date;
+
 /**
  * DataPointManager class
  */
@@ -20,6 +22,16 @@ public class DataPointManager {
             throw new IllegalArgumentException(e.getMessage());
         }
         return new DataPoint(month, day, year);
+    }
+
+    /**
+     * Creates a DataPoint object with the date of the passed in parameter
+     * @param date The Date object of the calendar date
+     * @return DataPoint
+     */
+    public DataPoint createDataPoint(Date date) {
+        // checking boundaries is unnecessary, as you cannot have a Date object with an invalid date
+        return new DataPoint(date);
     }
 
     /**

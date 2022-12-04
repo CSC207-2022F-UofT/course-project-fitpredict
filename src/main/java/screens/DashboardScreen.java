@@ -1,7 +1,9 @@
 package screens;
 
+import controllers.DashboardController;
 import controllers.UserLoginController;
 import entities.CurrentUser;
+import use_cases.PredictManager;
 import use_cases.UserAccountList;
 import use_cases.UserLogin;
 
@@ -24,7 +26,7 @@ public class DashboardScreen extends JFrame implements ActionListener, WindowClo
     /* in refactoring: we may need to define an empty Object[][] and then generate it in the screen, so
       we have access to CurrentUser currentUser.
      */
-    Object[][] data = Table.generate(CurrentUser.getInstance().getUser().getDataPointMap());
+    Object[][] data;
 
     String backText = "Back";
     String logOutText = "Log out";
@@ -33,12 +35,16 @@ public class DashboardScreen extends JFrame implements ActionListener, WindowClo
     /**
      * Constructor for DashboardScreen
      */
-    public DashboardScreen(UserAccountList userAccountList) {
+    public DashboardScreen(UserAccountList userAccountList, DashboardController controller) {
         this.userAccountList = userAccountList;
 
         // Setting the title and alignment
         JLabel title = new JLabel("Dashboard");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // Using controller to predict data
+        controller.updateDashboardPredictions();
+        data = Table.generate(CurrentUser.getInstance().getUser().getDataPointMap());
 
         // The table that will be displayed as part of the dashboard
         JTable table = new JTable(data, columnNames);
@@ -50,7 +56,8 @@ public class DashboardScreen extends JFrame implements ActionListener, WindowClo
         // Creating the buttons for actions
         JButton logOut = new JButton(logOutText);
         JButton back = new JButton(backText);
-        
+
+        JPanel main = new JPanel();
         JPanel buttons = new JPanel();
         buttons.add(back);
         buttons.add(logOut);
@@ -60,11 +67,13 @@ public class DashboardScreen extends JFrame implements ActionListener, WindowClo
         back.addActionListener(this);
 
         // setting the layout of the screen
-        //this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
+
 
         // adding all the components via JSwing
-        this.add(tableScrollPane);
-        this.add(buttons);
+        main.add(tableScrollPane);
+        main.add(buttons);
+        this.add(main);
     }
 
     /**

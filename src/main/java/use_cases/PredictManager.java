@@ -27,4 +27,6 @@ public class PredictManager {
         return BMIPredictor.predict(data);
     }
 
+    public static double predictCalories(DataPointMap data) { return CaloriePredictor.calculateCalories(data); }
+
 }
