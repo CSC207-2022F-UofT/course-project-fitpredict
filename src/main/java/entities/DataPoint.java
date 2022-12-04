@@ -25,6 +25,16 @@ public class DataPoint {
     }
 
     /**
+     * A DataPoint containing fitness stats information for 1 calendar day
+     * @param date The date of the calendar date
+     *
+     */
+    public DataPoint(Date date) {
+        this.date = date;
+        exerciseList = new ArrayList<Exercise>();
+    }
+
+    /**
      * Helper function that is used by a constructor - Converts month, day, year to milliseconds since Epoch
      * This is only necessary because other Date constructors are deprecated
      * @param month The month of the calendar date - between 1-12, inclusive

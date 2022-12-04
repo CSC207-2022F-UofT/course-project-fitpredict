@@ -1,5 +1,6 @@
 package screens;
 
+import controllers.DashboardController;
 import controllers.DataInputController;
 import controllers.ExerciseCreationController;
 import controllers.UserLoginController;
@@ -64,7 +65,8 @@ public class MainMenuScreen extends JFrame implements ActionListener, WindowClos
             public void actionPerformed(ActionEvent e) {
                 closeWindow(e);
 
-                DashboardScreen screen = new DashboardScreen(userAccountList);
+                DashboardController controller = new DashboardController();
+                DashboardScreen screen = new DashboardScreen(userAccountList, controller);
                 screen.pack();
                 screen.setVisible(true);
             }

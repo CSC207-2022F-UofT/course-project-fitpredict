@@ -3,9 +3,10 @@ package predictor;
 import entities.CurrentUser;
 import entities.DataPoint;
 import entities.User;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import use_cases.*;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -193,4 +194,52 @@ public class PredictManagerTest {
         assertEquals(147, PredictManager.predictWeight(data).get(finalDate));
 
     }
+
+    @Test
+    public void PredictManagerCaloriePredictorEmpty() {
+        DataPointMap data = new DataPointMap();
+        assertEquals(PredictManager.predictCalories(data), 0.0, 0.01);
+    }
+
+    @Test
+    public void PredictManagerCaloriePredictorZero() {
+        double caloriesBurnt = 0.0;
+        DataPointMap data = new DataPointMap();
+        DataPointManager manager = new DataPointManager();
+        DataPoint input1 = manager.createDataPoint(1, 1, 1);
+        input1.setCaloriesBurnt(caloriesBurnt);
+        data.addDataPoint(input1);
+        assertEquals(PredictManager.predictCalories(data), caloriesBurnt, 0.01);
+    }
+
+    @Test
+    public void PredictManagerCaloriePredictorOneInput() {
+        double caloriesBurnt = 100.5;
+        DataPointMap data = new DataPointMap();
+        DataPointManager manager = new DataPointManager();
+        DataPoint input1 = manager.createDataPoint(1, 1, 1);
+        input1.setCaloriesBurnt(caloriesBurnt);
+        data.addDataPoint(input1);
+        assertEquals(PredictManager.predictCalories(data), caloriesBurnt, 0.01);
+    }
+
+    @Test
+    public void PredictManagerCaloriePredictorManyInputs() {
+        double[] caloriesBurnt = {
+                100.5,
+                120.5,
+                92.4,
+                11.3
+        };
+        DataPointMap data = new DataPointMap();
+        DataPointManager manager = new DataPointManager();
+        for (int i = 1; i < 5; i++) {
+            DataPoint input = manager.createDataPoint(1, i, 1);
+            input.setCaloriesBurnt(caloriesBurnt[i - 1]);
+            data.addDataPoint(input);
+        }
+        assertEquals(PredictManager.predictCalories(data),
+                Arrays.stream(caloriesBurnt).sum() / caloriesBurnt.length, 0.01);
+    }
+
 }

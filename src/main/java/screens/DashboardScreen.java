@@ -1,7 +1,9 @@
 package screens;
 
+import controllers.DashboardController;
 import controllers.UserLoginController;
 import entities.CurrentUser;
+import use_cases.PredictManager;
 import use_cases.UserAccountList;
 import use_cases.UserLogin;
 
@@ -24,7 +26,7 @@ public class DashboardScreen extends JFrame implements ActionListener, WindowClo
     /* in refactoring: we may need to define an empty Object[][] and then generate it in the screen, so
       we have access to CurrentUser currentUser.
      */
-    Object[][] data = Table.generate(CurrentUser.getInstance().getUser().getDataPointMap());
+    Object[][] data;
 
     String backText = "Back";
     String logOutText = "Log out";
@@ -33,12 +35,16 @@ public class DashboardScreen extends JFrame implements ActionListener, WindowClo
     /**
      * Constructor for DashboardScreen
      */
-    public DashboardScreen(UserAccountList userAccountList) {
+    public DashboardScreen(UserAccountList userAccountList, DashboardController controller) {
         this.userAccountList = userAccountList;
 
         // Setting the title and alignment
         JLabel title = new JLabel("Dashboard");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // Using controller to predict data
+        controller.updateDashboardPredictions();
+        data = Table.generate(CurrentUser.getInstance().getUser().getDataPointMap());
 
         // The table that will be displayed as part of the dashboard
         JTable table = new JTable(data, columnNames);
