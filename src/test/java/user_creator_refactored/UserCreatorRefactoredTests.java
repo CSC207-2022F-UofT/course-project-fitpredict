@@ -1,14 +1,14 @@
-package UserCreator;
+package user_creator_refactored;
 import use_cases.UserAccountList;
 import use_cases.UserCreator;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class UserCreatorTest {
+public class UserCreatorRefactoredTests {
     @Test
     public void UserCreatorCorrect(){
         UserAccountList userList = new UserAccountList();
@@ -22,7 +22,6 @@ public class UserCreatorTest {
         // Assert that the return message is the 'account created' message
         assertEquals(newUser, accountIsCreated);
     }
-
     @Test
     public void UserCreatorExistingUsername(){
         UserAccountList userList = new UserAccountList();
@@ -37,7 +36,6 @@ public class UserCreatorTest {
         // Assert that the return message is the 'username already exists' message
         assertEquals(newUser, usernameExists);
     }
-
     @Test
     public void UserCreatorInvalidUsername(){
         UserAccountList userList = new UserAccountList();
@@ -51,7 +49,6 @@ public class UserCreatorTest {
         // Assert that the return message is the 'username is invalid' message
         assertEquals(newUser, usernameInvalid);
     }
-
     @Test
     public void UserCreatorPasswordInvalid(){
         UserAccountList userList = new UserAccountList();
@@ -135,4 +132,5 @@ public class UserCreatorTest {
         // Assert that the return message is the 'sex is invalid' message
         assertEquals(newUser, sexInvalid);
     }
+
 }
