@@ -43,7 +43,7 @@ public class DataPoint {
      * @return epochSeconds number of seconds from Epoch
      */
     public static long convertEpochMilliseconds(int month, int day, int year) {
-        LocalDateTime time = LocalDateTime.of(year, month, day, 0, 0);
+        LocalDateTime time = LocalDateTime.of(year, month, day, 5, 0);
         return time.toEpochSecond(ZoneOffset.UTC) * 1000;
     }
 
