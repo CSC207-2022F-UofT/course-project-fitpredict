@@ -42,4 +42,10 @@ public class UserReadWriter implements ReadWriter {
         return users;
     }
 
+    public boolean isEmpty(String filepath) throws IOException, ClassNotFoundException {
+        InputStream file = new FileInputStream(filepath);
+        InputStream buffer = new BufferedInputStream(file);
+
+        return (file.read() == -1);
+    }
 }
