@@ -1,4 +1,4 @@
-package UserLogin;
+package login;
 import entities.CurrentUser;
 import entities.User;
 import org.junit.After;
@@ -22,24 +22,24 @@ public class CurrentUserTest {
     public void tearDown() {}
 
     @Test
-    public void getUserTest() {
+    public void testGetUser() {
         assertEquals(user1, CurrentUser.getInstance().getUser());
     }
 
     @Test
-    public void getUsernameTest() {
+    public void testGetUsername() {
          assertEquals ("Selin1", CurrentUser.getInstance().getUser().getUsername());
     }
 
     @Test
-    public void setUsernameTest() {
+    public void testSetUsername() {
         String expected = "Sonat1";
         CurrentUser.getInstance().getUser().setUsername(expected);
         assertEquals(expected, CurrentUser.getInstance().getUser().getUsername());
     }
 
     @Test
-    public void setUserTest() {
+    public void testSetUser() {
         User user2 = new User("Selin2", "A12343", "A12343", 15.2, 1.52,
                 "Female", "2002-07-12");
         CurrentUser.getInstance().setUser(user2);

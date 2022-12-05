@@ -1,4 +1,4 @@
-package user_creator_refactored;
+package user_creator;
 import use_cases.UserAccountList;
 import use_cases.UserCreator;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class UserCreatorRefactoredTests {
+public class UserCreatorTest {
     @Test
     public void UserCreatorCorrect(){
         UserAccountList userList = new UserAccountList();
@@ -23,7 +23,7 @@ public class UserCreatorRefactoredTests {
         assertEquals(newUser, accountIsCreated);
     }
     @Test
-    public void UserCreatorExistingUsername(){
+    public void testUserCreatorExistingUsername(){
         UserAccountList userList = new UserAccountList();
         UserCreator uc = new UserCreator(userList);
 
@@ -37,7 +37,7 @@ public class UserCreatorRefactoredTests {
         assertEquals(newUser, usernameExists);
     }
     @Test
-    public void UserCreatorInvalidUsername(){
+    public void testUserCreatorInvalidUsername(){
         UserAccountList userList = new UserAccountList();
         UserCreator uc = new UserCreator(userList);
 
@@ -50,7 +50,7 @@ public class UserCreatorRefactoredTests {
         assertEquals(newUser, usernameInvalid);
     }
     @Test
-    public void UserCreatorPasswordInvalid(){
+    public void testUserCreatorPasswordInvalid(){
         UserAccountList userList = new UserAccountList();
         UserCreator uc = new UserCreator(userList);
 
@@ -64,7 +64,7 @@ public class UserCreatorRefactoredTests {
     }
 
     @Test
-    public void UserCreatorPasswordsDoNotMatch(){
+    public void testUserCreatorPasswordsDoNotMatch(){
         UserAccountList userList = new UserAccountList();
         UserCreator uc = new UserCreator(userList);
 
@@ -78,7 +78,7 @@ public class UserCreatorRefactoredTests {
     }
 
     @Test
-    public void UserCreatorHeightInvalid(){
+    public void testUserCreatorHeightInvalid(){
         UserAccountList userList = new UserAccountList();
         UserCreator uc = new UserCreator(userList);
 
@@ -92,7 +92,7 @@ public class UserCreatorRefactoredTests {
     }
 
     @Test
-    public void UserCreatorWeightInvalid(){
+    public void testUserCreatorWeightInvalid(){
         UserAccountList userList = new UserAccountList();
         UserCreator uc = new UserCreator(userList);
 
@@ -106,7 +106,7 @@ public class UserCreatorRefactoredTests {
     }
 
     @Test
-    public void UserCreatorBirthdayInvalid(){
+    public void testUserCreatorBirthdayInvalid(){
         UserAccountList userList = new UserAccountList();
         UserCreator uc = new UserCreator(userList);
 
@@ -120,7 +120,7 @@ public class UserCreatorRefactoredTests {
     }
 
     @Test
-    public void UserCreatorSexInvalid(){
+    public void testUserCreatorSexInvalid(){
         UserAccountList userList = new UserAccountList();
         UserCreator uc = new UserCreator(userList);
 

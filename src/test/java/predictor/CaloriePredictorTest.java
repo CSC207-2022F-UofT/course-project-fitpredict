@@ -12,13 +12,13 @@ import java.util.Arrays;
 
 public class CaloriePredictorTest {
     @Test
-    public void CaloriePredictorEmpty() {
+    public void testCaloriePredictorEmpty() {
         DataPointMap data = new DataPointMap();
         assertEquals(CaloriePredictor.calculateCalories(data), 0.0, 0.01);
     }
 
     @Test
-    public void CaloriePredictorZero() {
+    public void testCaloriePredictorZero() {
         double caloriesBurnt = 0.0;
         DataPointMap data = new DataPointMap();
         DataPointManager manager = new DataPointManager();
@@ -29,7 +29,7 @@ public class CaloriePredictorTest {
     }
 
     @Test
-    public void CaloriePredictorOneInput() {
+    public void testCaloriePredictorOneInput() {
         double caloriesBurnt = 100.5;
         DataPointMap data = new DataPointMap();
         DataPointManager manager = new DataPointManager();
@@ -40,7 +40,7 @@ public class CaloriePredictorTest {
     }
 
     @Test
-    public void CaloriePredictorManyInputs() {
+    public void testCaloriePredictorManyInputs() {
         double[] caloriesBurnt = {
                 100.5,
                 120.5,

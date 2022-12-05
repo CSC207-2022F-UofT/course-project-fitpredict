@@ -25,7 +25,7 @@ public class DataInputTest {
     Date d = new Date(DataPoint.convertEpochMilliseconds(9, 22, 2022));
 
     @Test
-    public void DataInputTestNoExercise() {
+    public void testDataInputTestNoExercise() {
         CurrentUser.getInstance().setUser(u);
         CurrentUser cu = CurrentUser.getInstance();
         String[] eNames = new String[0];
@@ -39,7 +39,7 @@ public class DataInputTest {
     }
 
     @Test
-    public void DataInputTestOneExercise() {
+    public void testDataInputTestOneExercise() {
         CurrentUser.getInstance().setUser(u);
         CurrentUser cu = CurrentUser.getInstance();
         String[] eNames2 = new String[1];
@@ -59,7 +59,7 @@ public class DataInputTest {
 
     @Test
     @Order(3)
-    public void DataInputTestManyExercises() {
+    public void testDataInputTestManyExercises() {
         CurrentUser.getInstance().setUser(u);
         CurrentUser cu = CurrentUser.getInstance();
         ExerciseMap.addExercise(e1);
