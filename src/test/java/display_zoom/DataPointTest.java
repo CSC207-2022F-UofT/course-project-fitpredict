@@ -40,14 +40,14 @@ public class DataPointTest {
     @Test(timeout = 50)
     public void testConvertEpochMillisecondsBeginning() {
         long actual = DataPoint.convertEpochMilliseconds(1, 1, 1970);
-        long expected = 0;
+        long expected = 18000000;
         assertEquals(actual, expected);
     }
 
     @Test(timeout = 50)
     public void testConvertEpochMillisecondsLaterDate() {
         long actual = DataPoint.convertEpochMilliseconds(11, 21, 2022);
-        long expected = 1668988800000L;
+        long expected = 1669006800000L;
         assertEquals(actual, expected);
     }
 
@@ -78,8 +78,8 @@ public class DataPointTest {
     @Test(timeout = 50)
     public void testGetDate() {
         Date date = new Date(DataPoint.convertEpochMilliseconds(1, 1, 2022));
-        int actual = dp.getDate().compareTo(date);
-        int expected = 0;
+        long actual = dp.getDate().compareTo(date);
+        long expected = 0;
         assertEquals(actual, expected);
     }
 
