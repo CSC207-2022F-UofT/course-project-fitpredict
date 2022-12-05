@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 public class ExerciseMapTest {
 
     @Test
-    public void CheckUser() {
+    public void testCheckUser() {
         User u = new User("Alex", "password", "password", 67.0, 170.0, "Male", "2004-11-14");
         Exercise e =new Exercise("Push Up", 7);
         CurrentUser.getInstance().setUser(u);
@@ -18,7 +18,7 @@ public class ExerciseMapTest {
     }
 
     @Test
-    public void CheckUserContainsExercise() {
+    public void testCheckUserContainsExercise() {
         User u = new User("Alex", "password", "password", 67.0, 170.0, "Male", "2004-11-14");
         Exercise e =new Exercise("Push Up", 7);
         CurrentUser.getInstance().setUser(u);

@@ -20,14 +20,14 @@ public class WeightPredictorTest {
             62.0, 150.0, "Male", "2006-10-12");
 
     @Test
-    public void WeightPredictorZero() {
+    public void testWeightPredictorZero() {
         DataPointMap data = new DataPointMap();
         // Assert that the return type is empty
         assertEquals(0, WeightPredictor.predict(data).size());
     }
 
     @Test
-    public void WeightPredictorCalorieDeficitZero() {
+    public void testWeightPredictorCalorieDeficitZero() {
         DataPointMap data = new DataPointMap();
         CurrentUser.getInstance().setUser(u);
         for (int day = 1; day <= 10; day ++) {
@@ -46,7 +46,7 @@ public class WeightPredictorTest {
     }
 
     @Test
-    public void WeightPredictorOneDataPoint() {
+    public void testWeightPredictorOneDataPoint() {
         DataPoint dataPoint = new DataPoint(11, 10, 1971);
         CurrentUser.getInstance().setUser(u);
         dataPoint.setWeight(150);
@@ -61,7 +61,7 @@ public class WeightPredictorTest {
     }
 
     @Test
-    public void WeightPredictorManyDataPoints() {
+    public void testWeightPredictorManyDataPoints() {
         DataPointMap data = new DataPointMap();
         CurrentUser.getInstance().setUser(u);
         for (int day = 1; day <= 30; day ++) {

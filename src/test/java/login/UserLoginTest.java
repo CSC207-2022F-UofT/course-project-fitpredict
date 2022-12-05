@@ -11,7 +11,7 @@ public class UserLoginTest {
             15.0, 1.64, "Female", "2002-08-14");
 
     @Test
-    public void loginUserNoLogTest() {
+    public void testLoginUserNoLog() {
         UserLogin userLogin = new UserLogin(users);
         UserLogin.LogInResult expected = UserLogin.LogInResult.NO_LOG;
         UserLogin.LogInResult actual = userLogin.loginUser(user1.getUsername(), user1.getPassword());
@@ -19,7 +19,7 @@ public class UserLoginTest {
 
     }
     @Test
-    public void loginUserLogTest() {
+    public void testLoginUserLogTest() {
         users.addNewUser(user1);
         UserLogin userLogin = new UserLogin(users);
         UserLogin.LogInResult expected = UserLogin.LogInResult.LOG;

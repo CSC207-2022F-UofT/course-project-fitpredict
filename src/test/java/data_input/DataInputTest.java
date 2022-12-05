@@ -5,14 +5,17 @@ import entities.DataPoint;
 import entities.Exercise;
 import entities.User;
 import org.junit.Before;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import use_cases.DataInputBoundary;
 import use_cases.DataInputter;
 import use_cases.ExerciseMap;
 import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DataInputTest {
     User u = new User("Josh", "123abc", "123abc",
             62.0, 130.0, "Male", "2006-10-12");
@@ -24,42 +27,10 @@ public class DataInputTest {
     Exercise e4 = new Exercise("Basketball", 9);
     Date d = new Date(DataPoint.convertEpochMilliseconds(9, 22, 2022));
 
-    @Test
-    public void DataInputTestNoExercise() {
-        CurrentUser.getInstance().setUser(u);
-        CurrentUser cu = CurrentUser.getInstance();
-        String[] eNames = new String[0];
-        String[] times = new String[0];
-        controller.inputData(9, 22, 2022, 150, eNames, times);
-        DataPoint actual = cu.getUser().getDataPointMap().getData().get(d);
-        DataPoint expected = new DataPoint(9, 22, 2022);
-        assertEquals(expected.getDate(), actual.getDate());
-        assertEquals(expected.getCaloriesBurnt(), actual.getCaloriesBurnt());
-        assertEquals(expected.getExerciseList(), actual.getExerciseList());
-    }
 
     @Test
-    public void DataInputTestOneExercise() {
-        CurrentUser.getInstance().setUser(u);
-        CurrentUser cu = CurrentUser.getInstance();
-        String[] eNames2 = new String[1];
-        eNames2[0] = "Push Up";
-        String[] times2 = new String[1];
-        times2[0] = "10";
-        controller.inputData(9, 22, 2022, 150, eNames2, times2);
-        DataPoint actual = cu.getUser().getDataPointMap().getData().get(d);
-        DataPoint expected = new DataPoint(9, 22, 2022);
-        expected.addExercise(e1);
-        expected.setCaloriesBurnt(70);
-        assertEquals(expected.getDate(), actual.getDate());
-        assertEquals(expected.getCaloriesBurnt(), actual.getCaloriesBurnt());
-        assertEquals(expected.getExerciseList().get(0).getName(), actual.getExerciseList().get(0).getName());
-        assertEquals(expected.getExerciseList().get(0).getCaloriesBurntPerMin(), actual.getExerciseList().get(0).getCaloriesBurntPerMin());
-    }
-
-    @Test
-    @Order(3)
-    public void DataInputTestManyExercises() {
+    @Order(1)
+    public void testDataInputManyExercises() {
         CurrentUser.getInstance().setUser(u);
         CurrentUser cu = CurrentUser.getInstance();
         ExerciseMap.addExercise(e1);
@@ -92,5 +63,40 @@ public class DataInputTest {
             assertEquals(expected.getExerciseList(), actual.getExerciseList());
 
         }
+    }
+
+    @Test
+    @Order(2)
+    public void testDataInputNoExercise() {
+        CurrentUser.getInstance().setUser(u);
+        CurrentUser cu = CurrentUser.getInstance();
+        String[] eNames = new String[0];
+        String[] times = new String[0];
+        controller.inputData(9, 22, 2022, 150, eNames, times);
+        DataPoint actual = cu.getUser().getDataPointMap().getData().get(d);
+        DataPoint expected = new DataPoint(9, 22, 2022);
+        assertEquals(expected.getDate(), actual.getDate());
+        assertEquals(expected.getCaloriesBurnt(), actual.getCaloriesBurnt());
+        assertEquals(expected.getExerciseList(), actual.getExerciseList());
+    }
+
+    @Test
+    @Order(3)
+    public void testDataInputOneExercise() {
+        CurrentUser.getInstance().setUser(u);
+        CurrentUser cu = CurrentUser.getInstance();
+        String[] eNames2 = new String[1];
+        eNames2[0] = "Push Up";
+        String[] times2 = new String[1];
+        times2[0] = "10";
+        controller.inputData(9, 22, 2022, 150, eNames2, times2);
+        DataPoint actual = cu.getUser().getDataPointMap().getData().get(d);
+        DataPoint expected = new DataPoint(9, 22, 2022);
+        expected.addExercise(e1);
+        expected.setCaloriesBurnt(70);
+        assertEquals(expected.getDate(), actual.getDate());
+        assertEquals(expected.getCaloriesBurnt(), actual.getCaloriesBurnt());
+        assertEquals(expected.getExerciseList().get(0).getName(), actual.getExerciseList().get(0).getName());
+        assertEquals(expected.getExerciseList().get(0).getCaloriesBurntPerMin(), actual.getExerciseList().get(0).getCaloriesBurntPerMin());
     }
 }

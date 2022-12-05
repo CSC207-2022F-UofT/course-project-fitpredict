@@ -1,12 +1,12 @@
-package user_refactored;
+package user_creator;
 import entities.User;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class UserEntityRefactoredTests {
+public class UserEntityTest {
     @Test
-    public void userGetUsername(){
+    public void testUserGetUsername(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
         String userUsername = user.getUsername();
 
@@ -15,7 +15,7 @@ public class UserEntityRefactoredTests {
 
 
     @Test
-    public void userSetUsername(){
+    public void testUserSetUsername(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
         String newUsername = "SelinTasman1";
 
@@ -26,7 +26,7 @@ public class UserEntityRefactoredTests {
     }
 
     @Test
-    public void userGetWeight(){
+    public void testUserGetWeight(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
         Double takenWeight = user.getWeight();
 
@@ -35,7 +35,7 @@ public class UserEntityRefactoredTests {
     }
 
     @Test
-    public void userSetWeight(){
+    public void testUserSetWeight(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
         Double newWeight = 500.0;
         user.setWeight(newWeight);
@@ -45,7 +45,7 @@ public class UserEntityRefactoredTests {
     }
 
     @Test
-    public void userGetHeight(){
+    public void testUserGetHeight(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
         Double takenHeight = user.getHeight();
 
@@ -53,7 +53,7 @@ public class UserEntityRefactoredTests {
     }
 
     @Test
-    public void userSetHeight(){
+    public void testUserSetHeight(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
         Double newHeight = 750.0;
 
@@ -65,7 +65,7 @@ public class UserEntityRefactoredTests {
     }
 
     @Test
-    public void userGetSex(){
+    public void testUserGetSex(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
         String takenSex = user.getSex();
 
@@ -73,7 +73,7 @@ public class UserEntityRefactoredTests {
     }
 
     @Test
-    public void userSetSex(){
+    public void testUserSetSex(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
         String newSex = "Other";
 
@@ -85,7 +85,7 @@ public class UserEntityRefactoredTests {
     }
 
     @Test
-    public void userGetBirthday(){
+    public void testUserGetBirthday(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
         String takenBirthday = user.getBirthday();
 
@@ -93,7 +93,7 @@ public class UserEntityRefactoredTests {
     }
 
     @Test
-    public void userGetPassword(){
+    public void testUserGetPassword(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
         String takenPassword = user.getPassword();
 
@@ -101,7 +101,7 @@ public class UserEntityRefactoredTests {
     }
 
     @Test
-    public void userSetPassword(){
+    public void testUserSetPassword(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
         String newPassword = "leave123";
         user.setPassword(newPassword);
@@ -112,7 +112,7 @@ public class UserEntityRefactoredTests {
     }
 
     @Test
-    public void userGetRepeatedPassword(){
+    public void testUserGetRepeatedPassword(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
         String takenPassword = user.getRepeatPassword();
 
@@ -120,7 +120,7 @@ public class UserEntityRefactoredTests {
     }
 
     @Test
-    public void userSetRepeatedPassword(){
+    public void testUserSetRepeatedPassword(){
         User user = new User("dinalojpur1", "Hello1", "Hello1", 321.0, 123.0, "Female", "2003-08-20");
         String newRepeatedPassword = "BBandLjuba1";
 

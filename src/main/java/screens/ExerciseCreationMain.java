@@ -9,6 +9,8 @@ import use_cases.ExerciseCreationInteractor;
 import use_cases.ExerciseManager;
 import use_cases.UserAccountList;
 
+// This class was created to demonstrate the application of the ExerciseCreationScreen class for anyone who
+// needs to use it in the future. It is not used in our "main" program.
 public class ExerciseCreationMain {
     /**
      * Create the final GUI

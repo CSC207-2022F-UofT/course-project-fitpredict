@@ -19,7 +19,7 @@ public class BMIPredictorTest {
             "123", 100.0, 101.0, "Male", "");
 
     @Test
-    public void BMIPredictorEmpty() {
+    public void testBMIPredictorEmpty() {
         DataPointMap data = new DataPointMap();
         CurrentUser.getInstance().setUser(user);
         // Assert that the function works with an empty DataPointMap(), BMI should be exactly the same as CurrentUser
@@ -33,7 +33,7 @@ public class BMIPredictorTest {
     }
 
     @Test
-    public void BMIPredictorAllZeroes() {
+    public void testBMIPredictorAllZeroes() {
         // test that the BMI predictor knows when not to change
         double[] caloriesBurnt = {
                 0.0,
@@ -59,7 +59,7 @@ public class BMIPredictorTest {
     }
 
     @Test
-    public void BMIPredictorNoChange() {
+    public void testBMIPredictorNoChange() {
         // test that the BMI predictor knows when not to change
         double[] caloriesBurnt = {
                 0.0,
@@ -85,7 +85,7 @@ public class BMIPredictorTest {
     }
 
     @Test
-    public void BMIPredictorOneData() {
+    public void testBMIPredictorOneData() {
         double caloriesBurnt = 3500.0; // this is how many calories it takes to burn 1lb of fat
         DataPointMap data = new DataPointMap();
         // create a current user with weight 100kg, height 100cm
@@ -104,7 +104,7 @@ public class BMIPredictorTest {
     }
 
     @Test
-    public void BMIPredictorMultData() {
+    public void testBMIPredictorMultData() {
         double[] caloriesBurnt = {
                 3500.0,
                 14000.0,

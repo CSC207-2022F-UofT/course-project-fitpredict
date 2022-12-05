@@ -70,6 +70,7 @@ public class ExerciseCreationScreen extends JFrame implements ActionListener, Wi
         this.pack();
     }
 
+    // ActionEvent for just the "go back" button
     /**
      * Invoked when an action occurs.
      * Attempt to create a new exercise

@@ -22,7 +22,7 @@ public class PredictManagerTest {
             62.0, 150.0, "Male", "2006-10-12");
 
     @Test
-    public void BMIPredictorEmpty() {
+    public void testBMIPredictorEmpty() {
         DataPointMap data = new DataPointMap();
         CurrentUser.getInstance().setUser(user);
         // Assert that the function works with an empty DataPointMap(), BMI should be exactly the same as CurrentUser
@@ -36,7 +36,7 @@ public class PredictManagerTest {
     }
 
     @Test
-    public void BMIPredictorAllZeroes() {
+    public void testBMIPredictorAllZeroes() {
         // test that the BMI predictor knows when not to change
         double[] caloriesBurnt = {
                 0.0,
@@ -62,7 +62,7 @@ public class PredictManagerTest {
     }
 
     @Test
-    public void BMIPredictorNoChange() {
+    public void testBMIPredictorNoChange() {
         // test that the BMI predictor knows when not to change
         double[] caloriesBurnt = {
                 0.0,
@@ -88,7 +88,7 @@ public class PredictManagerTest {
     }
 
     @Test
-    public void BMIPredictorOneData() {
+    public void testBMIPredictorOneData() {
         double caloriesBurnt = 3500.0; // this is how many calories it takes to burn 1lb of fat
         DataPointMap data = new DataPointMap();
         // create a current user with weight 100kg, height 100cm
@@ -107,7 +107,7 @@ public class PredictManagerTest {
     }
 
     @Test
-    public void BMIPredictorMultData() {
+    public void testBMIPredictorMultData() {
         double[] caloriesBurnt = {
                 3500.0,
                 14000.0,
@@ -131,14 +131,14 @@ public class PredictManagerTest {
     }
 
     @Test
-    public void WeightPredictorZero() {
+    public void testWeightPredictorZero() {
         DataPointMap data = new DataPointMap();
         // Assert that the return type is empty
         assertEquals(0, PredictManager.predictWeight(data).size());
     }
 
     @Test
-    public void WeightPredictorCalorieDeficitZero() {
+    public void testWeightPredictorCalorieDeficitZero() {
         DataPointMap data = new DataPointMap();
         CurrentUser.getInstance().setUser(u);
         for (int day = 1; day <= 10; day ++) {
@@ -157,7 +157,7 @@ public class PredictManagerTest {
     }
 
     @Test
-    public void WeightPredictorOneDataPoint() {
+    public void testWeightPredictorOneDataPoint() {
         DataPoint dataPoint = new DataPoint(11, 10, 1971);
         CurrentUser.getInstance().setUser(u);
         dataPoint.setWeight(150);
@@ -172,7 +172,7 @@ public class PredictManagerTest {
     }
 
     @Test
-    public void WeightPredictorManyDataPoints() {
+    public void testWeightPredictorManyDataPoints() {
         DataPointMap data = new DataPointMap();
         CurrentUser.getInstance().setUser(u);
         for (int day = 1; day <= 30; day ++) {
@@ -196,13 +196,13 @@ public class PredictManagerTest {
     }
 
     @Test
-    public void PredictManagerCaloriePredictorEmpty() {
+    public void testPredictManagerCaloriePredictorEmpty() {
         DataPointMap data = new DataPointMap();
         assertEquals(PredictManager.predictCalories(data), 0.0, 0.01);
     }
 
     @Test
-    public void PredictManagerCaloriePredictorZero() {
+    public void testPredictManagerCaloriePredictorZero() {
         double caloriesBurnt = 0.0;
         DataPointMap data = new DataPointMap();
         DataPointManager manager = new DataPointManager();
@@ -213,7 +213,7 @@ public class PredictManagerTest {
     }
 
     @Test
-    public void PredictManagerCaloriePredictorOneInput() {
+    public void testPredictManagerCaloriePredictorOneInput() {
         double caloriesBurnt = 100.5;
         DataPointMap data = new DataPointMap();
         DataPointManager manager = new DataPointManager();
@@ -224,7 +224,7 @@ public class PredictManagerTest {
     }
 
     @Test
-    public void PredictManagerCaloriePredictorManyInputs() {
+    public void testPredictManagerCaloriePredictorManyInputs() {
         double[] caloriesBurnt = {
                 100.5,
                 120.5,
