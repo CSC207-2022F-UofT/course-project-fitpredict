@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 
 public class ExerciseMap {
+    // Static because otherwise it would be redundant, each user's Exercise map instance would only contain themselves
     private static final HashMap<String, ArrayList<Exercise>> exerciseMap = new HashMap<>();
 
     /**
@@ -41,6 +42,7 @@ public class ExerciseMap {
      * @param newExercise The new exercise to be added
      */
     public static void addExercise (Exercise newExercise) {
+        // If this is the user's first exercise, creates a new key/value pair
         String name = CurrentUser.getInstance().getUser().getUsername();
         if (exerciseMap.containsKey(name)) {
             exerciseMap.get(name).add(newExercise);

@@ -25,6 +25,8 @@ public class ExerciseCreationInteractor implements ExerciseInputBoundary {
      */
     @Override
     public boolean create(String name, double caloriesBurntPerMin) {
+        // Checks if the user exists as a key in the ExerciseMap, if it exists and the user already has an exercise
+        // named name, the new exercise is not created and false is returned.
         if (ExerciseMap.contains(CurrentUser.getInstance().getUser().getUsername())) {
             ArrayList<Exercise> exerciseList = ExerciseMap.get(CurrentUser.getInstance().getUser().getUsername());
             for (Exercise exercise : exerciseList) {
