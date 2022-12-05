@@ -6,27 +6,27 @@ import org.junit.jupiter.api.Test;
 public class ExerciseTest {
 
     @Test
-    public void ExerciseCreate() {
+    public void testExerciseCreate() {
         Exercise e = new Exercise("Push Up", 7);
         assert (e != null);
     }
 
     @Test
-    public void ExerciseGetName() {
+    public void testExerciseGetName() {
         Exercise e = new Exercise("Push Up", 7);
         String expected = "Push Up";
         assert (e.getName().equals(expected));
     }
 
     @Test
-    public void ExerciseGetCaloriesBurnt() {
+    public void testExerciseGetCaloriesBurnt() {
         Exercise e = new Exercise("Push Up", 7);
         double expected = 7;
         assert (e.getCaloriesBurntPerMin() == expected);
     }
 
     @Test
-    public void ExerciseSetName() {
+    public void testExerciseSetName() {
         Exercise e = new Exercise("Push Up", 7);
         String expected = "Jumping Jack";
         e.setName(expected);
@@ -34,7 +34,7 @@ public class ExerciseTest {
     }
 
     @Test
-    public void ExerciseSetCaloriesBurnt() {
+    public void testExerciseSetCaloriesBurnt() {
         Exercise e = new Exercise("Push Up", 7);
         double expected = 10;
         e.setCaloriesBurntPerMin(expected);
