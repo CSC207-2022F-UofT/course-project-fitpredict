@@ -106,7 +106,7 @@ This will take you to the Dashboard screen, which uses the Predictions feature:
 
 <img src="images/12predictions_screen.png" width="600">
 
-Your fitness journey will be forecasted and mapped on a table. 
+Your fitness journey for the next 90 days will be forecasted and mapped on a table. 
 
 Have fun with this!
 
