@@ -13,6 +13,12 @@ After opening this file, right-click on any part of the code and click `Run 'Mai
 
 This will run the program. The program screen should pop up and prompt you to enter login information or create a new account. 
 
+If the program does not compile, you may need to change the runner. 
+To do this, go to the IntelliJ `Settings > Build, Execution, Deployment > Build Tools > Maven > Gradle` or `Preferences > Build, Execution, Deployment > Build Tools > Maven > Gradle`.
+In the `Build and run section`, select `IntelliJ IDEA` for both `Build and run using` and `Run tests using`.
+This should fix things.
+Now, re-run the program!
+
 ## How To Use
 Next, we will go over how to use the program's features. 
 After running `Main.main()` in `src/main/java/Main.java`, the Login & Create Account screen will pop up:
@@ -96,8 +102,11 @@ If your data was inputted successfully, this message will pop up:
 <img src="images/11data_inputted_successfully.png" width="600">
 
 Next, under '*3. Forecast your weight loss!*', you can click the `Predict!` button. 
-This will take you to the Dashboard screen, which uses the Predictions feature.
-Your fitness journey will be forecasted and mapped on a table. 
+This will take you to the Dashboard screen, which uses the Predictions feature:
+
+<img src="images/12predictions_screen.png" width="600">
+
+Your fitness journey for the next 90 days will be forecasted and mapped on a table. 
 
 Have fun with this!
 
