@@ -17,7 +17,8 @@ public class DataInputController {
     public DataInputController(DataInputBoundary boundary) {this.dataInputBoundary = boundary;}
     /**
      * Takes the user input and inputs the data of this day (month, day, year)
-     * Returns false and data is not inputted if exercisesNames contains an invalid exercise
+     * Returns false and data is not inputted if exercisesNames contains an invalid exercise or
+     * exerciseNames.length != times.length
      * @param month The month of the calendar date
      * @param day The day of the calendar date
      * @param year The year of the calendar date
@@ -40,6 +41,7 @@ public class DataInputController {
                     }
                 }
             }
+            // Checks if input is valid
             if (length == 0 || length == exercises.size()) {
                 this.dataInputBoundary.inputData(month, day, year, weight, exercises, caloriesBurnt);
                 return true;
