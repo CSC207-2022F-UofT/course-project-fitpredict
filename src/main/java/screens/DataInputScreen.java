@@ -11,6 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -73,19 +74,22 @@ public class DataInputScreen extends JFrame implements ActionListener, WindowClo
      */
     public void actionPerformed(ActionEvent evt) {
         String dateString = date.getText();
-        double weightInput = Double.parseDouble(weight.getText());
-        String[] exercisesNames = {exercises.getText()};
-        String[] timesStrings = {exerciseTimes.getText()};
+        String[] exercisesNames;
+        String[] timesStrings;
+        if (exercises.getText().isEmpty()) {exercisesNames = new String[0];}
+        else {exercisesNames = exercises.getText().split(",");}
+        if (exerciseTimes.getText().isEmpty()) {timesStrings = new String[0];}
+        else {timesStrings = exerciseTimes.getText().split(",");}
         try {
             int month = Integer.parseInt(dateString.substring(0, 2));
             int day = Integer.parseInt(dateString.substring(3, 5));
             int year = Integer.parseInt(dateString.substring(6));
+            double weightInput = Double.parseDouble(weight.getText());
+            if (weightInput <= 0) {throw new IllegalArgumentException();}
             inputDataResult(month, day, year, weightInput, exercisesNames, timesStrings);
         } catch (Exception e) {
-            ResultScreen rs = new ResultScreen("Date is invalid");
-            rs.setVisible(true);
-        }
-
+            ResultScreen rs = new ResultScreen("Date or Weight is Invalid");
+            rs.setVisible(true);}
     }
     /**
      * Helper method for actionPerformed.
@@ -96,17 +100,16 @@ public class DataInputScreen extends JFrame implements ActionListener, WindowClo
         ResultScreen rs;
         DataPointMap dataPointMap = CurrentUser.getInstance().getUser().getDataPointMap();
         Date dateInput = new Date(DataPoint.convertEpochMilliseconds(month, day, year));
+        boolean existed = false;
         if (!(ExerciseMap.contains(CurrentUser.getInstance().getUser().getUsername()))) {
             rs = new ResultScreen("There are no created exercises");
-        } else if (weightInput <= 0) {
-            rs = new ResultScreen("Please enter a valid weight");
         } else {
             if (dataPointMap.getData().containsKey(dateInput)) {
-                rs = new ResultScreen("Data Updated Successfully");
-            } else {
-                rs = new ResultScreen("Data Inputted Successfully");}
-            dataInputController.inputData(month, day, year, weightInput, exercisesNames, timesStrings);
+                existed = true;}
+            if (this.dataInputController.inputData(month, day, year, weightInput, exercisesNames, timesStrings)) {
+                if (existed) {rs = new ResultScreen("Data Updated Successfully");
+                } else {rs = new ResultScreen("Data Inputted Successfully");}
+            } else {rs = new ResultScreen("Invalid exercise inputted");}
         }
-        rs.setVisible(true);
-    }
+        rs.setVisible(true);}
 }
