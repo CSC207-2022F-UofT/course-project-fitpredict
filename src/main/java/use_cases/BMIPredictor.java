@@ -4,13 +4,10 @@ import entities.CurrentUser;
 import java.util.Date;
 import java.util.HashMap;
 
-import static use_cases.Predictor.PREDICTION_LENGTH;
-
-
 /**
  * Use Case: A class to predict BMI over time
  */
-public class BMIPredictor {
+public class BMIPredictor extends Predictor{
 
     /**
      * Returns a predicted BMI in the future over the days based on the inputted DataPointMap
