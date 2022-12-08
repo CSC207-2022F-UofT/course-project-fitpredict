@@ -14,6 +14,7 @@ import use_cases.DataInputter;
 import use_cases.ExerciseMap;
 import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DataInputTest {
@@ -98,5 +99,29 @@ public class DataInputTest {
         assertEquals(expected.getCaloriesBurnt(), actual.getCaloriesBurnt());
         assertEquals(expected.getExerciseList().get(0).getName(), actual.getExerciseList().get(0).getName());
         assertEquals(expected.getExerciseList().get(0).getCaloriesBurntPerMin(), actual.getExerciseList().get(0).getCaloriesBurntPerMin());
+    }
+    @Test
+    @Order(4)
+    public void testDataInputNonExistentExercise() {
+        CurrentUser.getInstance().setUser(u);
+        String[] eNames4 = new String[2];
+        eNames4[0] = "Push Up";
+        eNames4[1] = "Pull Up";
+        String[] times4 = new String[2];
+        times4[0] = "10";
+        times4[1] = "20";
+        assertFalse(controller.inputData(9, 22, 2022, 150, eNames4, times4));
+    }
+
+    @Test
+    @Order(5)
+    public void testDataInputExercisesTimesDifferentLength() {
+        CurrentUser.getInstance().setUser(u);
+        String[] eNames5 = new String[2];
+        eNames5[0] = "Push Up";
+        String[] times5 = new String[2];
+        times5[0] = "10";
+        times5[1] = "20";
+        assertFalse(controller.inputData(9, 22, 2022, 150, eNames5, times5));
     }
 }
