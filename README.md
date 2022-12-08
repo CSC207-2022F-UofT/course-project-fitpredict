@@ -3,6 +3,16 @@ This is our repository for Group 88's CSC207 Final Project.
 This project allows users to make fitness predictions based on their current, daily fitness stats.
 Below, we will include a description of how to run and use it.
 
+## Things Addressed from Milestone 4
+Since Milestone 4, we have taken the feedback that was given and changed/added many things:
+- All the screens, including the Dashboard, have been put together in `Main.java`, and is able to run as one program. Thus, everything works now.  
+- We have fixed the issues with the failing tests - all the test cases in the test suite of every class now passes. 
+- We have added more comprehensive testing that covers more test cases 
+- The tests in the `PredictManager` test suite have been implemented.
+- Document with test coverage and pull requests have been filled out fully by every group member.
+- We have retroactively gone back and updated the descriptions of our pull requests to be more descriptive.
+- Used GitHub's issue feature more extensively by creating a more diverse number of issues, such as `bug` for debugging purposes.
+
 ## How To Run & Open
 You will first need to download the `main` branch of this repository. 
 After it is downloaded, open `src/main/java/Main.java`.
