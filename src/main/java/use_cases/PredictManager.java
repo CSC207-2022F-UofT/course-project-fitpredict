@@ -8,7 +8,6 @@ import java.util.HashMap;
  */
 public class PredictManager {
 
-    // HashMap is a map from day to the weight prediction of that day
     /**
      * Returns your predicted weight based on the inputted DataPointMap
      * @param data The data that is used for the weight prediction

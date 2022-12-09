@@ -2,8 +2,6 @@ package use_cases;
 
 
 import entities.CurrentUser;
-import use_cases.LoginInputBoundary;
-import use_cases.UserAccountList;
 import entities.User;
 
 public class UserLogin implements LoginInputBoundary {
@@ -18,7 +16,6 @@ public class UserLogin implements LoginInputBoundary {
     public UserLogin(UserAccountList userAccountList) {
         this.users = userAccountList;
         try {
-            //userReadWriter.saveToFile("accounts.ser", users);
             userReadWriter.readFromFile("accounts.ser");
         } catch (Exception e) {
             System.out.println("Error!");

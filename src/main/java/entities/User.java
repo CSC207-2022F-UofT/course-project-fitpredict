@@ -35,7 +35,6 @@ public class User implements Serializable {
         this.sex = sex;
         this.birthday = birthday;
         this.repeatPassword = repeatPassword;
-        //this.dataPointMap = new DataPointMap();
     }
 
     public User() {}

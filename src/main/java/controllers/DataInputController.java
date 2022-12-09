@@ -4,9 +4,7 @@ import entities.CurrentUser;
 import entities.Exercise;
 import use_cases.DataInputBoundary;
 import use_cases.ExerciseMap;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class DataInputController {
 
@@ -32,6 +30,7 @@ public class DataInputController {
         int length = exercisesNames.length;
         if (length == times.length) {
             if (length != 0) {
+                // Calculates calories burned for the day
                 for (int i = 0; i < exercisesNames.length; i++) {
                     for (Exercise exercise : ExerciseMap.get(CurrentUser.getInstance().getUser().getUsername())) {
                         if (exercise.getName().equals(exercisesNames[i])) {

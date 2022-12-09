@@ -40,7 +40,7 @@ public class DataPoint {
      * @param month The month of the calendar date - between 1-12, inclusive
      * @param day The day of the calendar date - between 1-31, inclusive (depending on month)
      * @param year The year of calendar date - greater than or equal to 1
-     * @return epochSeconds number of seconds from Epoch
+     * @return epochMilliseconds number of seconds from Epoch
      */
     public static long convertEpochMilliseconds(int month, int day, int year) {
         LocalDateTime time = LocalDateTime.of(year, month, day, 5, 0);
