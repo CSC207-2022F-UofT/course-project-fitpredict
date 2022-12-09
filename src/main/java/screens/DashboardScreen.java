@@ -3,6 +3,7 @@ package screens;
 import controllers.DashboardController;
 import controllers.UserLoginController;
 import entities.CurrentUser;
+import use_cases.PredictManager;
 import use_cases.UserAccountList;
 import use_cases.UserLogin;
 
@@ -21,6 +22,10 @@ public class DashboardScreen extends JFrame implements ActionListener, WindowClo
             "Calories Burnt"
     };
 
+    // CurrentUser.getDataPointMap to be implemented during refactoring
+    /* in refactoring: we may need to define an empty Object[][] and then generate it in the screen, so
+      we have access to CurrentUser currentUser.
+     */
     Object[][] data;
 
     String backText = "Back";

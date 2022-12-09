@@ -41,4 +41,14 @@ public class Table implements VisualUnit {
 
         return tableFormat;
     }
+
+//    public void generate(DataPointMap data, Date date) {
+//
+//    }
+//    public void generateSample(DataPointMap sampleData) {
+//
+//    }
+//    public void zoomIn(DataPoint dataPoint) {
+//
+//    }
 }

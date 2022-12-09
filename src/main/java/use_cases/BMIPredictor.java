@@ -1,13 +1,18 @@
 package use_cases;
 
 import entities.CurrentUser;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.HashMap;
+
+import static use_cases.Predictor.PREDICTION_LENGTH;
+
 
 /**
  * Use Case: A class to predict BMI over time
  */
-public class BMIPredictor extends Predictor{
+public class BMIPredictor {
 
     /**
      * Returns a predicted BMI in the future over the days based on the inputted DataPointMap

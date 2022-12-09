@@ -16,6 +16,7 @@ public class Main {
         else {
             users = urw.readFromFile("accounts.ser");
         }
+        //users.addNewUser(new User("user1", "Hello123", "Hello123", 65.0, 1.8, "Male", "2003-11-11"));
         UserLogin userLogin = new UserLogin(users);
         UserLoginController userLoginController = new UserLoginController(userLogin);
         UserLoginScreen userLoginScreen = new UserLoginScreen(userLoginController);
