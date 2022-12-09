@@ -12,6 +12,10 @@ Since Milestone 4, we have taken the feedback that was given and changed/added m
 - Document with test coverage and pull requests have been filled out fully by every group member.
 - We have retroactively gone back and updated the descriptions of our pull requests to be more descriptive.
 - Used GitHub's issue feature more extensively by creating a more diverse number of issues, such as `bug` for debugging purposes.
+- We have also added/pointed out design patterns in our code:
+  - `PredictManager` follows the facade design pattern
+  - `DashboardScreen` follows the MVC design pattern
+  - `MainMenuScreen` follows the mediator design pattern
 
 ## How To Run & Open
 You will first need to download the `main` branch of this repository. 
